@@ -1,0 +1,188 @@
+
+# ==================================================
+# Full Stack Project .gitignore
+# Frontend: React / Next.js
+# Backend: Node.js
+# Database: SQLite
+# ==================================================
+
+
+# ==================================================
+# 1. Dependencies
+# ==================================================
+node_modules/
+**/node_modules/
+.pnp.*
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+
+# ==================================================
+# 2. Next.js / React Build
+# ==================================================
+.next/
+**/.next/
+out/
+**/out/
+build/
+**/build/
+dist/
+**/dist/
+.vercel/
+.turbo/
+.cache/
+.parcel-cache/
+
+
+# ==================================================
+# 3. Node.js
+# ==================================================
+.npm/
+.node_repl_history
+*.tsbuildinfo
+.next-env.d.ts
+
+
+# ==================================================
+# 4. SQLite Database
+# ==================================================
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Local database directories
+data/
+database/local/
+db/local/
+
+# IMPORTANT:
+# Keep database schema and migrations in Git.
+# Do NOT ignore:
+# prisma/schema.prisma
+# prisma/migrations/
+# drizzle/
+# migrations/
+
+
+# ==================================================
+# 5. Environment Variables / Secrets
+# ==================================================
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+
+# ==================================================
+# 6. Logs
+# ==================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+debug.log
+
+
+# ==================================================
+# 7. Tests / Coverage
+# ==================================================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+*.lcov
+junit.xml
+
+
+# ==================================================
+# 8. Temporary Files
+# ==================================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+
+# ==================================================
+# 9. OS Generated Files
+# ==================================================
+.DS_Store
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
+._*
+
+
+# ==================================================
+# 10. IDE / Editor
+# ==================================================
+.idea/
+*.iml
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+
+# ==================================================
+# 11. Package Manager / Core Dumps
+# ==================================================
+*.pid
+*.pid.lock
+*.seed
+*.tgz
+core
+core.*
+
+
+# ==================================================
+# 12. Local Uploads / Runtime Storage
+# ==================================================
+uploads/
+storage/
+runtime/
+
+
+# ==================================================
+# 13. Deployment / Local Infrastructure
+# ==================================================
+.serverless/
+.aws-sam/
+terraform.tfstate
+terraform.tfstate.*
+.terraform/
+
+
+# ==================================================
+# 14. Misc
+# ==================================================
+*.orig
+*.rej
+eslintcache
+.eslintcache
+.stylelintcache
