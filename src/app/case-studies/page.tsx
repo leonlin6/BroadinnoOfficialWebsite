@@ -38,7 +38,7 @@ export default function CaseStudies() {
           </Link>
           <div className={styles.featuredCopy}>
             <div className={styles.featuredLabel}><span>FEATURED CASE</span><i aria-hidden="true" /></div>
-            <span className={styles.category}>{featured.category}</span>
+            <span className={`${styles.category} ${styles.categoryFinance}`}>{featured.category}</span>
             <h2 id="featured-case-title">{featured.title}</h2>
             <p>整合資料資產，推動數據應用與決策。</p>
             <Link className={styles.textLink} href={`/${featured.slug}/`}>探索案例 <ArrowUpRight size={19} strokeWidth={1.8} /></Link>

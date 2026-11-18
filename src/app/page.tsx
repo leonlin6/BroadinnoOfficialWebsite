@@ -34,9 +34,9 @@ const expertise = [
 ];
 
 const featuredCases = [
-  { href: "/customer-data-warehouse/", image: "/images/home-case-finance.png", alt: "金融商業大樓", category: "金融業", title: "金融業資料倉儲與數據應用", text: "從資料倉儲管理出發，尋找成本控制與 Data to Value 的應用機會。" },
-  { href: "/customer-appliance/", image: "/images/home-case-appliance.png", alt: "家電展示門市", category: "家電產業", title: "家電產業客群分析與行銷", text: "透過客戶分群與公開資料，探索銷售熱點與更精準的行銷方向。" },
-  { href: "/customer-loan-credit/", image: "/images/home-case-credit.png", alt: "分析信用貸款資料", category: "金融業", title: "信用貸款模型分析與優化", text: "整合不同維度資料與領域知識，優化市場分析和信用評分模型。" },
+  { href: "/customer-data-warehouse/", image: "/images/home-case-finance.png", alt: "金融商業大樓", category: "金融業", tagClass: styles.caseTagFinance, title: "金融業資料倉儲與數據應用", text: "從資料倉儲管理出發，尋找成本控制與 Data to Value 的應用機會。" },
+  { href: "/customer-appliance/", image: "/images/home-case-appliance.png", alt: "家電展示門市", category: "家電產業", tagClass: styles.caseTagAppliance, title: "家電產業客群分析與行銷", text: "透過客戶分群與公開資料，探索銷售熱點與更精準的行銷方向。" },
+  { href: "/customer-loan-credit/", image: "/images/home-case-credit.png", alt: "分析信用貸款資料", category: "金融業", tagClass: styles.caseTagCredit, title: "信用貸款模型分析與優化", text: "整合不同維度資料與領域知識，優化市場分析和信用評分模型。" },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -64,7 +64,7 @@ export default function Home() {
 
     <section className={styles.expertise}><div className="container"><SectionTitle>主要專業領域</SectionTitle><div className={styles.expertiseGrid}>{expertise.map(({ icon: Icon, title, text }) => <article className={styles.expertiseCard} key={title}><Icon size={32} strokeWidth={1.65} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-    <section className={styles.cases}><div className="container"><div className={styles.casesHeading}><SectionTitle>精選客戶案例</SectionTitle><Link href="/case-studies/">探索更多案例 <ArrowRight size={17} /></Link></div><div className={styles.caseGrid}>{featuredCases.map((item) => <Link className={styles.caseCard} href={item.href} key={item.href}><div className={styles.caseImage}><Image src={item.image} alt={item.alt} fill sizes="(max-width: 700px) 100vw, 33vw" /><span>{item.category}</span></div><div className={styles.caseCopy}><h3>{item.title}</h3><p>{item.text}</p><span><ArrowRight size={17} /></span></div></Link>)}</div></div></section>
+    <section className={styles.cases}><div className="container"><div className={styles.casesHeading}><SectionTitle>精選客戶案例</SectionTitle><Link href="/case-studies/">探索更多案例 <ArrowRight size={17} /></Link></div><div className={styles.caseGrid}>{featuredCases.map((item) => <Link className={styles.caseCard} href={item.href} key={item.href}><div className={styles.caseImage}><Image src={item.image} alt={item.alt} fill sizes="(max-width: 700px) 100vw, 33vw" /></div><div className={styles.caseCopy}><span className={`${styles.caseTag} ${item.tagClass}`}>{item.category}</span><h3>{item.title}</h3><p>{item.text}</p><span className={styles.caseArrow}><ArrowRight size={17} /></span></div></Link>)}</div></div></section>
 
     <section className={styles.method}><div className={"container " + styles.methodGrid}><h2>讓策略不只停留在規劃，<br />更能轉化為成果</h2><div className={styles.methodStep}><span><Search size={26} /></span><div><strong>洞察需求</strong><p>理解企業目標與挑戰，釐清關鍵議題</p></div></div><ArrowRight className={styles.methodArrow} size={21} /><div className={styles.methodStep}><span><Target size={26} /></span><div><strong>擬定策略</strong><p>結合數據與產業洞察，設計可行的轉型策略</p></div></div><ArrowRight className={styles.methodArrow} size={21} /><div className={styles.methodStep}><span><Rocket size={26} /></span><div><strong>推動落地</strong><p>以專案管理與資源整合，確保策略有效執行並創造價值</p></div></div></div></section>
 

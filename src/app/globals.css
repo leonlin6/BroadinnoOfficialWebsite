@@ -14,8 +14,9 @@
 /* Navigation used by the reference-led homepage. */
 .brand-logo-link{min-width:245px;line-height:0}
 .brand-logo{position:relative;display:block;width:245px;height:60px;overflow:hidden;background:transparent}
-.brand-logo img{object-fit:cover;object-position:center;transform:scale(1.04)}
-.footer-logo-link .brand-logo{border-radius:5px;background:#fff}
+.brand-logo img{object-fit:cover;object-position:center}
+.footer-logo-link .brand-logo{background:transparent}
+.footer-logo-link .brand-logo img{filter:brightness(0) invert(1)}
 .nav-dropdown{position:relative;align-self:stretch;display:flex;align-items:center}
 .nav-dropdown summary{display:flex;align-items:center;gap:4px;list-style:none;font-size:14px;font-weight:700;color:#33435a;cursor:pointer;white-space:nowrap}
 .nav-dropdown summary::-webkit-details-marker{display:none}

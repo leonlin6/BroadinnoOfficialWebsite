@@ -26,6 +26,14 @@ const categoryBySlug: Record<string, Filter> = {
   "customer-motor-industry": "汽車產業",
 };
 
+const categoryToneBySlug: Record<string, string> = {
+  "customer-appliance": styles.categoryAppliance,
+  "customer-public-facility": styles.categoryUtility,
+  "customer-loan-credit": styles.categoryCredit,
+  "customer-potential": styles.categoryFinance,
+  "customer-motor-industry": styles.categoryAutomotive,
+};
+
 export function CaseFilterGrid() {
   const [activeFilter, setActiveFilter] = useState<Filter>("全部");
   const visibleCases = cases.slice(1).filter((item) => activeFilter === "全部" || categoryBySlug[item.slug] === activeFilter);
@@ -55,7 +63,7 @@ export function CaseFilterGrid() {
             >
               <span className={styles.caseImage}><Image src={image.src} alt={image.alt} fill sizes={item.number === "04" ? "(max-width: 750px) 100vw, 67vw" : "(max-width: 750px) 100vw, 30vw"} /></span>
               <span className={styles.caseContent}>
-                <span className={styles.category}>{categoryBySlug[item.slug]}</span>
+                <span className={`${styles.category} ${categoryToneBySlug[item.slug]}`}>{categoryBySlug[item.slug]}</span>
                 <span className={styles.caseNumber}>{item.number}</span>
                 <strong>{item.title}</strong>
                 <span className={styles.caseLink}>探索案例 <ArrowUpRight size={18} strokeWidth={1.8} /></span>
