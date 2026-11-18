@@ -14,7 +14,7 @@
 
 信用貸款案例頁 `/customer-loan-credit/` 依提供的設計圖製作，包含信用風險概念儀表板、市場分析維度、信用評分模型流程、模型優化與服務預期方向。圖表為示意，未使用設計圖中未經驗證的績效數字。
 
-預約諮詢頁 `/consultation-appointment/` 依提供的設計圖重做，包含諮詢領域、表單、諮詢流程與聯絡資訊。表單由 Cloudflare Worker 接收，再透過 Google Apps Script 寫入 Google 試算表；設定方式見 [預約諮詢接收設定](docs/google-sheet-consultation.md)。
+預約諮詢頁 `/consultation-appointment/` 依提供的設計圖重做，包含諮詢領域、表單、諮詢流程與聯絡資訊。本機由開發伺服器直接呼叫 Google Apps Script；部署後由 Cloudflare Worker 轉送，最後寫入 Google 試算表。設定方式見 [預約諮詢接收設定](docs/google-sheet-consultation.md)。
 
 ## 本機啟動
 
@@ -24,6 +24,8 @@ npm run dev
 ```
 
 開啟 <http://localhost:3000>。
+
+若要在本機送出預約並寫入 Google 試算表，先將 `.env.local.example` 複製成 `.env.local`，填入 Apps Script `/exec` 網址，以及與 Script Properties 的 `WEBHOOK_SECRET` 相同的 `GOOGLE_SCRIPT_SECRET`，再重新啟動 `npm run dev`。
 
 ## 目前範圍
 

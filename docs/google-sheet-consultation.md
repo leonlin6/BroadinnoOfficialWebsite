@@ -1,6 +1,6 @@
 # 預約諮詢接收至 Google 試算表
 
-網站的表單會 POST 到同網域的 `/api/consultation`。Cloudflare Worker 驗證資料後，使用保存在 Worker 的密鑰呼叫 Google Apps Script；只有 Apps Script 會寫入試算表。訪客的瀏覽器不會取得密鑰或 Apps Script 網址。
+網站的表單會 POST 到同網域的 `/api/consultation`。本機執行 `npm run dev` 時，由本機開發伺服器驗證資料並直接呼叫 Google Apps Script；部署到 Cloudflare 時，由 Worker 做同樣的事。只有 Apps Script 會寫入試算表。訪客的瀏覽器不會取得密鑰或 Apps Script 網址。
 
 ## Google 試算表與 Apps Script
 
@@ -18,7 +18,7 @@
 
 先把本專案的變更 commit 並 push 到 Cloudflare 監聽的分支，等第一次部署成功。這次 `wrangler.jsonc` 新增了 `main: ./worker/index.ts`，會將原本只有靜態檔案的 Worker 改成同時有程式碼與靜態資產的 Worker。部署前若看到「Variables cannot be added to a Worker that only has static assets」，屬於目前舊版本的限制；請先完成這次部署。
 
-部署成功後，在名稱為 `broadinno-website` 的 Worker「Settings → Variables and Secrets」建立兩個 **Secret**：
+部署成功後，到**實際提供網站網址的 Worker**「Settings → Variables and Secrets」建立兩個 **Secret**。先在該 Worker 的 Domains 確認 `workers.dev` 網址與瀏覽器正在開啟的網站相同；Secret 設在另一個 Worker 不會生效。
 
 | 名稱 | 值 |
 | --- | --- |
@@ -27,6 +27,14 @@
 
 Cloudflare Git 建置設定維持 **Build command** `npm run build`、**Deploy command** `npx wrangler deploy`，Root directory 留空。`wrangler.jsonc` 已讓 `/api/*` 由 Worker 處理，其餘網址繼續使用 `out/` 靜態檔案。設定 Secret 後再送出一筆測試預約，確認試算表出現資料列。
 
-本機若要連同 API 檢查，可在專案根目錄建立不提交的 `.dev.vars`，格式為 `GOOGLE_SCRIPT_URL="..."` 與 `GOOGLE_SCRIPT_SECRET="..."` 各一行；先執行 `npm run build`，再執行 `npx wrangler dev`。單獨執行 `npm run dev` 只會啟動 Next.js 頁面，不會啟動 Worker API。
+若表單回傳 HTTP 503，表示 Worker 缺少任一 Secret，或 `GOOGLE_SCRIPT_URL` 不是 `https://script.google.com/macros/s/.../exec` 格式；先檢查 Secret 是否設在實際服務該網址的 Worker。Cloudflare 的 Worker 名稱也應與 `wrangler.jsonc` 的 `name` 對應，以避免部署到另一個 Worker。
+
+## 本機測試同一份試算表
+
+1. 將專案根目錄的 `.env.local.example` 複製成 `.env.local`，只在 `.env.local` 填入同一個 Apps Script `/exec` 網址，並把 `GOOGLE_SCRIPT_SECRET` 設成 Apps Script `WEBHOOK_SECRET` 的相同值。不要把真實網址或密鑰填進 `.env.local.example`；它是可提交的範例檔。`.env.local` 已被 Git 忽略，也不要使用 `NEXT_PUBLIC_` 前綴。
+2. 執行 `npm run dev`，開啟 `http://localhost:3000/consultation-appointment/` 送出表單。本機 Node.js 伺服器會直接向 Apps Script 送出請求，不會經過已部署的 Cloudflare Worker。若指向同一個 Apps Script，資料就會寫入同一份 Google 試算表。
+3. 本機表單回傳 HTTP 503 時，檢查 `.env.local` 的網址與密鑰；設定後重新啟動 `npm run dev`。HTTP 502 表示 Apps Script 未回傳成功，請檢查 Script 部署版本、Script Properties 和執行紀錄。
+
+若要改用本機 Cloudflare Worker 模擬正式環境，可在專案根目錄建立不提交的 `.dev.vars`，格式為 `GOOGLE_SCRIPT_URL="..."` 與 `GOOGLE_SCRIPT_SECRET="..."` 各一行；先執行 `npm run build`，再執行 `npx wrangler dev`。這也不會使用已部署的 Cloudflare Worker。
 
 正式上線前，請確認試算表分享權限、Apps Script 部署版本、Cloudflare secrets，以及隱私權聲明內容。表單提交後會顯示收件結果；實際諮詢時間仍需人工回覆確認。
