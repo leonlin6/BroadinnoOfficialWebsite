@@ -36,9 +36,9 @@ const expertise = [
 ];
 
 const featuredCases = [
-  { href: "/customer-data-warehouse/", image: "/images/home-case-finance.png", alt: "金融商業大樓", category: "金融業", tagClass: styles.caseTagFinance, title: "金融業資料倉儲與數據應用", text: "從資料倉儲管理出發，尋找成本控制與 Data to Value 的應用機會。" },
-  { href: "/customer-appliance/", image: "/images/home-case-appliance.png", alt: "家電展示門市", category: "家電產業", tagClass: styles.caseTagAppliance, title: "家電產業客群分析與行銷", text: "透過客戶分群與公開資料，探索銷售熱點與更精準的行銷方向。" },
-  { href: "/customer-loan-credit/", image: "/images/home-case-credit.png", alt: "分析信用貸款資料", category: "金融業", tagClass: styles.caseTagCredit, title: "信用貸款模型分析與優化", text: "整合不同維度資料與領域知識，優化市場分析和信用評分模型。" },
+  { href: "/customer-data-warehouse/", image: "/images/home-case-finance.webp", alt: "金融商業大樓", category: "金融業", tagClass: styles.caseTagFinance, title: "金控資料倉儲與數據應用", text: "盤點既有資料系統，透過 Health Check 尋找成本控制與 Data to Value 的機會。" },
+  { href: "/customer-appliance/", image: "/images/home-case-appliance.webp", alt: "家電展示門市", category: "家電產業", tagClass: styles.caseTagAppliance, title: "家電產業客群分析與行銷", text: "透過客戶分群與公開資料，探索銷售熱點與更精準的行銷方向。" },
+  { href: "/customer-loan-credit/", image: "/images/home-case-credit.webp", alt: "分析信用貸款資料", category: "金融業", tagClass: styles.caseTagCredit, title: "信用貸款模型分析與優化", text: "整合不同維度資料與領域知識，優化市場分析和信用評分模型。" },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -49,7 +49,7 @@ export default function Home() {
   return <>
     <HomeIntro />
     <section className={styles.hero}>
-      <Image className={styles.heroImage} src="/images/consulting-hero.png" alt="顧問與團隊討論企業數據策略" fill priority sizes="100vw" />
+      <Image className={styles.heroImage} src="/images/consulting-hero.webp" alt="顧問與團隊討論企業數據策略" fill priority sizes="100vw" />
       <div className={styles.heroShade} />
       <div className={"container " + styles.heroInner}><div className={styles.heroCopy}>
         <h1>以數據與科技，<br />驅動企業<span>持續創新</span></h1>
@@ -61,7 +61,7 @@ export default function Home() {
 
     <section className={styles.strengthStrip} aria-label="博創數科服務特色"><div className={"container " + styles.strengthGrid}>{strengths.map(({ icon: Icon, title, text }) => <div className={styles.strength} key={title}><Icon size={29} strokeWidth={1.7} /><div><strong>{title}</strong><span>{text}</span></div></div>)}</div></section>
 
-    <section className={styles.about} id="about"><Image className={styles.aboutImage} src="/images/home-about-building.png" alt="現代辦公建築" fill sizes="(max-width: 700px) 100vw, 50vw" /><div className={styles.aboutShade} /><div className={"container " + styles.aboutGrid}><div className={styles.aboutCopy}><span className={styles.eyebrow}>ABOUT BROADINNO</span><div className={styles.titleUnderlineGroup}><h2>關於博創數科</h2><ScrollUnderline className={styles.aboutUnderline} /></div><p>博創數科（Broadinno）成立於 2024 年底，專注於管理顧問、專案管理辦公室（PMO）、數據分析與數位轉型顧問服務，並深耕金融科技、新興支付、AI 應用與區塊鏈等領域。</p><p>我們結合數據、數位工具、科技應用與策略執行，協助企業洞察機會、擬定策略、推動落地，成為企業推動創新與轉型的長期夥伴。</p></div><div className={styles.principleList}>{principles.map(({ icon: Icon, title, text }) => <div className={styles.principle} key={title}><span><Icon size={26} strokeWidth={1.6} /></span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></section>
+    <section className={styles.about} id="about"><Image className={styles.aboutImage} src="/images/home-about-building.webp" alt="現代辦公建築" fill sizes="(max-width: 700px) 100vw, 50vw" /><div className={styles.aboutShade} /><div className={"container " + styles.aboutGrid}><div className={styles.aboutCopy}><span className={styles.eyebrow}>ABOUT BROADINNO</span><div className={styles.titleUnderlineGroup}><h2>關於博創數科</h2><ScrollUnderline className={styles.aboutUnderline} /></div><p>博創數科（Broadinno）成立於 2024 年底，專注於管理顧問、專案管理辦公室（PMO）、數據分析與數位轉型顧問服務，並深耕金融科技、新興支付、AI 應用與區塊鏈等領域。</p><p>我們結合數據、數位工具、科技應用與策略執行，協助企業洞察機會、擬定策略、推動落地，成為企業推動創新與轉型的長期夥伴。</p></div><div className={styles.principleList}>{principles.map(({ icon: Icon, title, text }) => <div className={styles.principle} key={title}><span><Icon size={26} strokeWidth={1.6} /></span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></section>
 
     <section className={styles.enterpriseValues} id="enterprise-values" aria-labelledby="enterprise-values-title">
       <div className="container">
@@ -91,7 +91,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section className={styles.services} id="services"><div className="container"><SectionTitle>以專業顧問服務，協助企業創造價值</SectionTitle><div className={styles.serviceGrid}><Link className={styles.serviceCard} href="/management-consulting/"><div className={styles.serviceImage}><Image src="/images/home-management.png" alt="管理顧問討論策略文件" fill sizes="(max-width: 700px) 100vw, 25vw" /></div><div className={styles.serviceCopy}><h3>管理顧問</h3><p>從策略規劃、營運與流程優化、數據應用到數位轉型，提供兼具洞察與實務經驗的顧問服務，協助企業強化競爭力、拓展新機會。</p><span>了解服務 <ArrowRight size={17} /></span></div></Link><Link className={styles.serviceCard} href="/project-manager/"><div className={styles.serviceImage}><Image src="/images/pmo-governance.png" alt="專案辦公室儀表板" fill sizes="(max-width: 700px) 100vw, 25vw" /></div><div className={styles.serviceCopy}><h3>專案辦公室 PMO</h3><p>建立專案治理與管理機制，統籌專案計畫、進度、資源、跨部門協作與風險控管，確保關鍵專案有效推進並達成預期目標。</p><span>了解服務 <ArrowRight size={17} /></span></div></Link></div></div></section>
+    <section className={styles.services} id="services"><div className="container"><SectionTitle>以專業顧問服務，協助企業創造價值</SectionTitle><div className={styles.serviceGrid}><Link className={styles.serviceCard} href="/management-consulting/"><div className={styles.serviceImage}><Image src="/images/home-management.webp" alt="管理顧問討論策略文件" fill sizes="(max-width: 700px) 100vw, 25vw" /></div><div className={styles.serviceCopy}><h3>管理顧問</h3><p>從策略規劃、營運與流程優化、數據應用到數位轉型，提供兼具洞察與實務經驗的顧問服務，協助企業強化競爭力、拓展新機會。</p><span>了解服務 <ArrowRight size={17} /></span></div></Link><Link className={styles.serviceCard} href="/project-manager/"><div className={styles.serviceImage}><Image src="/images/pmo-governance.webp" alt="專案辦公室儀表板" fill sizes="(max-width: 700px) 100vw, 25vw" /></div><div className={styles.serviceCopy}><h3>專案辦公室 PMO</h3><p>建立專案治理與管理機制，統籌專案計畫、進度、資源、跨部門協作與風險控管，確保關鍵專案有效推進並達成預期目標。</p><span>了解服務 <ArrowRight size={17} /></span></div></Link></div></div></section>
 
     <section className={styles.expertise}><div className="container"><SectionTitle>主要專業領域</SectionTitle><div className={styles.expertiseGrid}>{expertise.map(({ icon: Icon, title, text }) => <article className={styles.expertiseCard} key={title}><Icon size={32} strokeWidth={1.65} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 

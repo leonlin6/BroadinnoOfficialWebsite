@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ExperienceBadge } from "@/components/ExperienceBadge";
 import { cases } from "@/lib/content";
 import { CaseFilterGrid } from "./CaseFilterGrid";
 import styles from "./case-studies.module.css";
@@ -34,13 +35,14 @@ export default function CaseStudies() {
       <section className={styles.featured} aria-labelledby="featured-case-title">
         <div className={"container " + styles.featuredGrid}>
           <Link className={styles.featuredImage} href={`/${featured.slug}/`} aria-label={`查看案例：${featured.title}`}>
-            <Image src="/images/case-warehouse.png" alt="資料中心與資料倉儲視覺化圖像" fill priority sizes="(max-width: 750px) 100vw, 57vw" />
+            <Image src="/images/case-warehouse.webp" alt="資料中心與資料倉儲視覺化圖像" fill priority sizes="(max-width: 750px) 100vw, 57vw" />
           </Link>
           <div className={styles.featuredCopy}>
             <div className={styles.featuredLabel}><span>FEATURED CASE</span><i aria-hidden="true" /></div>
             <span className={`${styles.category} ${styles.categoryFinance}`}>{featured.category}</span>
             <h2 id="featured-case-title" data-scroll-title>{featured.title}</h2>
-            <p>整合資料資產，推動數據應用與決策。</p>
+            <p>針對既有資料倉儲與數據中台，透過 Health Check 尋找成本控制與 Data to Value 的機會。</p>
+            <ExperienceBadge {...featured.experience} className={styles.featuredExperience} />
             <Link className={styles.textLink} href={`/${featured.slug}/`}>探索案例 <ArrowUpRight size={19} strokeWidth={1.8} /></Link>
           </div>
         </div>

@@ -20,5 +20,5 @@
 }
 
 .titleUnderlineGroup{display:flex;flex-direction:column;align-items:stretch;width:max-content;max-width:100%;margin:0 auto}
-.titleUnderline{display:block;width:100%;height:4px;margin:0 auto 14px;border-radius:10px;background:#24b6aa;transform:scaleX(var(--underline-scale,.12));transform-origin:center;will-change:transform}
+.titleUnderline{display:block;width:100%;height:4px;margin:0 auto 14px;border-radius:10px;background:#24b6aa;transform:scaleX(var(--underline-scale,0));transform-origin:center;will-change:transform}
 @media(prefers-reduced-motion:reduce){.titleUnderline{transform:scaleX(1);will-change:auto}}

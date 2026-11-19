@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ExperienceBadge } from "@/components/ExperienceBadge";
+import { cases } from "@/lib/content";
 import {
   ArrowRight, CalendarDays, Check, Gift, Heart,
   House, Info, Layers3, RefreshCw, ShoppingCart, Store,
@@ -8,10 +10,10 @@ import {
 import styles from "./appliance-case.module.css";
 
 const challenges = [
-  { icon: CalendarDays, title: "回購週期較長", text: "家電產品使用年限長，再購與升級時機不易掌握。" },
-  { icon: UserRound, title: "客戶忠誠度經營", text: "市場選擇多元，需持續強化品牌黏著與長期關係。" },
-  { icon: Store, title: "通路與經銷商依賴", text: "銷售仰賴多層通路，客戶資料整合與分析具挑戰。" },
-  { icon: ShoppingCart, title: "線上及實體通路競爭", text: "電商與線下門市並行，需整合多通路的客戶行為與成效。" },
+  { icon: CalendarDays, title: "回購週期較長", text: "家電產品耐用度高，客戶回購週期長，更需要了解客戶貢獻度。" },
+  { icon: UserRound, title: "客戶忠誠度經營", text: "將管理視角提升至 HouseHold / Family 維度，培養忠誠度並尋找更多銷售機會。" },
+  { icon: Store, title: "通路與經銷商依賴", text: "對通路、經銷商依賴度高，直接價格的掌控力低。" },
+  { icon: ShoppingCart, title: "線上及實體通路競爭", text: "網路直銷也面臨與實體通路競爭的困局。" },
 ] as const;
 
 const signals = [
@@ -22,9 +24,9 @@ const signals = [
 ] as const;
 
 const personas = [
-  { image: "/images/appliance-newlywed.png", alt: "新婚夫妻在家中", icon: House, title: "新成家族群", text: "剛成立家庭，規劃家電基礎配置，關注功能性與預算。", tags: ["首次購買", "整套規劃"] },
-  { image: "/images/appliance-replacement.png", alt: "家庭討論家電選購", icon: RefreshCw, title: "家庭換購族群", text: "既有家電使用多年，關注升級、節能與更便利的智慧功能。", tags: ["汰舊換新", "效能升級"] },
-  { image: "/images/appliance-loyal.png", alt: "熟齡夫妻在家中", icon: Heart, title: "長期品牌客戶", text: "對品牌有高度信任，重視服務與長期使用體驗。", tags: ["品牌忠誠", "加值服務"] },
+  { image: "/images/appliance-newlywed.webp", alt: "新婚夫妻在家中", icon: House, title: "新成家族群", text: "剛成立家庭，規劃家電基礎配置，關注功能性與預算。", tags: ["首次購買", "整套規劃"] },
+  { image: "/images/appliance-replacement.webp", alt: "家庭討論家電選購", icon: RefreshCw, title: "家庭換購族群", text: "既有家電使用多年，關注升級、節能與更便利的智慧功能。", tags: ["汰舊換新", "效能升級"] },
+  { image: "/images/appliance-loyal.webp", alt: "熟齡夫妻在家中", icon: Heart, title: "長期品牌客戶", text: "對品牌有高度信任，重視服務與長期使用體驗。", tags: ["品牌忠誠", "加值服務"] },
 ] as const;
 
 const segmentBars = [
@@ -41,14 +43,14 @@ export function ApplianceCasePage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="appliance-title">
-        <Image className={styles.heroImage} src="/images/appliance-family-hero.png" alt="一家人在明亮的家中使用筆電" fill priority sizes="100vw" />
+        <Image className={styles.heroImage} src="/images/appliance-family-hero.webp" alt="一家人在明亮的家中使用筆電" fill priority sizes="100vw" />
         <div className={styles.heroFade} aria-hidden="true" />
         <div className={"container " + styles.heroInner}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>CASE STUDY / 消費與零售</span>
-            <h1 id="appliance-title" data-scroll-title>從客戶資料，<br />洞察家庭消費需求</h1>
+            <h1 id="appliance-title" >家電產業客戶分群<br />及行銷推廣</h1>
             <Accent />
-            <p>運用客戶資料分析家庭結構、家電持有與消費行為，協助家電業掌握客戶生命週期與潛在需求，規劃更精準的行銷與顧客經營策略。</p>
+            <p>從客戶貢獻度與較長的回購週期出發，以 HouseHold / Family 維度理解客戶，再結合 Open Data 尋找銷售熱點與區域。</p>
             <div className={styles.heroTags}><span>家電產業</span><span>客戶分群</span><span>精準行銷</span><span>忠誠經營</span></div>
           </div>
           <div className={styles.heroMetric} aria-label="家庭客群洞察示意指標">
@@ -60,14 +62,14 @@ export function ApplianceCasePage() {
 
       <section className={styles.challengeSection} aria-labelledby="challenge-title">
         <div className={"container " + styles.challengeGrid}>
-          <div className={styles.sectionIntro}><Accent /><span>產業挑戰</span><h2 id="challenge-title" data-scroll-title>家電業如何更貼近<br />家庭客戶的真實需求？</h2></div>
+          <div className={styles.sectionIntro}><Accent /><span>產業挑戰</span><h2 id="challenge-title">家電業如何更貼近<br />家庭客戶的真實需求？</h2><ExperienceBadge {...cases[1].experience} className={styles.experience} /></div>
           <div className={styles.challengeCards}>{challenges.map(({ icon: Icon, title, text }) => <article key={title}><span className={styles.iconCircle}><Icon size={32} strokeWidth={1.7} /></span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>
       </section>
 
       <section className={styles.householdSection} aria-labelledby="household-title">
         <div className={"container " + styles.householdPanel}>
-          <div className={styles.householdIntro}><Accent /><span>家庭客戶分群分析</span><h2 id="household-title" data-scroll-title>以家庭為單位，<br />描繪完整的消費輪廓</h2><p>整合家庭結構、家電持有、消費偏好與潛在需求，建立更貼近生活情境的客戶分群與營銷規劃基礎。</p></div>
+          <div className={styles.householdIntro}><Accent /><span>家庭客戶分群分析</span><h2 id="household-title">以家庭為單位，<br />描繪完整的消費輪廓</h2><p>建立 HouseHold 等級的客戶分群，結合 Open Data 補充區域資訊，提供銷售熱點與可評估的銷售區域。</p></div>
           <div className={styles.householdDiagram} aria-label="家庭客群由家庭成員、家電持有、消費偏好與潛在需求組成的概念圖">
             {signals.map(({ icon: Icon, title, items }, index) => <div className={`${styles.signalCard} ${styles[`signal${index + 1}`]}`} key={title}><strong><Icon size={18} />{title}</strong><ul>{items.map((item) => <li key={item}><Check size={13} aria-hidden="true" />{item}</li>)}</ul></div>)}
             <div className={styles.familyCore}><House size={112} strokeWidth={1.25} aria-hidden="true" /><UsersRound size={66} strokeWidth={1.45} aria-hidden="true" /><strong>家庭帳戶</strong><span>客群輪廓示意</span></div>
@@ -77,14 +79,14 @@ export function ApplianceCasePage() {
 
       <section className={styles.personaSection} aria-labelledby="persona-title">
         <div className={"container " + styles.personaGrid}>
-          <div className={styles.personaIntro}><Accent /><span>示意客群画像</span><h2 id="persona-title" data-scroll-title>從生活情境，<br />發掘不同客群機會</h2><p className={styles.exampleNote}><Info size={17} />以下客群為行銷規劃示意，非實際專案分群結果。</p></div>
+          <div className={styles.personaIntro}><Accent /><span>示意客群画像</span><h2 id="persona-title">從生活情境<br />發掘不同客群機會</h2><p className={styles.exampleNote}><Info size={17} />以下客群為行銷規劃示意，非實際專案分群結果。</p></div>
           <div className={styles.personaCards}>{personas.map(({ image, alt, icon: Icon, title, text, tags }) => <article className={styles.personaCard} key={title}><div className={styles.personaImage}><Image src={image} alt={alt} fill sizes="(max-width: 650px) 100vw, 25vw" /></div><div className={styles.personaBody}><h3><Icon size={27} strokeWidth={1.7} />{title}</h3><p>{text}</p><div>{tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>)}</div>
         </div>
       </section>
 
       <section className={styles.insightSection} aria-labelledby="insight-title">
         <div className={"container " + styles.insightGrid}>
-          <div className={styles.insightIntro}><Accent /><span>行銷洞察應用</span><h2 id="insight-title" data-scroll-title>數據驅動的<br />精準行銷規劃</h2><Accent /><p>整合多元資料與客戶分群，協助家電業優化行銷資源、提升通路效率與客戶關係。</p></div>
+          <div className={styles.insightIntro}><Accent /><span>行銷洞察應用</span><h2 id="insight-title" >數據驅動的<br />精準行銷規劃</h2><p>運用客戶分級制度與 Reward Program Tracking 的相關經驗，結合客戶分群與區域熱點，規劃行銷推廣方向。</p></div>
           <div className={styles.dashboard} aria-label="行銷分析儀表板，所有數字均為示意資料">
             <div className={styles.dashboardTitle}>行銷分析儀表板 <small>示意資料，非實際專案結果</small></div>
             <div className={styles.dashboardGrid}>
@@ -96,7 +98,7 @@ export function ApplianceCasePage() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="appliance-cta-title"><div className={"container " + styles.ctaInner}><div><h2 id="appliance-cta-title" data-scroll-title>善用客戶數據，讓家電行銷更貼近生活</h2><p>與我們的顧問團隊討論，打造適合您品牌的客戶洞察與行銷策略。</p></div><Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={19} /></Link></div></section>
+      <section className={styles.cta} aria-labelledby="appliance-cta-title"><div className={"container " + styles.ctaInner}><div><h2 id="appliance-cta-title">善用客戶數據，讓家電行銷更貼近生活</h2><p>與我們的顧問團隊討論，打造適合您品牌的客戶洞察與行銷策略。</p></div><Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={19} /></Link></div></section>
     </div>
   );
 }

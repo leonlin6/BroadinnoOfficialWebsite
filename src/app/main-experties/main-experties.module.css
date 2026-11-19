@@ -9,5 +9,5 @@
 @media(max-width:390px){.hero,.heroInner{min-height:640px}.heroActions{align-items:flex-start;flex-direction:column}.outcomeGrid{grid-template-columns:1fr}.outcomeCard{min-height:0}}
 
 .titleUnderlineGroup{display:flex;flex-direction:column;align-items:stretch;width:max-content;max-width:100%;margin:0 auto}
-.titleUnderline{display:block;width:100%;height:4px;margin:0 auto 12px;border-radius:5px;background:#1fc7b8;transform:scaleX(var(--underline-scale,.12));transform-origin:center;will-change:transform}
+.titleUnderline{display:block;width:100%;height:4px;margin:0 auto 12px;border-radius:5px;background:#1fc7b8;transform:scaleX(var(--underline-scale,0));transform-origin:center;will-change:transform}
 @media(prefers-reduced-motion:reduce){.titleUnderline{transform:scaleX(1);will-change:auto}}

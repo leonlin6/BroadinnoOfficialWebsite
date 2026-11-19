@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const industries = [
-  { icon: Landmark, number: "01", title: "金融服務", text: "金融業的資料管理、貸款分析及理財客戶洞察，需要兼顧業務目標、資料使用與管理要求。", cases: [{ label: "金控公司資料倉儲建置及應用", href: "/customer-data-warehouse/" }, { label: "信用貸款市場分析及客戶信用評分", href: "/customer-loan-credit/" }, { label: "潛在理財客戶分析", href: "/customer-potential/" }] },
+  { icon: Landmark, number: "01", title: "金融服務", text: "金融業的資料管理、貸款分析及理財客戶洞察，需要兼顧業務目標、資料使用與管理要求。", cases: [{ label: "金控公司資料倉儲建置與應用", href: "/customer-data-warehouse/" }, { label: "信用貸款市場分析及客戶信用評分", href: "/customer-loan-credit/" }, { label: "潛在理財客戶分析", href: "/customer-potential/" }] },
   { icon: HousePlug, number: "02", title: "家電產業", text: "耐用產品的回購週期較長，從客戶與家庭維度理解需求，有助於探索更適切的行銷方向。", cases: [{ label: "家電產業客戶分群及行銷推廣", href: "/customer-appliance/" }] },
   { icon: Zap, number: "03", title: "公用事業", text: "不同用戶與地理區域的使用行為各有差異，資料分析能協助整理分群與延伸需求。", cases: [{ label: "公用事業客戶分群及交叉銷售", href: "/customer-public-facility/" }] },
   { icon: CarFront, number: "04", title: "汽車產業", text: "數據治理與分析組織的建立，需要同時思考工作流程、角色分工和業務應用。", cases: [{ label: "輔導汽車產業，成立數據治理及數據分析組織及新工作流程", href: "/customer-motor-industry/" }] },

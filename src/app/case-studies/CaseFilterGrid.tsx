@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { ExperienceBadge } from "@/components/ExperienceBadge";
 import { cases } from "@/lib/content";
 import styles from "./case-studies.module.css";
 
@@ -11,11 +12,11 @@ const filters = ["全部", "金融服務", "消費與零售", "公用事業", "�
 type Filter = (typeof filters)[number];
 
 const imageBySlug: Record<string, { src: string; alt: string }> = {
-  "customer-appliance": { src: "/images/home-case-appliance.png", alt: "家電展示門市" },
-  "customer-public-facility": { src: "/images/case-utility.png", alt: "夕陽下的電力輸送設施" },
-  "customer-loan-credit": { src: "/images/case-loan.png", alt: "分析信用貸款資料的筆電與圖表" },
-  "customer-potential": { src: "/images/home-case-credit.png", alt: "分析理財相關資料的會議桌" },
-  "customer-motor-industry": { src: "/images/case-automotive.png", alt: "汽車製造產線" },
+  "customer-appliance": { src: "/images/home-case-appliance.webp", alt: "家電展示門市" },
+  "customer-public-facility": { src: "/images/case-utility.webp", alt: "夕陽下的電力輸送設施" },
+  "customer-loan-credit": { src: "/images/case-loan.webp", alt: "分析信用貸款資料的筆電與圖表" },
+  "customer-potential": { src: "/images/home-case-credit.webp", alt: "分析理財相關資料的會議桌" },
+  "customer-motor-industry": { src: "/images/case-automotive.webp", alt: "汽車製造產線" },
 };
 
 const categoryBySlug: Record<string, Filter> = {
@@ -59,15 +60,16 @@ export function CaseFilterGrid() {
               className={`${styles.caseCard} ${item.number === "04" ? styles.wideCard : ""}`}
               href={`/${item.slug}/`}
               key={item.slug}
-              aria-label={`探索案例：${item.title}`}
+              aria-label={`探索案例：${item.title}，經驗值 ${item.experience.rating} 顆星，${item.experience.note}`}
             >
               <span className={styles.caseImage}><Image src={image.src} alt={image.alt} fill sizes={item.number === "04" ? "(max-width: 750px) 100vw, 67vw" : "(max-width: 750px) 100vw, 30vw"} /></span>
-              <span className={styles.caseContent}>
+              <div className={styles.caseContent}>
                 <span className={`${styles.category} ${categoryToneBySlug[item.slug]}`}>{categoryBySlug[item.slug]}</span>
                 <span className={styles.caseNumber}>{item.number}</span>
                 <strong>{item.title}</strong>
+                <ExperienceBadge {...item.experience} className={styles.cardExperience} />
                 <span className={styles.caseLink}>探索案例 <ArrowUpRight size={18} strokeWidth={1.8} /></span>
-              </span>
+              </div>
             </Link>
           );
         })}

@@ -1,0 +1,24 @@
+.page{background:#fff;color:var(--ink)}
+.layout{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:clamp(36px,7vw,110px);padding-top:76px;padding-bottom:110px}
+.aside{align-self:start;position:sticky;top:110px}
+.eyebrow{display:block;margin-bottom:18px;color:var(--blue);font-size:13px;font-weight:800;letter-spacing:.18em}
+.aside h2{margin:0 0 22px;font-size:clamp(27px,2.6vw,37px);line-height:1.3}
+.aside time{display:inline-block;padding:10px 14px;border-left:3px solid var(--teal);background:#f2f8fa;color:#496276;font-size:14px;font-weight:700}
+.content{min-width:0}
+.intro{margin:0 0 38px;font-size:16px;font-weight:600;line-height:1.9}
+.policySection{display:grid;grid-template-columns:38px minmax(0,1fr);gap:16px;border-top:1px solid var(--line);padding:28px 0}
+.sectionNumber{padding-top:6px;color:var(--teal);font-size:14px;font-weight:800}
+.policySection h2{margin:0 0 15px;font-size:clamp(21px,2vw,27px);line-height:1.45}
+.policySection p{margin:0 0 14px;color:#35485a;font-size:15px;line-height:1.9;overflow-wrap:anywhere}
+.policySection p:last-child{margin-bottom:0}
+.clauses,.subClauses{margin:0;padding:0;list-style:none}
+.clauses li,.subClauses li{display:grid;grid-template-columns:2.5em minmax(0,1fr);gap:4px;margin:0 0 12px;color:#35485a;font-size:15px;line-height:1.9}
+.clauses li:last-child,.subClauses li:last-child{margin-bottom:0}
+.clauses li>span,.subClauses li>span{font-weight:700;white-space:nowrap}
+.clauses p,.subClauses p{margin:0}
+.subClauses{margin-top:12px}
+.subClauses li{grid-template-columns:3em minmax(0,1fr);margin-bottom:5px}
+.policySection a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.policySection a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+@media(max-width:900px){.layout{grid-template-columns:1fr;gap:40px;padding-top:60px}.aside{position:static}.aside h2{margin-bottom:15px}}
+@media(max-width:650px){.layout{padding-top:45px;padding-bottom:75px}.intro{font-size:15px}.policySection{grid-template-columns:1fr;gap:7px;padding:23px 0}.sectionNumber{padding:0}.policySection h2{font-size:22px}.policySection p,.clauses li,.subClauses li{font-size:14px}}

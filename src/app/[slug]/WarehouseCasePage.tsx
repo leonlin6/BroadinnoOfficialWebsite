@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ExperienceBadge } from "@/components/ExperienceBadge";
+import { cases } from "@/lib/content";
 import {
   ArrowDownUp, ArrowRight, BarChart3, Check, CircleCheck, Coins,
   Database, FileText, Gauge, Gem, Layers3, SearchCheck, Server,
@@ -7,10 +9,10 @@ import {
 import styles from "./warehouse-case.module.css";
 
 const challenges = [
-  { icon: ArrowDownUp, title: "資料進出管理", text: "資料來源多元、格式不一，進出流程與權責需要清晰。" },
-  { icon: Layers3, title: "資料使用效率", text: "資料取得與應用流程複雜，影響業務與分析的即時性與彈性。" },
-  { icon: Coins, title: "維運成本", text: "資料倉儲與相關環境的管理與維護成本相對較高。" },
-  { icon: Gem, title: "資料價值轉換", text: "資料資產尚未充分發揮，仍有進一步轉化為業務價值的空間。" },
+  { icon: ArrowDownUp, title: "資料進出控管", text: "釐清資料如何進出既有系統，以及各環節的管理方式。" },
+  { icon: Layers3, title: "資料使用效率", text: "改善資料取得與使用流程，回應業務與管理需求。" },
+  { icon: Coins, title: "管理與維護成本", text: "資料系統的管理及維護成本高，需要檢視資源使用方式。" },
+  { icon: Gem, title: "資料創造價值", text: "從既有資料資產中尋找可落地的業務機會。" },
 ] as const;
 
 const healthStages = [
@@ -46,12 +48,13 @@ export function WarehouseCasePage() {
         <div className={"container " + styles.heroGrid}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>CASE STUDY / DATA INFRASTRUCTURE</span>
-            <h1 id="warehouse-title" data-scroll-title>金控公司資料倉儲<br />建置及應用</h1>
+            <h1 id="warehouse-title" data-scroll-title>金控公司資料倉儲<br />建置與應用</h1>
             <Accent />
-            <p>針對金控企業既有資料倉儲與數據中台，進行資料整合、品質治理與使用流程檢視，強化資料資產管理與應用價值，協助企業降低維運成本並拓展資料價值。</p>
+            <p>金控公司多已具備資料倉儲或數據中台。透過 Health Check 檢視既有系統的資料進出、使用效率與維運成本，尋找 Data to Value 的商機。</p>
+            <ExperienceBadge {...cases[0].experience} className={styles.experience} />
           </div>
           <div className={styles.pipelineWrap}>
-            <div className={styles.pipeline} aria-label="資料由來源、整合、倉儲進入分析應用的概念流程">
+            <div className={styles.pipeline} aria-label="既有資料倉儲的資料進出與分析應用概念流程">
               <div className={styles.pipelineCard}>
                 <strong>資料來源</strong>
                 <div><Database /><span>核心業務系統</span></div>
@@ -86,7 +89,7 @@ export function WarehouseCasePage() {
 
       <section className={styles.context} aria-labelledby="context-title">
         <div className="container">
-          <h2 id="context-title" data-scroll-title>既有環境與治理課題</h2><Accent />
+          <h2 id="context-title" data-scroll-title>既有系統的管理與價值課題</h2><Accent />
           <div className={styles.contextGrid}>
             <div className={styles.contextLeft}>
               <div className={styles.serverArt} aria-hidden="true">
@@ -95,11 +98,11 @@ export function WarehouseCasePage() {
               </div>
               <div className={styles.contextCopy}>
                 <h3>多數金控企業已具備<br />資料倉儲或數據中台</h3>
-                <p>作為整合各業務資料、支援分析與決策的重要基礎，但在長期運作與業務需求變化下，仍需持續檢視資料治理與應用效能。</p>
+                <p>重新建置資料倉儲（Data Warehouse）已非主要需求。業務與管理高度依賴資料，重點在於管好既有系統、提升使用效率，並讓資料產生價值。</p>
               </div>
             </div>
             <div className={styles.challengeList}>
-              <h3>常見的管理與維護挑戰</h3>
+              <h3>既有資料系統的四項課題</h3>
               {challenges.map(({ icon: Icon, title, text }) => <div className={styles.challenge} key={title}><span><Icon size={25} strokeWidth={1.8} /></span><div><strong>{title}</strong><p>{text}</p></div></div>)}
             </div>
           </div>
@@ -108,8 +111,8 @@ export function WarehouseCasePage() {
 
       <section className={styles.health} aria-labelledby="health-title">
         <div className={"container " + styles.healthPanel}>
-          <h2 id="health-title" data-scroll-title>Data Health Check｜從資料治理走向價值</h2>
-          <p>透過系統化的資料健檢，檢視資料的完整性、品質、治理與應用，協助企業找到成本控制與資料價值提升的方向。</p>
+          <h2 id="health-title" data-scroll-title>Health Check｜從成本控管走向 Data to Value</h2>
+          <p>從既有資料環境出發，檢視資料進出、品質、使用方式與維護成本，協助企業找到成本控制的方法及資料應用商機。</p>
           <div className={styles.healthFlow}>
             {healthStages.map(({ title, icon: Icon, items, tone }, index) => (
               <div className={styles.healthStageWrap} key={title}>
@@ -128,7 +131,7 @@ export function WarehouseCasePage() {
 
       <section className={styles.method} aria-labelledby="method-title">
         <div className={"container " + styles.methodGrid}>
-          <div className={styles.sectionIntro}><h2 id="method-title" data-scroll-title>顧問工作方式</h2><Accent /><p>以資料治理與應用價值為導向，透過階段式的顧問作業，協助企業檢視現況、釐清問題，並提出可行的改善方向與應用場景。</p></div>
+          <div className={styles.sectionIntro}><h2 id="method-title" data-scroll-title>顧問工作方式</h2><Accent /><p>以既有資料倉儲或數據中台為起點，盤點管理與維護成本、資料使用效率，以及可轉化為業務價值的機會。</p></div>
           <ol className={styles.methodList}>
             {methods.map(({ title, text }, index) => <li key={title}><span className={styles.methodNumber}>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></li>)}
           </ol>
@@ -137,7 +140,7 @@ export function WarehouseCasePage() {
 
       <section className={styles.value} aria-labelledby="value-title">
         <div className={"container " + styles.valueGrid}>
-          <div className={styles.sectionIntro}><h2 id="value-title" data-scroll-title>服務價值與預期方向</h2><Accent /><p>透過資料健檢與治理規劃，協助企業在成本、效率、資料資產與決策應用等面向，創造更具深度的資料價值。</p></div>
+          <div className={styles.sectionIntro}><h2 id="value-title" data-scroll-title>服務價值與預期方向</h2><Accent /><p>Health Check 聚焦金控企業最在意的成本、資料使用與業務價值，協助找出可執行的改善方向。</p></div>
           <div className={styles.valueItems}>{outcomes.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={42} strokeWidth={1.6} aria-hidden="true" /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>
       </section>

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./home-intro.module.css";
 
-const FLY_START_MS = 3750;
-const FINISH_MS = 5000;
+const FLY_START_MS = 3250;
+const FINISH_MS = 4500;
 const BOUNCE_SETTLE_MS = 1120;
 
 export function HomeIntro() {
@@ -83,13 +83,28 @@ export function HomeIntro() {
           </clipPath>
           <clipPath id="intro-black-steps-clip" clipPathUnits="userSpaceOnUse">
             <rect x="58.5" y="9.2" width="22.5" height="23.6" />
-            <rect x="44" y="35.4" width="23.4" height="22.8" />
+            <rect x="43.8" y="35.4" width="23.7" height="22.8" />
+          </clipPath>
+          <clipPath id="intro-upper-step-clip" clipPathUnits="userSpaceOnUse">
+            <rect x="58.5" y="9.2" width="22.5" height="23.6" />
+          </clipPath>
+          <clipPath id="intro-lower-step-clip" clipPathUnits="userSpaceOnUse">
+            <rect x="43.8" y="35.4" width="23.7" height="22.8" />
           </clipPath>
         </defs>
         <g className={styles.movingSteps} clipPath="url(#intro-escalator-clip)">
-          <rect className={`${styles.escalatorStep} ${styles.stepOne}`} onAnimationIteration={() => setStepsSettled(true)} x="60.4" y="11.25" width="18.5" height="19.8" fill="none" stroke="#15426a" strokeWidth="2.25" />
-          <rect className={`${styles.escalatorStep} ${styles.stepTwo}`} x="60.4" y="11.25" width="18.5" height="19.8" fill="none" stroke="#15426a" strokeWidth="2.25" />
-          <rect className={`${styles.escalatorStep} ${styles.stepThree}`} x="60.4" y="11.25" width="18.5" height="19.8" fill="none" stroke="#15426a" strokeWidth="2.25" />
+          <g className={`${styles.escalatorStep} ${styles.stepOne}`} onAnimationIteration={() => setStepsSettled(true)}>
+            <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-upper-step-clip)" />
+          </g>
+          {/* At the climb's end, stepTwo is above stepThree because of their negative delays. */}
+          <g className={`${styles.escalatorStep} ${styles.stepTwo}`}>
+            <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-upper-step-clip)" />
+          </g>
+          <g className={`${styles.escalatorStep} ${styles.stepThree}`}>
+            <g transform="translate(14.4 -26.1)">
+              <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-lower-step-clip)" />
+            </g>
+          </g>
         </g>
         <g className={styles.staticSteps} clipPath="url(#intro-black-steps-clip)">
           <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" />

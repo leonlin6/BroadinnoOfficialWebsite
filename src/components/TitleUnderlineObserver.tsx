@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { getUnderlineScale } from "./underlineScale";
 
 export function TitleUnderlineObserver() {
   const pathname = usePathname();
@@ -13,14 +14,10 @@ export function TitleUnderlineObserver() {
     const update = () => {
       frame = 0;
       const viewportHeight = window.innerHeight;
-      const clamp = (value: number) => Math.max(0, Math.min(1, value));
-
       for (const title of titles) {
         const rect = title.getBoundingClientRect();
         const centerY = rect.top + rect.height / 2;
-        const entering = clamp((viewportHeight * .90 - centerY) / (viewportHeight * .28));
-        const leaving = clamp((centerY - viewportHeight * .10) / (viewportHeight * .06));
-        title.style.setProperty("--underline-scale", String(.12 + Math.min(entering, leaving) * .88));
+        title.style.setProperty("--underline-scale", String(getUnderlineScale(centerY, viewportHeight)));
       }
     };
 

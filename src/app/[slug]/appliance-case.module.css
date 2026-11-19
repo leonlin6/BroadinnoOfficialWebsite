@@ -16,6 +16,7 @@
 .heroMetric>strong{display:flex;align-items:center;gap:7px;font-size:14px;white-space:nowrap}.heroMetric>strong svg{color:#00a8aa}.heroMetric small{color:#558095;font-size:11px}
 .metricBody{display:flex;align-items:center;gap:12px;margin-top:8px}.donut{width:65px;height:65px;flex:none;border-radius:50%;background:conic-gradient(#08a9aa 0 72%,#70d8d5 72% 88%,#d2f1f0 88%);position:relative}.donut:after{content:"";position:absolute;inset:14px;border-radius:50%;background:#ecf9fb}.metricBody>div{display:grid;gap:3px;flex:1}.metricBody>div span{display:flex;justify-content:space-between;gap:7px;font-size:12px;color:#23536b;white-space:nowrap}.metricBody b{color:#0e2e4e}
 .challengeSection{padding:22px 0 25px}
+.experience{margin-top:18px}
 .challengeGrid{display:grid;grid-template-columns:minmax(0,33fr) minmax(0,67fr);gap:20px;align-items:center}
 .sectionIntro>span:not(.accent),.householdIntro>span:not(.accent),.personaIntro>span:not(.accent),.insightIntro>span:not(.accent){display:block;margin-top:8px;font-size:14px;font-weight:800}
 .challengeGrid h2,.householdIntro h2,.personaIntro h2,.insightIntro h2{margin:8px 0 0;font-size:clamp(28px,3vw,39px);line-height:1.3}

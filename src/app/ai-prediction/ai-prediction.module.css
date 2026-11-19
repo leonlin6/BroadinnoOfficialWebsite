@@ -44,7 +44,7 @@
 .processGrid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:25px;align-items:center}
 .processHeading>span,.applicationsHeading>span,.benefitsHeading>span{color:#08a8ca;font-size:12px;font-weight:800;letter-spacing:.14em}
 .processHeading h2,.applicationsHeading h2,.benefitsHeading h2{margin:8px 0 12px;color:#0a2447;font-size:clamp(25px,2.7vw,34px);line-height:1.25}
-.processHeading i,.benefitsHeading i{display:block;width:42px;height:3px;border-radius:4px;background:#1acbdc}
+.benefitsHeading i{display:block;width:42px;height:3px;border-radius:4px;background:#1acbdc}
 .processCards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .processCard{min-height:172px;padding:17px 14px;border:1px solid #d9e9f8;border-radius:12px;background:#fff;box-shadow:0 7px 17px rgba(28,91,155,.07)}
 .processCard>span{display:inline-grid;place-items:center;width:29px;height:29px;margin-right:9px;border-radius:50%;background:#e4efff;color:#0862d5;font-size:13px;font-weight:800;vertical-align:middle}

@@ -26,7 +26,7 @@
 
 .titleUnderlineGroup{display:inline-flex;flex-direction:column;align-items:stretch;max-width:100%}
 .about .titleUnderlineGroup h2{margin-bottom:0}
-.sectionUnderline,.valueUnderline,.aboutUnderline{display:block;width:100%;height:4px;border-radius:4px;transform:scaleX(var(--underline-scale,.12));will-change:transform}
+.sectionUnderline,.valueUnderline,.aboutUnderline{display:block;width:100%;height:4px;border-radius:4px;transform:scaleX(var(--underline-scale,0));will-change:transform}
 .sectionUnderline{background:#20c1b4;transform-origin:center}
 .valueUnderline{margin-top:21px;background:#08aebe;transform-origin:left center}
 .aboutUnderline{margin:10px 0 13px;background:#20c1b4;transform-origin:left center}

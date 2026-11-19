@@ -19,10 +19,10 @@ const positioning = [
 ];
 
 const services = [
-  { icon: Target, title: "策略規劃", text: "協助企業明確業務發展方向，規劃轉型重點與行動路線圖，打造可執行且具成長性的策略。", image: "/images/service-strategy.png", alt: "象徵策略逐步推進的階梯模型" },
-  { icon: Settings2, title: "流程優化", text: "分析並重新設計企業關鍵流程，提升作業效率、降低資源浪費，並強化跨部門協同運作。", image: "/images/service-process.png", alt: "顧問檢視企業流程圖" },
-  { icon: ChartNoAxesCombined, title: "數據分析與應用", text: "運用儀表板、KPI 分析與數據洞察，協助企業以數據驅動決策，提升營運透明度與管理精準度。", image: "/images/service-data.png", alt: "筆記型電腦顯示數據分析儀表板" },
-  { icon: UsersRound, title: "組織與管理改善", text: "協助優化組織架構、角色職責、治理機制與管理運作，並提供領導與管理能力的強化支持。", image: "/images/service-organization.png", alt: "以積木呈現組織架構與團隊分工" },
+  { icon: Target, title: "策略規劃", text: "協助企業明確業務發展方向，規劃轉型重點與行動路線圖，打造可執行且具成長性的策略。", image: "/images/service-strategy.webp", alt: "象徵策略逐步推進的階梯模型" },
+  { icon: Settings2, title: "流程優化", text: "分析並重新設計企業關鍵流程，提升作業效率、降低資源浪費，並強化跨部門協同運作。", image: "/images/service-process.webp", alt: "顧問檢視企業流程圖" },
+  { icon: ChartNoAxesCombined, title: "數據分析與應用", text: "運用儀表板、KPI 分析與數據洞察，協助企業以數據驅動決策，提升營運透明度與管理精準度。", image: "/images/service-data.webp", alt: "筆記型電腦顯示數據分析儀表板" },
+  { icon: UsersRound, title: "組織與管理改善", text: "協助優化組織架構、角色職責、治理機制與管理運作，並提供領導與管理能力的強化支持。", image: "/images/service-organization.webp", alt: "以積木呈現組織架構與團隊分工" },
 ];
 
 const process = [
@@ -47,7 +47,7 @@ function CenterHeading({ title, description }: { title: string; description: str
 export default function ManagementConsulting() {
   return <>
     <section className={styles.hero}>
-      <Image className={styles.heroImage} src="/images/consulting-hero.png" alt="管理顧問與企業團隊討論策略" fill priority sizes="100vw" />
+      <Image className={styles.heroImage} src="/images/consulting-hero.webp" alt="管理顧問與企業團隊討論策略" fill priority sizes="100vw" />
       <div className={styles.heroShade} />
       <div className={"container " + styles.heroInner}><div className={styles.heroCopy}>
         <div className={styles.heroEyebrow}>管理顧問服務</div>
@@ -72,8 +72,8 @@ export default function ManagementConsulting() {
       <div className={styles.processGrid}>{process.map(({ icon: Icon, title, text }, index) => <div className={styles.processItem} key={title}><article className={styles.processCard}><div className={styles.processIcon}><Icon size={27} strokeWidth={1.6} /></div><h3><span>{String(index + 1).padStart(2, "0")}</span>{title}</h3><p>{text}</p></article>{index < process.length - 1 && <ChevronRight className={styles.processArrow} size={22} aria-hidden="true" />}</div>)}</div>
     </div></section>
 
-    <section className={styles.benefits}><div className={"container " + styles.benefitsGrid}><div className={styles.benefitsCopy}><div className={styles.sectionLabel}><div className={styles.titleUnderlineGroup}><h2>顧問服務價值</h2><ScrollUnderline className={styles.labelUnderline} /></div></div><p className={styles.benefitsIntro}>透過專業的管理顧問服務，協助企業在決策、流程、數據與組織面全面提升，創造可衡量的營運與成長價值。</p><div className={styles.benefitList}>{benefits.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={27} strokeWidth={1.6} /><h3>{title}</h3><p>{text}</p></article>)}</div></div><div className={styles.benefitImage}><Image src="/images/service-data.png" alt="展示分析圖表的營運數據儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /><div className={styles.benefitImageLabel}><ShieldCheck size={17} /> 數據與策略，連結每一步決策</div></div></div></section>
+    <section className={styles.benefits}><div className={"container " + styles.benefitsGrid}><div className={styles.benefitsCopy}><div className={styles.sectionLabel}><div className={styles.titleUnderlineGroup}><h2>顧問服務價值</h2><ScrollUnderline className={styles.labelUnderline} /></div></div><p className={styles.benefitsIntro}>透過專業的管理顧問服務，協助企業在決策、流程、數據與組織面全面提升，創造可衡量的營運與成長價值。</p><div className={styles.benefitList}>{benefits.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={27} strokeWidth={1.6} /><h3>{title}</h3><p>{text}</p></article>)}</div></div><div className={styles.benefitImage}><Image src="/images/service-data.webp" alt="展示分析圖表的營運數據儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /><div className={styles.benefitImageLabel}><ShieldCheck size={17} /> 數據與策略，連結每一步決策</div></div></div></section>
 
-    <section className={styles.contactBanner} id="contact"><Image src="/images/contact-building.png" alt="現代玻璃帷幕辦公大樓" fill sizes="100vw" /><div className={styles.contactShade} /><div className={"container " + styles.contactInner}><div><h2 data-scroll-title>立即與博創數科顧問團隊聯繫</h2><p>歡迎與我們討論您的企業挑戰與發展目標，<br />我們將提供專業評估與量身規劃的管理顧問解決方案。</p></div><div className={styles.contactAction}><Link href="/consultation-appointment/">預約一對一諮詢 <ArrowRight size={18} /></Link><p>從策略到落地執行，提供最適合您的管理顧問方案。</p></div></div></section>
+    <section className={styles.contactBanner} id="contact"><Image src="/images/contact-building.webp" alt="現代玻璃帷幕辦公大樓" fill sizes="100vw" /><div className={styles.contactShade} /><div className={"container " + styles.contactInner}><div><h2 data-scroll-title>立即與博創數科顧問團隊聯繫</h2><p>歡迎與我們討論您的企業挑戰與發展目標，<br />我們將提供專業評估與量身規劃的管理顧問解決方案。</p></div><div className={styles.contactAction}><Link href="/consultation-appointment/">預約一對一諮詢 <ArrowRight size={18} /></Link><p>從策略到落地執行，提供最適合您的管理顧問方案。</p></div></div></section>
   </>;
 }

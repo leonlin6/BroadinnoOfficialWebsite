@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ExperienceBadge } from "@/components/ExperienceBadge";
+import { cases } from "@/lib/content";
 import {
   ArrowRight, BrainCircuit, ChartNoAxesCombined, Database,
   Globe2, Layers3, MapPin, Network, RefreshCw,
@@ -55,7 +57,7 @@ export function LoanCreditCasePage() {
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="loan-title">
         <div className={"container " + styles.heroGrid}>
-          <div className={styles.heroCopy}><span className={styles.eyebrow}>CASE STUDY / 金融服務</span><h1 id="loan-title" data-scroll-title>信用貸款市場分析<br />及客戶信用評分</h1><Accent /><p>透過市場分析與信用評分模型，整合多元資料與專家判斷，協助金融機構更精準掌握客戶風險，支援更負責的授信決策。</p><div className={styles.heroTags}><span>信用風險</span><span>評分模型</span><span>市場分析</span><span>模型優化</span></div></div>
+          <div className={styles.heroCopy}><span className={styles.eyebrow}>CASE STUDY / 金融服務</span><h1 id="loan-title" data-scroll-title>信用貸款市場分析<br />及客戶信用評分</h1><Accent /><p>整合總體經濟、區域發展與就業狀況等多維資料，結合領域知識、專家判斷與實證，優化信用評分模型。</p><div className={styles.heroTags}><span>信用風險</span><span>評分模型</span><span>市場分析</span><span>模型優化</span></div></div>
           <RiskDashboard />
         </div>
       </section>
@@ -71,7 +73,7 @@ export function LoanCreditCasePage() {
       </section>
 
       <section className={styles.model} aria-labelledby="model-title">
-        <div className="container"><div className={styles.sectionHead}><div><Accent /><h2 id="model-title" data-scroll-title>信用評分模型概念</h2></div><p>結合資料科學、領域專業與實證分析，建構適用於信用貸款的客戶評分模型。</p></div><div className={styles.modelFlow}>{modelSteps.map(({ icon: Icon, title, text }, index) => <div className={styles.modelStep} key={title}><div className={styles.modelTop}><Icon size={29} strokeWidth={1.7} /><h3>{title}</h3></div><p>{text}</p><span className={styles.stepVisual} aria-hidden="true">{index === 0 ? <Database /> : index === 1 ? <Layers3 /> : index === 2 ? <ChartNoAxesCombined /> : index === 3 ? <ShieldCheck /> : <TrendingUp />}</span>{index < modelSteps.length - 1 && <ArrowRight className={styles.modelArrow} size={25} strokeWidth={2.4} aria-hidden="true" />}</div>)}</div></div>
+        <div className="container"><div className={styles.sectionHead}><div><Accent /><h2 id="model-title" data-scroll-title>信用評分模型概念</h2></div><p>模型與評分準確度來自領域知識、專家判斷、變數選擇與實證分析，並隨資料與市場變化持續動態學習。</p></div><div className={styles.modelFlow}>{modelSteps.map(({ icon: Icon, title, text }, index) => <div className={styles.modelStep} key={title}><div className={styles.modelTop}><Icon size={29} strokeWidth={1.7} /><h3>{title}</h3></div><p>{text}</p><span className={styles.stepVisual} aria-hidden="true">{index === 0 ? <Database /> : index === 1 ? <Layers3 /> : index === 2 ? <ChartNoAxesCombined /> : index === 3 ? <ShieldCheck /> : <TrendingUp />}</span>{index < modelSteps.length - 1 && <ArrowRight className={styles.modelArrow} size={25} strokeWidth={2.4} aria-hidden="true" />}</div>)}</div></div>
       </section>
 
       <section className={styles.improve} aria-labelledby="improve-title">
@@ -82,7 +84,7 @@ export function LoanCreditCasePage() {
         </div>
       </section>
 
-      <section className={styles.outcomes} aria-labelledby="outcomes-title"><div className={"container " + styles.outcomesGrid}><div><h2 id="outcomes-title" data-scroll-title>服務預期方向</h2><p>以數據分析與模型應用，支援業務拓展與風險管理效能。</p></div><div><TrendingUp size={44} strokeWidth={1.6} /><strong>業務洞察</strong><p>找出可評估的市場與客戶機會</p></div><div><ShieldCheck size={44} strokeWidth={1.6} /><strong>風險辨識</strong><p>強化授信判斷的依據與一致性</p></div></div></section>
+      <section className={styles.outcomes} aria-labelledby="outcomes-title"><div className={"container " + styles.outcomesGrid}><div><h2 id="outcomes-title" data-scroll-title>客戶成效</h2><p>結合市場分析、資料整合與信用評分模型調優。</p><ExperienceBadge {...cases[3].experience} className={styles.experience} /></div><div><TrendingUp size={44} strokeWidth={1.6} /><strong>2.3 倍</strong><p>業務提升</p></div><div><ShieldCheck size={44} strokeWidth={1.6} /><strong>70%</strong><p>違約率下降</p></div></div></section>
 
       <section className={styles.cta} aria-labelledby="loan-cta-title"><div className={"container " + styles.ctaInner}><div><h2 id="loan-cta-title" data-scroll-title>讓授信分析更精準，讓風險管理更有依據</h2><p>結合市場洞察、評分模型與顧問經驗，協助金融機構提升授信決策品質。</p></div><Link href="/consultation-appointment/">預約諮詢 <ArrowRight size={19} /></Link></div></section>
     </div>
