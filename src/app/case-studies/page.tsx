@@ -21,7 +21,7 @@ export default function CaseStudies() {
         <div className={"container " + styles.introGrid}>
           <div>
             <span className={styles.eyebrow}>SELECTED WORK <span>/</span> 客戶案例</span>
-            <h1 id="case-studies-title">實務經驗，<br />驅動企業價值</h1>
+            <h1 id="case-studies-title" data-scroll-title>實務經驗，<br />驅動企業價值</h1>
             <span className={styles.accentLine} aria-hidden="true" />
           </div>
           <div className={styles.introAside}>
@@ -39,7 +39,7 @@ export default function CaseStudies() {
           <div className={styles.featuredCopy}>
             <div className={styles.featuredLabel}><span>FEATURED CASE</span><i aria-hidden="true" /></div>
             <span className={`${styles.category} ${styles.categoryFinance}`}>{featured.category}</span>
-            <h2 id="featured-case-title">{featured.title}</h2>
+            <h2 id="featured-case-title" data-scroll-title>{featured.title}</h2>
             <p>整合資料資產，推動數據應用與決策。</p>
             <Link className={styles.textLink} href={`/${featured.slug}/`}>探索案例 <ArrowUpRight size={19} strokeWidth={1.8} /></Link>
           </div>
@@ -50,7 +50,7 @@ export default function CaseStudies() {
         <div className="container">
           <div className={styles.rule} />
           <div className={styles.allCasesHeading}>
-            <div><span className={styles.eyebrow}>CASE STUDIES</span><h2 id="all-cases-title">全部案例</h2></div>
+            <div><span className={styles.eyebrow}>CASE STUDIES</span><h2 id="all-cases-title" data-scroll-title>全部案例</h2></div>
             <CaseFilterGrid />
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function CaseStudies() {
 
       <section className={styles.cta} aria-labelledby="case-cta-title">
         <div className={"container " + styles.ctaInner}>
-          <div><span className={styles.accentLine} aria-hidden="true" /><h2 id="case-cta-title">讓下一個成功案例，<br className={styles.mobileBreak} />從您的企業開始。</h2></div>
+          <div><span className={styles.accentLine} aria-hidden="true" /><h2 id="case-cta-title" data-scroll-title>讓下一個成功案例，<br className={styles.mobileBreak} />從您的企業開始。</h2></div>
           <Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={20} strokeWidth={1.7} /></Link>
         </div>
       </section>

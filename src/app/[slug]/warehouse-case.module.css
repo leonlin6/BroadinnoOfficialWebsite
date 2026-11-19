@@ -1,8 +1,8 @@
 .page{color:#0a213e;background:#fff}
-.page h1,.page h2{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;letter-spacing:.01em}
+.page h1,.page h2{letter-spacing:.01em}
 .page p{color:#26384c}
 .accent{display:block;width:40px;height:3px;background:#08c9b9}
-.eyebrow{display:block;color:#183452;font-size:11px;font-weight:800;letter-spacing:.25em}
+.eyebrow{display:block;color:#183452;font-size:13px;font-weight:800;letter-spacing:.25em}
 .hero{overflow:hidden;background:radial-gradient(circle at 72% 52%,#d7f1ff 0%,#f2f9fd 36%,#fff 70%)}
 .heroGrid{display:grid;grid-template-columns:minmax(0,37fr) minmax(0,63fr);gap:16px;align-items:center;min-height:330px;padding-top:30px;padding-bottom:30px}
 .heroCopy{position:relative;z-index:1}
@@ -12,15 +12,15 @@
 .pipelineWrap:before{content:"";position:absolute;left:3%;right:0;bottom:15px;height:30px;border-radius:50%;background:linear-gradient(90deg,#aee7f2,#2ebdd9,#c8f4fa);filter:blur(13px);opacity:.75}
 .pipeline{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 17px minmax(0,1fr) 17px minmax(0,1.05fr) 17px minmax(0,1fr);align-items:center;gap:3px}
 .pipelineCard{height:183px;min-width:0;border:1px solid #b7e5f4;border-radius:14px;background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(226,247,253,.94));box-shadow:0 9px 24px rgba(11,100,150,.16);padding:7px 7px 9px;display:flex;flex-direction:column;gap:7px}
-.pipelineCard>strong{display:block;margin:-3px -3px 8px;padding:6px 4px;border-radius:99px;background:linear-gradient(90deg,#0d6aa3,#0fa7c7);color:#fff;text-align:center;font-size:13px;line-height:1.2;white-space:nowrap}
-.pipelineCard>div{display:flex;align-items:center;gap:5px;color:#0f2e53;font-size:10px;font-weight:700;line-height:1.15}
+.pipelineCard>strong{display:block;margin:-3px -3px 8px;padding:6px 4px;border-radius:99px;background:linear-gradient(90deg,#0d6aa3,#0fa7c7);color:#fff;text-align:center;font-size:14px;line-height:1.2;white-space:nowrap}
+.pipelineCard>div{display:flex;align-items:center;gap:5px;color:#0f2e53;font-size:12px;font-weight:700;line-height:1.15}
 .pipelineCard>div svg{width:20px;height:20px;flex:none;color:#047bc0}
 .pipelineArrow{color:#03c6c4;filter:drop-shadow(0 0 4px #4ce8e1)}
 .warehouseCard{justify-content:flex-start;align-items:center;background:linear-gradient(160deg,#e9fbff,#11b8d5 70%,#0785b4);color:#fff}
 .warehouseCard>strong{align-self:stretch;width:calc(100% + 6px);background:linear-gradient(90deg,#00678c,#0d9fc1)}
 .warehouseIcon{width:84px;height:84px;margin:auto 0 0;color:#fff;filter:drop-shadow(0 0 8px rgba(255,255,255,.95))}
-.warehouseCard>span{margin:auto 0 3px;font-size:10px;font-weight:800}
-.diagramNote{position:relative;display:block;width:max-content;max-width:100%;margin:11px auto 0;padding:4px 15px;border:1px solid #67b6e6;border-radius:20px;background:#f5fbff;color:#245987;font-size:11px;font-weight:800;letter-spacing:.03em;text-align:center}
+.warehouseCard>span{margin:auto 0 3px;font-size:12px;font-weight:800}
+.diagramNote{position:relative;display:block;width:max-content;max-width:100%;margin:11px auto 0;padding:4px 15px;border:1px solid #67b6e6;border-radius:20px;background:#f5fbff;color:#245987;font-size:13px;font-weight:800;letter-spacing:.03em;text-align:center}
 .context{padding:20px 0 25px}
 .context :global(.container){border-top:1px solid #d3dee8;padding-top:15px}
 .context h2,.method h2,.value h2{margin:0 0 9px;font-size:clamp(27px,2.75vw,37px);line-height:1.3}
@@ -34,17 +34,17 @@
 .serverDatabase svg:first-child{width:47px;height:62px;color:#07658d}
 .serverDatabase svg:last-child{width:28px;height:42px;color:#fff}
 .contextCopy h3{margin:0 0 8px;color:#06517f;font-size:21px;font-weight:800;line-height:1.38}
-.contextCopy p{margin:0;font-size:13px;line-height:1.65}
+.contextCopy p{margin:0;font-size:14px;line-height:1.65}
 .challengeList{border-left:1px solid #b6c8d8;padding-left:40px}
 .challengeList h3{margin:0 0 10px;font-size:19px}
 .challenge{display:grid;grid-template-columns:42px 1fr;gap:11px;align-items:center;margin:8px 0}
 .challenge>span{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:#e2f8f7;color:#00a8a8}
 .challenge strong{display:block;font-size:14px;line-height:1.25}
-.challenge p{margin:1px 0 0;font-size:11px;line-height:1.4}
+.challenge p{margin:1px 0 0;font-size:14px;line-height:1.4}
 .health{padding:0 0 20px}
 .healthPanel{padding:19px 30px 18px;border-radius:16px;background:radial-gradient(circle at 50% 100%,#c9f5ff,#e9f7fd 45%,#eff8fc 100%);overflow:hidden}
 .health h2{margin:0 0 4px;font-size:clamp(27px,2.7vw,36px);line-height:1.2}
-.healthPanel>p{margin:0 0 17px;font-size:13px;line-height:1.5}
+.healthPanel>p{margin:0 0 17px;font-size:14px;line-height:1.5}
 .healthFlow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px}
 .healthStageWrap{position:relative;min-width:0}
 .healthStage{height:178px;padding:0 12px 11px;border:1px solid #b8e9f1;border-radius:12px;background:linear-gradient(#fff,#e9f9ff);box-shadow:0 10px 18px rgba(10,104,147,.12);text-align:center}
@@ -54,21 +54,21 @@
 .healthStage .stageIcon{display:block;margin:3px auto 7px;color:#087dbb}
 .healthStageWrap:nth-child(3) .stageIcon,.healthStageWrap:nth-child(5) .stageIcon{color:#08a99f}
 .healthStage ul{margin:0;padding:0;list-style:none;text-align:left}
-.healthStage li{display:flex;align-items:flex-start;gap:4px;margin:4px 0;color:#113751;font-size:11px;font-weight:700;line-height:1.25}
+.healthStage li{display:flex;align-items:flex-start;gap:4px;margin:4px 0;color:#113751;font-size:14px;font-weight:700;line-height:1.25}
 .healthStage li svg{flex:none;color:#00b6ae}
 .flowArrow{position:absolute;z-index:2;right:-26px;top:73px;color:#00bdbd}
-.healthNote{display:block;width:max-content;max-width:100%;margin:12px auto 0;padding:4px 15px;border-radius:18px;background:#c6f4f2;color:#007c82;font-size:11px;font-weight:800}
+.healthNote{display:block;width:max-content;max-width:100%;margin:12px auto 0;padding:4px 15px;border-radius:18px;background:#c6f4f2;color:#007c82;font-size:13px;font-weight:800}
 .method{padding:12px 0 21px}
 .methodGrid{display:grid;grid-template-columns:minmax(0,28fr) minmax(0,72fr);gap:15px}
-.sectionIntro p{max-width:285px;margin:15px 0 0;font-size:13px;line-height:1.62}
+.sectionIntro p{max-width:285px;margin:15px 0 0;font-size:14px;line-height:1.62}
 .methodList{position:relative;margin:0;padding:0 0 0 28px;list-style:none}
 .methodList:before{content:"";position:absolute;left:9px;top:13px;bottom:18px;width:2px;background:#09bdb2}
 .methodList li{position:relative;display:grid;grid-template-columns:49px 184px 1fr;gap:10px;align-items:center;min-height:50px;border-bottom:1px solid #c8d9e5}
 .methodList li:last-child{border:0}
 .methodList li:before{content:"";position:absolute;left:-23px;top:21px;width:9px;height:9px;border:2px solid #08bdb3;border-radius:50%;background:#fff}
-.methodNumber{display:grid;place-items:center;min-width:41px;height:29px;border-radius:18px;background:linear-gradient(90deg,#04aea6,#0fcabc);color:#fff;font-family:Georgia,serif;font-size:17px;font-weight:800}
+.methodNumber{display:grid;place-items:center;min-width:41px;height:29px;border-radius:18px;background:linear-gradient(90deg,#04aea6,#0fcabc);color:#fff;font-size:17px;font-weight:800}
 .methodList h3{margin:0;padding:10px 14px;background:linear-gradient(90deg,#e8f6fb,#d6e8f3);clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);font-size:16px;white-space:nowrap}
-.methodList p{margin:0;font-size:12px;line-height:1.45}
+.methodList p{margin:0;font-size:14px;line-height:1.45}
 .value{padding:0 0 26px}
 .valueGrid{display:grid;grid-template-columns:minmax(0,28fr) minmax(0,72fr);gap:15px;border-top:1px solid #d8e3e9;padding-top:17px}
 .valueItems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -77,7 +77,7 @@
 .valueItems article:nth-last-child(-n+2){border-bottom:0}
 .valueItems svg{color:#03a9a4}
 .valueItems h3{margin:0 0 3px;font-size:18px}
-.valueItems p{margin:0;font-size:12px;line-height:1.42}
+.valueItems p{margin:0;font-size:14px;line-height:1.42}
 .cta{position:relative;overflow:hidden;background:linear-gradient(100deg,#071d37,#092e51 80%,#043c5e);color:#fff}
 .cta:before,.cta:after{content:"";position:absolute;width:350px;height:170px;border:1px solid rgba(22,202,211,.3);border-radius:50%;transform:rotate(-18deg)}
 .cta:before{left:-170px;bottom:-110px;box-shadow:0 0 0 24px rgba(22,202,211,.03),0 0 0 48px rgba(22,202,211,.03)}
@@ -87,9 +87,9 @@
 .cta a{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-width:155px;padding:11px 18px;border:1px solid #fff;border-radius:5px;color:#fff;font-size:15px;font-weight:700;white-space:nowrap;transition:background .2s,color .2s}
 .cta a:hover{background:#fff;color:#092e51}
 .cta a:focus-visible{outline:3px solid #0de5d2;outline-offset:3px}
-@media(max-width:1050px){.heroGrid{grid-template-columns:minmax(0,38fr) minmax(0,62fr)}.pipelineCard{height:168px;gap:5px}.pipelineCard>strong{font-size:11px}.pipelineCard>div{font-size:9px}.pipelineCard>div svg{width:17px;height:17px}.pipeline{grid-template-columns:minmax(0,1fr) 13px minmax(0,1fr) 13px minmax(0,1.05fr) 13px minmax(0,1fr);gap:2px}.healthFlow{gap:17px}.flowArrow{right:-20px}.healthStage{padding-inline:8px}.healthStage>strong{margin-inline:-7px;font-size:12px}.healthStage li{font-size:10px}.methodList li{grid-template-columns:43px 155px 1fr}.methodList h3{font-size:14px}.methodList p{font-size:11px}}
-@media(max-width:800px){.heroGrid{grid-template-columns:1fr;gap:20px;padding-top:42px}.heroCopy p{max-width:650px}.pipelineWrap{max-width:720px;width:100%;margin:auto}.pipelineCard{height:190px}.pipelineCard>strong{font-size:13px}.pipelineCard>div{font-size:10px}.contextGrid{grid-template-columns:1fr}.contextLeft{grid-template-columns:230px 1fr}.challengeList{border-left:0;border-top:1px solid #b6c8d8;padding:20px 0 0}.challengeList{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}.challengeList h3{grid-column:1/-1}.healthFlow{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.flowArrow{display:none}.healthStage{height:183px}.healthStage>strong{font-size:13px}.healthStage li{font-size:11px}.methodGrid,.valueGrid{grid-template-columns:1fr;gap:24px}.sectionIntro p{max-width:650px}.methodList li{grid-template-columns:45px 170px 1fr}.valueItems article{min-height:105px}}
-@media(max-width:550px){.heroGrid{padding-top:34px;padding-bottom:24px}.hero h1{font-size:38px}.heroCopy p{font-size:14px}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pipelineArrow{display:none}.pipelineCard{height:164px;padding:7px 9px}.pipelineCard>div{font-size:11px}.pipelineCard>strong{font-size:12px}.warehouseIcon{width:64px;height:64px}.context{padding-top:8px}.contextLeft{grid-template-columns:1fr}.serverArt{height:160px}.contextCopy h3{font-size:20px}.challengeList{grid-template-columns:1fr}.healthPanel{padding:21px 17px}.health h2{font-size:27px}.healthFlow{grid-template-columns:1fr}.healthStage{height:auto;min-height:142px;display:grid;grid-template-columns:60px 1fr;align-items:start;column-gap:12px;text-align:left;padding-bottom:15px}.healthStage>strong{grid-column:1/-1;text-align:center;font-size:14px}.healthStage .stageIcon{margin:12px auto}.healthStage ul{padding-top:3px}.healthStage li{font-size:12px}.methodList{padding-left:18px}.methodList:before{left:4px}.methodList li{grid-template-columns:40px 1fr;gap:7px;padding:8px 0}.methodList li:before{left:-18px}.methodList h3{font-size:15px}.methodList p{grid-column:2;font-size:12px;padding-bottom:4px}.valueItems{grid-template-columns:1fr}.valueItems article,.valueItems article:nth-child(even){border-left:0;border-bottom:1px solid #d8e3e9;padding-inline:0}.valueItems article:last-child{border-bottom:0}.ctaInner{align-items:flex-start;flex-direction:column;padding-top:31px;padding-bottom:34px}.cta h2{font-size:29px}}
+@media(max-width:1050px){.heroGrid{grid-template-columns:minmax(0,38fr) minmax(0,62fr)}.pipelineCard{height:168px;gap:5px}.pipelineCard>strong{font-size:13px}.pipelineCard>div{font-size:11px}.pipelineCard>div svg{width:17px;height:17px}.pipeline{grid-template-columns:minmax(0,1fr) 13px minmax(0,1fr) 13px minmax(0,1.05fr) 13px minmax(0,1fr);gap:2px}.healthFlow{gap:17px}.flowArrow{right:-20px}.healthStage{padding-inline:8px}.healthStage>strong{margin-inline:-7px;font-size:14px}.healthStage li{font-size:14px}.methodList li{grid-template-columns:43px 155px 1fr}.methodList h3{font-size:14px}.methodList p{font-size:14px}}
+@media(max-width:800px){.heroGrid{grid-template-columns:1fr;gap:20px;padding-top:42px}.heroCopy p{max-width:650px}.pipelineWrap{max-width:720px;width:100%;margin:auto}.pipelineCard{height:190px}.pipelineCard>strong{font-size:14px}.pipelineCard>div{font-size:12px}.contextGrid{grid-template-columns:1fr}.contextLeft{grid-template-columns:230px 1fr}.challengeList{border-left:0;border-top:1px solid #b6c8d8;padding:20px 0 0}.challengeList{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}.challengeList h3{grid-column:1/-1}.healthFlow{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.flowArrow{display:none}.healthStage{height:183px}.healthStage>strong{font-size:14px}.healthStage li{font-size:14px}.methodGrid,.valueGrid{grid-template-columns:1fr;gap:24px}.sectionIntro p{max-width:650px}.methodList li{grid-template-columns:45px 170px 1fr}.valueItems article{min-height:105px}}
+@media(max-width:550px){.heroGrid{padding-top:34px;padding-bottom:24px}.hero h1{font-size:38px}.heroCopy p{font-size:14px}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pipelineArrow{display:none}.pipelineCard{height:164px;padding:7px 9px}.pipelineCard>div{font-size:13px}.pipelineCard>strong{font-size:14px}.warehouseIcon{width:64px;height:64px}.context{padding-top:8px}.contextLeft{grid-template-columns:1fr}.serverArt{height:160px}.contextCopy h3{font-size:20px}.challengeList{grid-template-columns:1fr}.healthPanel{padding:21px 17px}.health h2{font-size:27px}.healthFlow{grid-template-columns:1fr}.healthStage{height:auto;min-height:142px;display:grid;grid-template-columns:60px 1fr;align-items:start;column-gap:12px;text-align:left;padding-bottom:15px}.healthStage>strong{grid-column:1/-1;text-align:center;font-size:14px}.healthStage .stageIcon{margin:12px auto}.healthStage ul{padding-top:3px}.healthStage li{font-size:14px}.methodList{padding-left:18px}.methodList:before{left:4px}.methodList li{grid-template-columns:40px 1fr;gap:7px;padding:8px 0}.methodList li:before{left:-18px}.methodList h3{font-size:15px}.methodList p{grid-column:2;font-size:14px;padding-bottom:4px}.valueItems{grid-template-columns:1fr}.valueItems article,.valueItems article:nth-child(even){border-left:0;border-bottom:1px solid #d8e3e9;padding-inline:0}.valueItems article:last-child{border-bottom:0}.ctaInner{align-items:flex-start;flex-direction:column;padding-top:31px;padding-bottom:34px}.cta h2{font-size:29px}}
 
 @media(max-width:380px){
   .hero h1{font-size:clamp(31px,9vw,38px)}

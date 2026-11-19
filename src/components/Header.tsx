@@ -15,6 +15,7 @@ export function Header() {
   const casesMenu = useRef<HTMLDetailsElement>(null);
 
   const isActive = (href: string) => pathname === href || pathname === href.slice(0, -1);
+  const dataAnalyticsActive = isActive("/data-analytics/") || isActive("/wealth-index/") || isActive("/ai-prediction/");
   const closeMenus = () => {
     servicesMenu.current?.removeAttribute("open");
     aboutMenu.current?.removeAttribute("open");
@@ -30,7 +31,7 @@ export function Header() {
 
       <nav className="desktop-nav" aria-label="主要導覽" onKeyDown={(event) => { if (event.key === "Escape") closeMenus(); }}>
         <Link href="/" className={isActive("/") ? "nav-active" : ""} aria-current={isActive("/") ? "page" : undefined}>首頁</Link>
-        <Link href="/data-analytics/" className={isActive("/data-analytics/") ? "nav-active" : ""} aria-current={isActive("/data-analytics/") ? "page" : undefined}>數據分析服務</Link>
+        <Link href="/data-analytics/" className={dataAnalyticsActive ? "nav-active" : ""} aria-current={isActive("/data-analytics/") ? "page" : undefined}>數據分析服務</Link>
         <details
           ref={servicesMenu}
           className={"nav-dropdown" + (coreServiceLinks.some((item) => isActive(item.href)) ? " nav-service-active" : "")}

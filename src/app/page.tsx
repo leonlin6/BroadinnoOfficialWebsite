@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { HomeIntro } from "@/components/HomeIntro";
+import { ScrollUnderline } from "@/components/ScrollUnderline";
 import {
   ArrowRight, BarChart3, Blocks, CreditCard, Gem, Landmark, Layers3,
   Lightbulb, Network, Rocket, Search, Settings2, Target, UsersRound,
@@ -40,11 +42,12 @@ const featuredCases = [
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <div className={styles.sectionTitle}><h2>{children}</h2><span aria-hidden="true" /></div>;
+  return <div className={styles.sectionTitle}><div className={styles.titleUnderlineGroup}><h2>{children}</h2><ScrollUnderline className={styles.sectionUnderline} /></div></div>;
 }
 
 export default function Home() {
   return <>
+    <HomeIntro />
     <section className={styles.hero}>
       <Image className={styles.heroImage} src="/images/consulting-hero.png" alt="顧問與團隊討論企業數據策略" fill priority sizes="100vw" />
       <div className={styles.heroShade} />
@@ -58,7 +61,35 @@ export default function Home() {
 
     <section className={styles.strengthStrip} aria-label="博創數科服務特色"><div className={"container " + styles.strengthGrid}>{strengths.map(({ icon: Icon, title, text }) => <div className={styles.strength} key={title}><Icon size={29} strokeWidth={1.7} /><div><strong>{title}</strong><span>{text}</span></div></div>)}</div></section>
 
-    <section className={styles.about} id="about"><Image className={styles.aboutImage} src="/images/home-about-building.png" alt="現代辦公建築" fill sizes="(max-width: 700px) 100vw, 50vw" /><div className={styles.aboutShade} /><div className={"container " + styles.aboutGrid}><div className={styles.aboutCopy}><span className={styles.eyebrow}>ABOUT BROADINNO</span><h2>關於博創數科</h2><p>博創數科（Broadinno）成立於 2024 年底，專注於管理顧問、專案管理辦公室（PMO）、數據分析與數位轉型顧問服務，並深耕金融科技、新興支付、AI 應用與區塊鏈等領域。</p><p>我們結合數據、數位工具、科技應用與策略執行，協助企業洞察機會、擬定策略、推動落地，成為企業推動創新與轉型的長期夥伴。</p></div><div className={styles.principleList}>{principles.map(({ icon: Icon, title, text }) => <div className={styles.principle} key={title}><span><Icon size={26} strokeWidth={1.6} /></span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></section>
+    <section className={styles.about} id="about"><Image className={styles.aboutImage} src="/images/home-about-building.png" alt="現代辦公建築" fill sizes="(max-width: 700px) 100vw, 50vw" /><div className={styles.aboutShade} /><div className={"container " + styles.aboutGrid}><div className={styles.aboutCopy}><span className={styles.eyebrow}>ABOUT BROADINNO</span><div className={styles.titleUnderlineGroup}><h2>關於博創數科</h2><ScrollUnderline className={styles.aboutUnderline} /></div><p>博創數科（Broadinno）成立於 2024 年底，專注於管理顧問、專案管理辦公室（PMO）、數據分析與數位轉型顧問服務，並深耕金融科技、新興支付、AI 應用與區塊鏈等領域。</p><p>我們結合數據、數位工具、科技應用與策略執行，協助企業洞察機會、擬定策略、推動落地，成為企業推動創新與轉型的長期夥伴。</p></div><div className={styles.principleList}>{principles.map(({ icon: Icon, title, text }) => <div className={styles.principle} key={title}><span><Icon size={26} strokeWidth={1.6} /></span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></section>
+
+    <section className={styles.enterpriseValues} id="enterprise-values" aria-labelledby="enterprise-values-title">
+      <div className="container">
+        <div className={styles.valueIntro}>
+          <div className={styles.valueHeading}>
+            <span className={styles.eyebrow}>OUR VALUES</span>
+            <div className={styles.titleUnderlineGroup}>
+              <h2 id="enterprise-values-title">企業價值</h2>
+              <ScrollUnderline className={styles.valueUnderline} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.valueDiagram}>
+          <Image
+            className={styles.valueImage}
+            src="/images/enterprise-values.webp"
+            alt="企業價值：01 創新變革、積極突破；02 數據驅動、精準分析；03 秉持專業、信賴服務；04 持續交流、解決難題。"
+            width={1920}
+            height={753}
+            sizes="(max-width: 1200px) 100vw, 1200px"
+          />
+        </div>
+        <div className={styles.valueCopy}>
+          <p>我們的目標是成為企業最值得信賴的策略夥伴，提供專業的顧問服務，協助客戶在數位轉型、金融科技、人工智慧及專案管理領域中取得競爭優勢。我們秉持專業、創新與數據驅動的精神，為企業量身打造最適合的解決方案，確保每一次決策都能帶來長遠的價值。</p>
+          <p>透過深厚的產業知識與先進科技的應用，致力於幫助企業提升營運效率、強化市場競爭力，並實現可持續發展。我們的願景是培養各世代的獨立管理顧問，推動業界標準的提升，成為企業成長與轉型的核心推動力。透過專業服務，不僅提供解決方案，更與客戶並肩前行，共同創造更卓越的未來。</p>
+        </div>
+      </div>
+    </section>
 
     <section className={styles.services} id="services"><div className="container"><SectionTitle>以專業顧問服務，協助企業創造價值</SectionTitle><div className={styles.serviceGrid}><Link className={styles.serviceCard} href="/management-consulting/"><div className={styles.serviceImage}><Image src="/images/home-management.png" alt="管理顧問討論策略文件" fill sizes="(max-width: 700px) 100vw, 25vw" /></div><div className={styles.serviceCopy}><h3>管理顧問</h3><p>從策略規劃、營運與流程優化、數據應用到數位轉型，提供兼具洞察與實務經驗的顧問服務，協助企業強化競爭力、拓展新機會。</p><span>了解服務 <ArrowRight size={17} /></span></div></Link><Link className={styles.serviceCard} href="/project-manager/"><div className={styles.serviceImage}><Image src="/images/pmo-governance.png" alt="專案辦公室儀表板" fill sizes="(max-width: 700px) 100vw, 25vw" /></div><div className={styles.serviceCopy}><h3>專案辦公室 PMO</h3><p>建立專案治理與管理機制，統籌專案計畫、進度、資源、跨部門協作與風險控管，確保關鍵專案有效推進並達成預期目標。</p><span>了解服務 <ArrowRight size={17} /></span></div></Link></div></div></section>
 

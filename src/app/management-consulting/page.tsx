@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollUnderline } from "@/components/ScrollUnderline";
 import { ArrowRight, BarChart3, ChartNoAxesCombined, ChevronRight, ClipboardCheck, Database, Layers3, Lightbulb, MessageSquareMore, Network, Rocket, Search, Settings2, ShieldCheck, Target, UsersRound } from "lucide-react";
 import styles from "./management-consulting.module.css";
 
@@ -40,7 +41,7 @@ const benefits = [
 ];
 
 function CenterHeading({ title, description }: { title: string; description: string }) {
-  return <div className={styles.centerHeading}><h2>{title}</h2><span aria-hidden="true" /><p>{description}</p></div>;
+  return <div className={styles.centerHeading}><div className={styles.titleUnderlineGroup}><h2>{title}</h2><ScrollUnderline className={styles.centerUnderline} /></div><p>{description}</p></div>;
 }
 
 export default function ManagementConsulting() {
@@ -50,14 +51,14 @@ export default function ManagementConsulting() {
       <div className={styles.heroShade} />
       <div className={"container " + styles.heroInner}><div className={styles.heroCopy}>
         <div className={styles.heroEyebrow}>管理顧問服務</div>
-        <h1>以策略與管理顧問服務，<br />協助企業建立可持續成長<br />的營運體系</h1>
+        <h1 data-scroll-title>以策略與管理顧問服務，<br />協助企業建立可持續成長<br />的營運體系</h1>
         <p>協助企業釐清關鍵問題、建構可執行的策略、優化營運流程，<br className={styles.desktopBreak} />並運用數據與管理方法提升決策品質，實現穩健且可持續的成長。</p>
         <div className={styles.heroActions}><Link className={styles.primaryButton} href="/consultation-appointment/">立即預約顧問諮詢 <ArrowRight size={18} /></Link><Link className={styles.secondaryButton} href="#service-process">了解服務流程</Link></div>
       </div></div>
     </section>
 
     <section className={styles.positioning} id="about"><div className="container">
-      <div className={styles.positionIntro}><div className={styles.sectionLabel}><h2>服務定位</h2><span /></div><p>博創數科（Broadinno）作為企業的策略顧問夥伴，結合產業洞察、管理方法與數據應用，協助企業從問題定義、策略擬定到執行落地，打造更高效、敏捷且具競爭力的營運體系。</p></div>
+      <div className={styles.positionIntro}><div className={styles.sectionLabel}><div className={styles.titleUnderlineGroup}><h2>服務定位</h2><ScrollUnderline className={styles.labelUnderline} /></div></div><p>博創數科（Broadinno）作為企業的策略顧問夥伴，結合產業洞察、管理方法與數據應用，協助企業從問題定義、策略擬定到執行落地，打造更高效、敏捷且具競爭力的營運體系。</p></div>
       <div className={styles.positionGrid}>{positioning.map(({ icon: Icon, title, text }) => <article className={styles.positionCard} key={title}><div className={styles.positionIcon}><Icon size={31} strokeWidth={1.7} /></div><h3>{title}</h3><p>{text}</p></article>)}</div>
     </div></section>
 
@@ -71,8 +72,8 @@ export default function ManagementConsulting() {
       <div className={styles.processGrid}>{process.map(({ icon: Icon, title, text }, index) => <div className={styles.processItem} key={title}><article className={styles.processCard}><div className={styles.processIcon}><Icon size={27} strokeWidth={1.6} /></div><h3><span>{String(index + 1).padStart(2, "0")}</span>{title}</h3><p>{text}</p></article>{index < process.length - 1 && <ChevronRight className={styles.processArrow} size={22} aria-hidden="true" />}</div>)}</div>
     </div></section>
 
-    <section className={styles.benefits}><div className={"container " + styles.benefitsGrid}><div className={styles.benefitsCopy}><div className={styles.sectionLabel}><h2>顧問服務價值</h2><span /></div><p className={styles.benefitsIntro}>透過專業的管理顧問服務，協助企業在決策、流程、數據與組織面全面提升，創造可衡量的營運與成長價值。</p><div className={styles.benefitList}>{benefits.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={27} strokeWidth={1.6} /><h3>{title}</h3><p>{text}</p></article>)}</div></div><div className={styles.benefitImage}><Image src="/images/service-data.png" alt="展示分析圖表的營運數據儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /><div className={styles.benefitImageLabel}><ShieldCheck size={17} /> 數據與策略，連結每一步決策</div></div></div></section>
+    <section className={styles.benefits}><div className={"container " + styles.benefitsGrid}><div className={styles.benefitsCopy}><div className={styles.sectionLabel}><div className={styles.titleUnderlineGroup}><h2>顧問服務價值</h2><ScrollUnderline className={styles.labelUnderline} /></div></div><p className={styles.benefitsIntro}>透過專業的管理顧問服務，協助企業在決策、流程、數據與組織面全面提升，創造可衡量的營運與成長價值。</p><div className={styles.benefitList}>{benefits.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={27} strokeWidth={1.6} /><h3>{title}</h3><p>{text}</p></article>)}</div></div><div className={styles.benefitImage}><Image src="/images/service-data.png" alt="展示分析圖表的營運數據儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /><div className={styles.benefitImageLabel}><ShieldCheck size={17} /> 數據與策略，連結每一步決策</div></div></div></section>
 
-    <section className={styles.contactBanner} id="contact"><Image src="/images/contact-building.png" alt="現代玻璃帷幕辦公大樓" fill sizes="100vw" /><div className={styles.contactShade} /><div className={"container " + styles.contactInner}><div><h2>立即與博創數科顧問團隊聯繫</h2><p>歡迎與我們討論您的企業挑戰與發展目標，<br />我們將提供專業評估與量身規劃的管理顧問解決方案。</p></div><div className={styles.contactAction}><Link href="/consultation-appointment/">預約一對一諮詢 <ArrowRight size={18} /></Link><p>從策略到落地執行，提供最適合您的管理顧問方案。</p></div></div></section>
+    <section className={styles.contactBanner} id="contact"><Image src="/images/contact-building.png" alt="現代玻璃帷幕辦公大樓" fill sizes="100vw" /><div className={styles.contactShade} /><div className={"container " + styles.contactInner}><div><h2 data-scroll-title>立即與博創數科顧問團隊聯繫</h2><p>歡迎與我們討論您的企業挑戰與發展目標，<br />我們將提供專業評估與量身規劃的管理顧問解決方案。</p></div><div className={styles.contactAction}><Link href="/consultation-appointment/">預約一對一諮詢 <ArrowRight size={18} /></Link><p>從策略到落地執行，提供最適合您的管理顧問方案。</p></div></div></section>
   </>;
 }

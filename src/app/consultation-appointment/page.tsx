@@ -34,20 +34,20 @@ function Accent() {
 
 export default function Consultation() {
   return <div className={styles.page}>
-    <section className={styles.hero} aria-labelledby="consultation-title"><div className={"container " + styles.heroInner}><span className={styles.eyebrow}>CONSULTATION / 預約諮詢</span><h1 id="consultation-title">讓我們一起討論您的下一步</h1><p>分享您的需求與挑戰，與顧問團隊交流合適的解決方向。</p><Accent /></div></section>
+    <section className={styles.hero} aria-labelledby="consultation-title"><div className={"container " + styles.heroInner}><span className={styles.eyebrow}>CONSULTATION / 預約諮詢</span><h1 id="consultation-title" data-scroll-title>讓我們一起討論您的下一步</h1><p>分享您的需求與挑戰，與顧問團隊交流合適的解決方向。</p><Accent /></div></section>
 
     <section className={styles.mainSection} aria-label="諮詢服務與預約表單"><div className={"container " + styles.mainGrid}>
       <div className={styles.introColumn}>
-        <h2>專業諮詢・從需求出發</h2>
+        <h2 data-scroll-title>專業諮詢・從需求出發</h2>
         <p>我們結合產業經驗與數據分析能力，協助企業釐清問題、評估方案，並規劃可落地的執行方向。</p>
         <div className={styles.topicBlock}><Accent /><h3>諮詢涵蓋領域</h3><div className={styles.topicList}>{topics.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={31} strokeWidth={1.7} aria-hidden="true" /><div><strong>{title}</strong><span>{text}</span></div></article>)}</div></div>
       </div>
 
-      <section className={styles.formCard} id="consultation-form" aria-labelledby="form-title"><div className={styles.formHead}><div><CalendarDays size={30} strokeWidth={1.7} /><h2 id="form-title">預約諮詢</h2></div><span><b>*</b> 為必填欄位</span></div><ConsultationForm /></section>
+      <section className={styles.formCard} id="consultation-form" aria-labelledby="form-title"><div className={styles.formHead}><div><CalendarDays size={30} strokeWidth={1.7} /><h2 id="form-title" data-scroll-title>預約諮詢</h2></div><span><b>*</b> 為必填欄位</span></div><ConsultationForm /></section>
     </div></section>
 
-    <section className={styles.detailsSection} aria-label="諮詢流程與聯絡資訊"><div className={"container " + styles.detailsGrid}><div className={styles.process}><h2>諮詢流程</h2><Accent /><div className={styles.processSteps}>{process.map(({ icon: Icon, title, text }, index) => <div className={styles.processStep} key={title}><span><Icon size={32} strokeWidth={1.7} aria-hidden="true" /></span><strong>{title}</strong><p>{text}</p>{index < process.length - 1 && <ArrowRight className={styles.processArrow} size={20} strokeWidth={2.3} aria-hidden="true" />}</div>)}</div></div><div className={styles.contact}><h2>聯絡資訊</h2><Accent /><div className={styles.contactLines}><div><Building2 size={22} aria-hidden="true" /><strong>博創數科有限公司</strong></div><div><MapPin size={22} aria-hidden="true" /><span>台北市中山區復興北路48號7樓</span></div><a href="mailto:service@broadinno.com.tw"><Mail size={22} aria-hidden="true" />service@broadinno.com.tw</a></div><Link className={styles.privacyLink} href="/policy-privacy/"><ShieldCheck size={20} aria-hidden="true" />隱私權聲明 <ExternalLink size={15} aria-hidden="true" /></Link></div></div></section>
+    <section className={styles.detailsSection} aria-label="諮詢流程與聯絡資訊"><div className={"container " + styles.detailsGrid}><div className={styles.process}><h2 data-scroll-title>諮詢流程</h2><Accent /><div className={styles.processSteps}>{process.map(({ icon: Icon, title, text }, index) => <div className={styles.processStep} key={title}><span><Icon size={32} strokeWidth={1.7} aria-hidden="true" /></span><strong>{title}</strong><p>{text}</p>{index < process.length - 1 && <ArrowRight className={styles.processArrow} size={20} strokeWidth={2.3} aria-hidden="true" />}</div>)}</div></div><div className={styles.contact}><h2 data-scroll-title>聯絡資訊</h2><Accent /><div className={styles.contactLines}><div><Building2 size={22} aria-hidden="true" /><strong>博創數科有限公司</strong></div><div><MapPin size={22} aria-hidden="true" /><span>台北市中山區復興北路48號7樓</span></div><a href="mailto:service@broadinno.com.tw"><Mail size={22} aria-hidden="true" />service@broadinno.com.tw</a></div><Link className={styles.privacyLink} href="/policy-privacy/"><ShieldCheck size={20} aria-hidden="true" />隱私權聲明 <ExternalLink size={15} aria-hidden="true" /></Link></div></div></section>
 
-    <section className={styles.cta}><div className={"container " + styles.ctaInner}><h2>從一個問題開始，找到適合您的解決方向。</h2><a href="mailto:service@broadinno.com.tw?subject=%E9%A0%90%E7%B4%84%E8%AB%AE%E8%A9%A2">透過 Email 聯絡 <ArrowRight size={20} aria-hidden="true" /></a></div></section>
+    <section className={styles.cta}><div className={"container " + styles.ctaInner}><h2 data-scroll-title>從一個問題開始，找到適合您的解決方向。</h2><a href="mailto:service@broadinno.com.tw?subject=%E9%A0%90%E7%B4%84%E8%AB%AE%E8%A9%A2">透過 Email 聯絡 <ArrowRight size={20} aria-hidden="true" /></a></div></section>
   </div>;
 }

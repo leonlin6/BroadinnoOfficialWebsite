@@ -12,7 +12,7 @@ export const theme = createTheme({
     divider: "#E2E8F0",
   },
   typography: {
-    fontFamily: 'Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif',
+    fontFamily: 'var(--font-noto-sans-tc), "Noto Sans TC", sans-serif',
     button: { textTransform: "none", fontWeight: 700 },
   },
   shape: { borderRadius: 12 },

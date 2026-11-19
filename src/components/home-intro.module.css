@@ -1,0 +1,64 @@
+.overlay{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;padding:24px;border:0;background:#fff;overflow:hidden;transition:background-color .55s ease}
+.overlay:not([open]){display:none}
+.overlay::backdrop{background:transparent}
+.skip{position:absolute;top:28px;right:32px;z-index:2;padding:9px 15px;border:1px solid #b8cbd8;border-radius:999px;background:#fff;color:#16466b;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.skip:hover{background:#eef8fb}.skip:focus-visible{outline:3px solid #08bdb8;outline-offset:3px}
+.logo{position:relative;width:min(92vw,650px);aspect-ratio:245/60;transform-origin:center;will-change:transform}
+.icon,.finalSymbol,.wordmark,.finalLogo{position:absolute;inset:0;width:100%;height:100%}
+.icon{--step-cycle:2s;overflow:visible;animation:icon-slide 3.08s linear both,icon-exit .15s 3.55s both}
+.settled .icon{animation:none;opacity:0}
+.finalSymbol{opacity:0;clip-path:inset(0 63% 0 0)}
+.settled .finalSymbol{opacity:1}
+.stepsStopped .movingSteps{opacity:0}
+.staticSteps{opacity:0}
+.stepsStopped .staticSteps{opacity:1}
+.escalatorStep{transform-box:view-box;animation:escalator-step var(--step-cycle) linear infinite both}
+.stepOne{animation-delay:0s}.stepTwo{animation-delay:-.666667s}.stepThree{animation-delay:-1.333333s}
+.rollingSquare{transform-box:view-box;transform-origin:41.5px 20.6px;animation:square-climb var(--step-cycle) linear both}
+.stepsStopped .rollingSquare{transform-origin:41.5px 37px;animation:square-bounce .72s linear both}
+.wordmark{overflow:hidden;clip-path:inset(0 63% 0 37%);animation:wordmark-reveal .4s 3.15s ease-out both}
+.finalSymbol img,.wordmark img,.finalLogo img{object-fit:cover;object-position:center}
+.finalLogo{opacity:0;animation:final-logo-appear .15s 3.55s both}
+.flying{background-color:transparent}
+.flying .logo{transform:translate3d(var(--intro-x),var(--intro-y),0) scale(var(--intro-scale-x),var(--intro-scale-y));transition:transform 1.2s cubic-bezier(.45,0,.2,1)}
+.flying .skip{opacity:0;pointer-events:none;transition:opacity .2s}
+/* Start on the logo's final coordinates and roll 90deg per step, ending at the source diamond's angle. */
+@keyframes square-climb{
+  0%{transform:translate(0,0) rotate(-270deg)}
+  8.333%{transform:translate(0,-20.5px) rotate(-247.5deg)}
+  16.666%{transform:translate(0,-24px) rotate(-225deg)}
+  33.333%{transform:translate(0,0) rotate(-180deg)}
+  41.666%{transform:translate(0,-20.5px) rotate(-157.5deg)}
+  50%{transform:translate(0,-24px) rotate(-135deg)}
+  66.666%{transform:translate(0,0) rotate(-90deg)}
+  75%{transform:translate(0,-20.5px) rotate(-67.5deg)}
+  83.333%{transform:translate(0,-24px) rotate(-45deg)}
+  100%{transform:translate(0,0) rotate(0deg)}
+}
+@keyframes square-bounce{
+  0%{transform:translate(0,0) scale(1);animation-timing-function:ease-out}
+  8%{transform:translateX(-.6px) scale(1.02,.86);animation-timing-function:cubic-bezier(.12,.65,.25,1)}
+  29%{transform:translateY(-11px) scale(.99,1.02);animation-timing-function:cubic-bezier(.55,0,.85,.45)}
+  51%{transform:translateX(-.6px) scale(1.02,.86);animation-timing-function:cubic-bezier(.12,.65,.25,1)}
+  68%{transform:translateY(-4.5px) scale(.995,1.01);animation-timing-function:cubic-bezier(.55,0,.85,.45)}
+  84%{transform:translateX(-.35px) scale(1.01,.94);animation-timing-function:ease-out}
+  100%{transform:translate(0,0) scale(1)}
+}
+/* The finished symbol spans x=25..81 in a 245-unit logo; shifting its center by 69.5 units centers it on screen. */
+@keyframes icon-slide{
+  0%,88.31%{transform:translateX(28.37%);animation-timing-function:cubic-bezier(.45,0,.2,1)}
+  100%{transform:translateX(0)}
+}
+@keyframes escalator-step{
+  0%{transform:translate(14.4px,-26.1px);opacity:0}
+  5%{opacity:1}
+  33.333%{transform:translate(0,0);opacity:1}
+  66.666%{transform:translate(-14.4px,26.1px);opacity:1}
+  95%{opacity:0}
+  100%{transform:translate(-28.8px,52.2px);opacity:0}
+}
+@keyframes wordmark-reveal{to{clip-path:inset(0 0 0 37%)}}
+@keyframes icon-exit{to{opacity:0}}
+@keyframes final-logo-appear{to{opacity:1}}
+@media(max-width:650px){.skip{top:18px;right:18px}.logo{width:92vw}}
+@media(prefers-reduced-motion:reduce){.overlay,.flying .logo{transition:none}.icon,.escalatorStep,.rollingSquare,.wordmark,.finalLogo{animation:none}.icon,.wordmark{opacity:0}.finalLogo{opacity:1}}

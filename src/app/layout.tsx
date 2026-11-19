@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import { Noto_Sans_TC } from "next/font/google";
 import { ThemeRegistry } from "@/components/ThemeRegistry";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TitleUnderlineObserver } from "@/components/TitleUnderlineObserver";
 import { siteUrl } from "@/lib/content";
 import "./globals.css";
+
+const notoSansTC = Noto_Sans_TC({ variable: "--font-noto-sans-tc", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,5 +22,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-Hant"><body><ThemeRegistry><Header /><main>{children}</main><Footer /></ThemeRegistry></body></html>;
+  return <html lang="zh-Hant" className={notoSansTC.variable}><body><ThemeRegistry><Header /><main>{children}</main><Footer /><TitleUnderlineObserver /></ThemeRegistry></body></html>;
 }

@@ -1,0 +1,101 @@
+.page{color:#0b2444;background:#fff}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 72% 45%,#d4f0ff 0%,#edf9ff 37%,#fff 73%)}
+.hero:before{content:"";position:absolute;right:-11%;bottom:-135px;width:78%;height:360px;border-radius:50%;border:1px solid rgba(107,192,242,.27);box-shadow:0 -40px 0 rgba(172,228,255,.12),0 -82px 0 rgba(172,228,255,.1);transform:rotate(-20deg)}
+.heroGrid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center;min-height:565px}
+.heroCopy{position:relative;z-index:2;padding:47px 0 56px}
+.breadcrumb{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:46px;color:#58718a;font-size:13px}
+.breadcrumb a:hover{color:#075bc3}
+.eyebrow{display:block;color:#0d64aa;font-size:13px;font-weight:800;letter-spacing:.13em}
+.hero h1{margin:16px 0 19px;color:#0b1f3f;font-size:clamp(42px,4.9vw,66px);font-weight:800;letter-spacing:-.055em;line-height:1.22}
+.hero h1 span{color:#075ac5}
+.heroCopy>p{max-width:520px;margin:0;color:#3b526b;font-size:17px;line-height:1.85}
+.heroActions{display:flex;flex-wrap:wrap;gap:13px;margin-top:27px}
+.primaryButton,.secondaryButton{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;padding:11px 19px;border-radius:7px;font-size:15px;font-weight:800;transition:transform .2s,box-shadow .2s,background-color .2s}
+.primaryButton{background:#0c57c6;color:#fff;box-shadow:0 8px 16px rgba(13,81,181,.16)}
+.primaryButton:hover{background:#074ba9;transform:translateY(-2px)}
+.secondaryButton{border:1px solid #9bbce0;background:rgba(255,255,255,.8);color:#174879}
+.secondaryButton:hover{background:#fff;box-shadow:0 7px 14px rgba(29,91,146,.1);transform:translateY(-2px)}
+.mapGraphic{position:relative;min-height:525px;isolation:isolate}
+.mapGraphic:before{content:"";position:absolute;inset:7% 0 4%;z-index:-1;background:radial-gradient(circle at 58% 51%,rgba(39,160,238,.23),transparent 61%);filter:blur(8px)}
+.mapGrid{position:absolute;inset:0;opacity:.65;background-image:linear-gradient(rgba(71,169,221,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(71,169,221,.12) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(circle at center,#000 19%,transparent 75%)}
+.taiwanMap{position:absolute;top:15px;right:16%;height:495px;width:auto;filter:drop-shadow(0 12px 13px rgba(20,99,183,.23))}
+.floatCard,.legendCard{position:absolute;border:1px solid #cce4f6;border-radius:12px;background:rgba(255,255,255,.9);box-shadow:0 10px 24px rgba(25,92,149,.13);backdrop-filter:blur(8px)}
+.floatCard{display:flex;align-items:center;gap:11px;max-width:213px;padding:13px 15px;color:#075cc1}
+.floatCard strong,.floatCard span{display:block}
+.floatCard strong{color:#102545;font-size:15px;white-space:nowrap}
+.floatCard span{margin-top:3px;color:#4c647b;font-size:11px;line-height:1.45}
+.gradeCard{top:78px;left:6%}
+.mapCard{top:218px;left:0}
+.legendCard{right:0;bottom:52px;width:245px;padding:14px 15px}
+.legendCard strong{display:block;color:#102545;font-size:13px}
+.legendCard small{color:#647d90;font-size:11px;font-weight:500}
+.gradeScale{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:10px 0 6px}
+.gradeScale i{height:14px;background:#0651c5}.gradeScale i:nth-child(2){background:#1174df}.gradeScale i:nth-child(3){background:#1a9bed}.gradeScale i:nth-child(4){background:#2db8ef}.gradeScale i:nth-child(5){background:#59d2ed}.gradeScale i:nth-child(6){background:#83e3df}.gradeScale i:nth-child(7){background:#9beed2}
+.legendCard>span{color:#526a80;font-size:11px}
+.featureSection{padding:30px 0 58px;background:#fff}
+.featureGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.featureCard{display:flex;align-items:flex-start;gap:17px;min-height:145px;padding:25px 22px;border:1px solid #d4e6f4;border-radius:12px;background:#fff;box-shadow:0 9px 22px rgba(29,83,127,.06)}
+.featureCard>svg{flex:none;color:#0f6bd8}
+.featureCard h2{margin:0 0 8px;color:#0c2545;font-size:21px;line-height:1.3}
+.featureCard p{margin:0;color:#4d6175;font-size:14px;line-height:1.7}
+.processSection{padding:76px 0 83px;scroll-margin-top:30px;background:linear-gradient(90deg,rgba(237,249,255,.94),rgba(245,251,255,.9)),url("/images/home-about-building.png") center/cover}
+.sectionHeading{max-width:760px;margin:0 auto 28px;text-align:center}
+.sectionHeading>span{color:#08aebe;font-size:13px;font-weight:800;letter-spacing:.16em}
+.sectionHeading h2{margin:9px 0 11px;color:#0b2444;font-size:clamp(31px,3.4vw,43px);line-height:1.33}
+.sectionHeading p{margin:0;color:#4d6378;font-size:15px}
+.stepGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.stepCard{position:relative;min-height:225px;padding:26px;border:1px solid #d8e9f5;border-radius:15px;background:rgba(255,255,255,.94);box-shadow:0 10px 26px rgba(29,85,134,.09)}
+.stepNumber{display:inline-grid;place-items:center;width:35px;height:35px;margin-right:16px;border-radius:50%;background:#e2efff;color:#0954ba;font-size:14px;font-weight:800;vertical-align:middle}
+.stepCard>svg{color:#1268d8;vertical-align:middle}
+.stepCard h3{margin:20px 0 8px;color:#0b2444;font-size:21px}
+.stepCard p{margin:0;color:#4c6174;font-size:14px;line-height:1.72}
+.exampleSection{padding:85px 0 92px;background:#fff}
+.exampleGrid{display:grid;grid-template-columns:285px minmax(0,1fr);gap:43px;align-items:center}
+.exampleCopy h2{margin:12px 0 14px;color:#0b2444;font-size:clamp(29px,3vw,38px);line-height:1.32}
+.exampleCopy>p{margin:0 0 22px;color:#485e75;font-size:15px;line-height:1.8}
+.examplePoint{display:flex;gap:12px;align-items:flex-start;margin-top:15px;color:#0a61c8}
+.examplePoint>svg{flex:none;margin-top:2px}
+.examplePoint strong,.examplePoint span{display:block}
+.examplePoint strong{color:#10284a;font-size:14px}.examplePoint span{margin-top:3px;color:#607388;font-size:13px;line-height:1.5}
+.reportCard{padding:15px;border:1px solid #d8e9f7;border-radius:13px;background:#fff;box-shadow:0 10px 28px rgba(27,83,128,.09)}
+.reportTitle{display:flex;align-items:center;gap:9px;margin-bottom:11px;color:#0d64ce}
+.reportTitle strong{color:#10284a;font-size:17px}.reportTitle span{margin-left:auto;padding:4px 8px;border-radius:20px;background:#edf5fc;color:#3f6788;font-size:11px;font-weight:800;white-space:nowrap}
+.tableScroll{overflow-x:auto}
+.reportCard table{width:100%;border-collapse:collapse;min-width:570px;font-size:13px;text-align:left}
+.reportCard th{padding:9px 10px;background:#eaf4fe;color:#173d65;font-weight:800;white-space:nowrap}
+.reportCard th:first-child{border-radius:5px 0 0 5px}.reportCard th:last-child{border-radius:0 5px 5px 0}
+.reportCard td{padding:10px;border-bottom:1px solid #e8eff6;color:#334b61;white-space:nowrap}
+.reportCard td:last-child{text-align:center}
+.gradePill{display:inline-grid;place-items:center;min-width:48px;padding:3px 9px;border-radius:20px;font-weight:800}
+.gradeA{background:#d8f8e9;color:#14704a}.gradeC{background:#dceaff;color:#255bb6}.gradeF{background:#eae1ff;color:#7255bc}
+.sampleNotice{display:flex;gap:8px;align-items:flex-start;margin:12px 0 0;color:#536d85;font-size:12px;line-height:1.6}.sampleNotice svg{flex:none;color:#0e6acb}
+.requestSection{padding:70px 0 74px;scroll-margin-top:20px;background:radial-gradient(circle at 85% 85%,#c3eaff,transparent 37%),linear-gradient(110deg,#f5fbff,#e3f4ff)}
+.requestGrid{display:grid;grid-template-columns:.82fr 1.18fr;gap:54px;align-items:center}
+.requestCopy h2{margin:13px 0 15px;color:#0b2444;font-size:clamp(32px,3.7vw,49px);line-height:1.27}
+.requestCopy>p{margin:0;color:#425b73;font-size:16px;line-height:1.85}
+.requestHighlights{display:flex;flex-direction:column;gap:13px;margin-top:28px}
+.requestHighlights span{display:flex;align-items:center;gap:10px;color:#194a79;font-size:15px;font-weight:700}.requestHighlights svg{color:#0d72d6}
+.formCard{padding:28px;border:1px solid #d6e9f8;border-radius:17px;background:#fff;box-shadow:0 17px 35px rgba(37,96,147,.12)}
+.requestForm{display:block}
+.formGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.formGrid label{display:flex;flex-direction:column;gap:7px;min-width:0;color:#10294a;font-size:13px;font-weight:800}
+.formGrid label b,.consent b{color:#c73950}
+.formGrid .fullField{grid-column:1/-1}
+.formGrid input,.formGrid select,.formGrid textarea{width:100%;min-height:42px;padding:9px 12px;border:1px solid #bdd0df;border-radius:6px;outline:0;background:#fff;color:#1d354b;font-size:14px;font-weight:400;transition:border-color .2s,box-shadow .2s}
+.formGrid textarea{resize:vertical;min-height:83px;line-height:1.55}
+.formGrid input:focus,.formGrid select:focus,.formGrid textarea:focus{border-color:#0c6acd;box-shadow:0 0 0 3px rgba(36,129,220,.14)}
+.formGrid input::placeholder,.formGrid textarea::placeholder{color:#8496a7}
+.formHint{margin:12px 0 0;color:#60768a;font-size:12px;line-height:1.6}
+.consent{display:flex;align-items:flex-start;gap:9px;margin:17px 0;color:#3e586e;font-size:13px;line-height:1.6}
+.consent input{flex:none;margin:4px 0 0;accent-color:#0b64cb}.consent a{color:#075cbd;text-decoration:underline;text-underline-offset:2px}
+.requestForm>button,.feedbackDialog>button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:45px;border:0;border-radius:6px;background:#0b57c4;color:#fff;font-size:14px;font-weight:800;cursor:pointer}
+.requestForm>button:hover,.feedbackDialog>button:hover{background:#06459f}.requestForm>button:disabled{opacity:.6;cursor:wait}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.feedbackDialog{width:min(420px,calc(100% - 32px));max-width:none;padding:28px;border:1px solid #d3e6f4;border-radius:14px;box-shadow:0 24px 70px rgba(12,42,76,.25);text-align:center}
+.feedbackDialog::backdrop{background:rgba(9,27,52,.48)}
+.feedbackDialog svg{margin:0 auto 9px}.successIcon{color:#149b78}.errorIcon{color:#c85657}
+.feedbackDialog h2{margin:0 0 9px;color:#0a2444;font-size:23px}.feedbackDialog p{margin:0 0 20px;color:#486076;font-size:14px;line-height:1.7}
+.footnote{display:flex;justify-content:center;align-items:flex-start;gap:8px;max-width:1100px;margin:0 auto;padding:18px 24px;color:#516e87;font-size:12px;line-height:1.55;text-align:left}.footnote svg{flex:none;color:#0c67ca}
+@media(max-width:1050px){.heroGrid{grid-template-columns:1fr .9fr}.gradeCard{left:0}.mapCard{left:0}.taiwanMap{right:4%}.legendCard{right:0}.requestGrid{gap:30px}}
+@media(max-width:800px){.heroGrid{grid-template-columns:1fr;gap:0}.heroCopy{padding-bottom:0}.mapGraphic{min-height:480px}.taiwanMap{right:24%;height:450px}.gradeCard{left:8%}.mapCard{left:5%}.legendCard{right:6%}.featureGrid{grid-template-columns:1fr}.featureCard{min-height:0}.exampleGrid,.requestGrid{grid-template-columns:1fr;gap:28px}.exampleCopy{max-width:690px}}
+@media(max-width:650px){.heroGrid{min-height:0}.heroCopy{padding:28px 0 0}.breadcrumb{margin-bottom:32px;font-size:12px}.eyebrow{font-size:11px}.hero h1{font-size:clamp(38px,10vw,52px)}.heroCopy>p{font-size:14px}.heroActions{gap:9px}.primaryButton,.secondaryButton{min-height:43px;padding:9px 13px;font-size:13px}.mapGraphic{min-height:375px;margin:0 -18px}.taiwanMap{top:1px;right:16%;height:350px}.gradeCard{top:42px;left:1%;max-width:155px;padding:9px}.mapCard{top:164px;left:0;max-width:160px;padding:9px}.floatCard svg{width:18px;flex:none}.floatCard strong{font-size:11px}.floatCard span{font-size:9px}.legendCard{right:0;bottom:15px;width:160px;padding:9px}.legendCard strong{font-size:11px}.legendCard>span{font-size:9px}.gradeScale i{height:9px}.featureSection{padding:21px 0 50px}.featureGrid{gap:11px}.featureCard{padding:18px}.featureCard h2{font-size:18px}.featureCard p{font-size:13px}.processSection,.exampleSection{padding:58px 0}.sectionHeading h2{font-size:30px}.sectionHeading p{font-size:14px}.stepGrid{grid-template-columns:1fr;gap:13px}.stepCard{min-height:0;padding:20px}.stepCard h3{margin-top:12px;font-size:19px}.exampleCopy h2{font-size:29px}.requestSection{padding:55px 0}.requestCopy h2{font-size:32px}.requestCopy>p{font-size:14px}.formCard{padding:20px}.formGrid{grid-template-columns:1fr;gap:13px}.formGrid .fullField{grid-column:1}.footnote{padding:16px 18px}}

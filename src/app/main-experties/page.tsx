@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollUnderline } from "@/components/ScrollUnderline";
 import {
   ArrowRight, BarChart3, Blocks, BrainCircuit, Check, CreditCard, Heart,
   Landmark, Layers3, Rocket, Target, Trophy, UsersRound,
@@ -45,12 +46,12 @@ const outcomes = [
 ];
 
 function CenterHeading({ title, description }: { title: string; description?: string }) {
-  return <div className={styles.centerHeading}><h2>{title}</h2><span aria-hidden="true" />{description && <p>{description}</p>}</div>;
+  return <div className={styles.centerHeading}><div className={styles.titleUnderlineGroup}><h2>{title}</h2><ScrollUnderline className={styles.titleUnderline} /></div>{description && <p>{description}</p>}</div>;
 }
 
 export default function MainExpertise() {
   return <>
-    <section className={styles.hero}><Image className={styles.heroImage} src="/images/consulting-hero.png" alt="顧問向企業團隊說明數據分析" fill priority sizes="100vw" /><div className={styles.heroShade} /><div className={"container " + styles.heroInner}><div className={styles.heroCopy}><h1>主要<span>專業領域</span></h1><h2>整合數據、數位工具與科技，<br />落地可執行的商業解決方案</h2><p>博創數科（Broadinno）結合產業洞察、數據能力與多元技術，協助企業將金融科技、支付、AI、區塊鏈與數據分析等技術，轉化為可落地、可衡量的業務價值，加速企業數位轉型與創新成長。</p><div className={styles.heroActions}><Link href="/consultation-appointment/" className={styles.primaryAction}>預約專案諮詢 <ArrowRight size={17} /></Link><Link href="#domains" className={styles.secondaryAction}>了解服務內容 <ArrowRight size={17} /></Link></div></div></div><div className={styles.heroChips} aria-label="專業領域摘要"><span><Landmark size={15} />金融科技</span><span><CreditCard size={15} />支付</span><span><BrainCircuit size={15} />AI</span><span><Blocks size={15} />區塊鏈</span><span><BarChart3 size={15} />數據分析</span><span><Layers3 size={15} />數位轉型</span></div></section>
+    <section className={styles.hero}><Image className={styles.heroImage} src="/images/consulting-hero.png" alt="顧問向企業團隊說明數據分析" fill priority sizes="100vw" /><div className={styles.heroShade} /><div className={"container " + styles.heroInner}><div className={styles.heroCopy}><h1 data-scroll-title>主要<span>專業領域</span></h1><h2>整合數據、數位工具與科技，<br />落地可執行的商業解決方案</h2><p>博創數科（Broadinno）結合產業洞察、數據能力與多元技術，協助企業將金融科技、支付、AI、區塊鏈與數據分析等技術，轉化為可落地、可衡量的業務價值，加速企業數位轉型與創新成長。</p><div className={styles.heroActions}><Link href="/consultation-appointment/" className={styles.primaryAction}>預約專案諮詢 <ArrowRight size={17} /></Link><Link href="#domains" className={styles.secondaryAction}>了解服務內容 <ArrowRight size={17} /></Link></div></div></div><div className={styles.heroChips} aria-label="專業領域摘要"><span><Landmark size={15} />金融科技</span><span><CreditCard size={15} />支付</span><span><BrainCircuit size={15} />AI</span><span><Blocks size={15} />區塊鏈</span><span><BarChart3 size={15} />數據分析</span><span><Layers3 size={15} />數位轉型</span></div></section>
 
     <section className={styles.focusStrip}><div className={"container " + styles.focusGrid}>{focus.map(({ icon: Icon, title, text }) => <div className={styles.focusItem} key={title}><Icon size={31} strokeWidth={1.65} /><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></section>
 
@@ -60,6 +61,6 @@ export default function MainExpertise() {
 
     <section className={styles.outcomes}><div className="container"><CenterHeading title="為企業帶來的關鍵成效" /><div className={styles.outcomeGrid}>{outcomes.map(({ icon: Icon, title, text }) => <article className={styles.outcomeCard} key={title}><Icon size={32} strokeWidth={1.7} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-    <section className={styles.cta}><div className={"container " + styles.ctaInner}><h2>讓專業領域成為企業成長的核心動能</h2><p>與博創數科的專業顧問團隊對談，<br />共同探索最適合企業的創新與數位轉型方案。</p><Link href="/consultation-appointment/">立即預約諮詢 <ArrowRight size={18} /></Link></div></section>
+    <section className={styles.cta}><div className={"container " + styles.ctaInner}><h2 data-scroll-title>讓專業領域成為企業成長的核心動能</h2><p>與博創數科的專業顧問團隊對談，<br />共同探索最適合企業的創新與數位轉型方案。</p><Link href="/consultation-appointment/">立即預約諮詢 <ArrowRight size={18} /></Link></div></section>
   </>;
 }

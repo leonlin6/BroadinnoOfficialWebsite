@@ -46,7 +46,7 @@ export function WarehouseCasePage() {
         <div className={"container " + styles.heroGrid}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>CASE STUDY / DATA INFRASTRUCTURE</span>
-            <h1 id="warehouse-title">金控公司資料倉儲<br />建置及應用</h1>
+            <h1 id="warehouse-title" data-scroll-title>金控公司資料倉儲<br />建置及應用</h1>
             <Accent />
             <p>針對金控企業既有資料倉儲與數據中台，進行資料整合、品質治理與使用流程檢視，強化資料資產管理與應用價值，協助企業降低維運成本並拓展資料價值。</p>
           </div>
@@ -86,7 +86,7 @@ export function WarehouseCasePage() {
 
       <section className={styles.context} aria-labelledby="context-title">
         <div className="container">
-          <h2 id="context-title">既有環境與治理課題</h2><Accent />
+          <h2 id="context-title" data-scroll-title>既有環境與治理課題</h2><Accent />
           <div className={styles.contextGrid}>
             <div className={styles.contextLeft}>
               <div className={styles.serverArt} aria-hidden="true">
@@ -108,7 +108,7 @@ export function WarehouseCasePage() {
 
       <section className={styles.health} aria-labelledby="health-title">
         <div className={"container " + styles.healthPanel}>
-          <h2 id="health-title">Data Health Check｜從資料治理走向價值</h2>
+          <h2 id="health-title" data-scroll-title>Data Health Check｜從資料治理走向價值</h2>
           <p>透過系統化的資料健檢，檢視資料的完整性、品質、治理與應用，協助企業找到成本控制與資料價值提升的方向。</p>
           <div className={styles.healthFlow}>
             {healthStages.map(({ title, icon: Icon, items, tone }, index) => (
@@ -128,7 +128,7 @@ export function WarehouseCasePage() {
 
       <section className={styles.method} aria-labelledby="method-title">
         <div className={"container " + styles.methodGrid}>
-          <div className={styles.sectionIntro}><h2 id="method-title">顧問工作方式</h2><Accent /><p>以資料治理與應用價值為導向，透過階段式的顧問作業，協助企業檢視現況、釐清問題，並提出可行的改善方向與應用場景。</p></div>
+          <div className={styles.sectionIntro}><h2 id="method-title" data-scroll-title>顧問工作方式</h2><Accent /><p>以資料治理與應用價值為導向，透過階段式的顧問作業，協助企業檢視現況、釐清問題，並提出可行的改善方向與應用場景。</p></div>
           <ol className={styles.methodList}>
             {methods.map(({ title, text }, index) => <li key={title}><span className={styles.methodNumber}>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></li>)}
           </ol>
@@ -137,13 +137,13 @@ export function WarehouseCasePage() {
 
       <section className={styles.value} aria-labelledby="value-title">
         <div className={"container " + styles.valueGrid}>
-          <div className={styles.sectionIntro}><h2 id="value-title">服務價值與預期方向</h2><Accent /><p>透過資料健檢與治理規劃，協助企業在成本、效率、資料資產與決策應用等面向，創造更具深度的資料價值。</p></div>
+          <div className={styles.sectionIntro}><h2 id="value-title" data-scroll-title>服務價值與預期方向</h2><Accent /><p>透過資料健檢與治理規劃，協助企業在成本、效率、資料資產與決策應用等面向，創造更具深度的資料價值。</p></div>
           <div className={styles.valueItems}>{outcomes.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={42} strokeWidth={1.6} aria-hidden="true" /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>
       </section>
 
       <section className={styles.cta} aria-labelledby="warehouse-cta-title">
-        <div className={"container " + styles.ctaInner}><h2 id="warehouse-cta-title">讓企業資料，真正轉化為決策價值</h2><Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={19} /></Link></div>
+        <div className={"container " + styles.ctaInner}><h2 id="warehouse-cta-title" data-scroll-title>讓企業資料，真正轉化為決策價值</h2><Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={19} /></Link></div>
       </section>
     </div>
   );

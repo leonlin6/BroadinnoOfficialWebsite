@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollUnderline } from "@/components/ScrollUnderline";
 import {
   ArrowRight, BarChart3, CalendarDays, Check, ChevronRight, ClipboardList,
   Eye, Flag, Gauge, Layers3, Network, Rocket, Search, ShieldCheck,
@@ -55,7 +56,7 @@ const benefits = [
 ];
 
 function SectionHeading({ title, description }: { title: string; description: string }) {
-  return <div className={styles.sectionHeading}><h2>{title}</h2><span aria-hidden="true" /><p>{description}</p></div>;
+  return <div className={styles.sectionHeading}><div className={styles.titleUnderlineGroup}><h2>{title}</h2><ScrollUnderline className={styles.titleUnderline} /></div><p>{description}</p></div>;
 }
 
 export default function ProjectManager() {
@@ -65,7 +66,7 @@ export default function ProjectManager() {
       <div className={styles.heroShade} />
       <div className={"container " + styles.heroInner}><div className={styles.heroCopy}>
         <span className={styles.heroTag}>服務項目｜專案辦公室服務</span>
-        <h1>專案辦公室服務 PMO</h1>
+        <h1 data-scroll-title>專案辦公室服務 PMO</h1>
         <h2>協助企業提升專案執行效率與成功率，<br />讓策略有效落地。</h2>
         <p>博創數科的 PMO（Project Management Office）為企業提供專案治理、時程控管、跨部門協調與資源配置的核心機制。以制度化、標準化與數據化的管理規劃，確保專案穩定推進，提升整體執行效能與成果達成率。</p>
         <div className={styles.heroActions}><Link className={styles.heroPrimary} href="/consultation-appointment/">預約專案諮詢 <ArrowRight size={17} /></Link><Link className={styles.heroSecondary} href="#pmo-process">了解服務流程</Link></div>
@@ -76,12 +77,12 @@ export default function ProjectManager() {
 
     <section className={styles.services}><div className="container"><SectionHeading title="我們如何協助企業建立高效 PMO" description="以專業的方法論與實務經驗，從治理、規劃、協作到資源與成效管理，協助企業建置貼合組織需求的 PMO 運作機制，讓專案更可控、成果更可預期。" /><div className={styles.serviceGrid}>{services.map(({ icon: Icon, title, text }) => <article className={styles.serviceCard} key={title}><span className={styles.serviceIcon}><Icon size={33} strokeWidth={1.7} /></span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-    <section className={styles.governance}><div className={styles.governanceCopy}><div className={styles.governanceContent}><span className={styles.outlineTag}>PMO 價值</span><h2>建立專案治理基礎，<br />讓執行更有秩序、成果更可控</h2><p>PMO 不只是專案的管理單位，更是企業推動變革與落實策略的重要機制。博創數科協助企業梳理流程與資訊落差，透過明確規範的專案治理體系，提升專案的可視性、可控性與成功率。</p><ul>{governance.map((item) => <li key={item.title}><span><Check size={13} strokeWidth={3} /></span><p><strong>{item.title}：</strong>{item.text}</p></li>)}</ul></div></div><div className={styles.governanceVisual}><Image src="/images/pmo-governance.png" alt="專案治理儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /></div></section>
+    <section className={styles.governance}><div className={styles.governanceCopy}><div className={styles.governanceContent}><span className={styles.outlineTag}>PMO 價值</span><h2 data-scroll-title>建立專案治理基礎，<br />讓執行更有秩序、成果更可控</h2><p>PMO 不只是專案的管理單位，更是企業推動變革與落實策略的重要機制。博創數科協助企業梳理流程與資訊落差，透過明確規範的專案治理體系，提升專案的可視性、可控性與成功率。</p><ul>{governance.map((item) => <li key={item.title}><span><Check size={13} strokeWidth={3} /></span><p><strong>{item.title}：</strong>{item.text}</p></li>)}</ul></div></div><div className={styles.governanceVisual}><Image src="/images/pmo-governance.png" alt="專案治理儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /></div></section>
 
     <section className={styles.process} id="pmo-process"><div className="container"><SectionHeading title="PMO 服務流程" description="以系統化的專案管理流程，從需求確認到成果驗收，全程協助企業掌握進度、控管風險並確保目標達成。" /><div className={styles.processGrid}>{process.map(({ icon: Icon, title, text }, index) => <div className={styles.processItem} key={title}><article className={styles.processCard}><span className={styles.processIcon}><Icon size={29} strokeWidth={1.6} /></span><h3>{title}</h3><p>{text}</p></article>{index < process.length - 1 && <ChevronRight className={styles.processArrow} size={23} aria-hidden="true" />}</div>)}</div></div></section>
 
     <section className={styles.benefits}><div className="container"><SectionHeading title="導入 PMO 的服務效益" description="透過專業的 PMO 機制，協助企業提升專案管理成熟度，帶來更高的執行效率與業務價值。" /><div className={styles.benefitGrid}>{benefits.map(({ icon: Icon, title, text, tag }) => <article className={styles.benefitCard} key={title}><Icon size={31} strokeWidth={1.7} /><h3>{title}</h3><p>{text}</p><span>{tag}</span></article>)}</div></div></section>
 
-    <section className={styles.cta}><Image src="/images/contact-building.png" alt="現代玻璃辦公大樓" fill sizes="100vw" /><div className={styles.ctaShade} /><div className={"container " + styles.ctaInner}><div><h2>讓專案管理成為企業成長的推進器</h2><p>無論是數位轉型、系統導入、業務升級或創新專案，<br />博創數科的 PMO 服務，協助您以更高的執行力與整合力，<br />將策略轉化為可衡量的成果。</p></div><Link href="/consultation-appointment/">立即預約諮詢 <ArrowRight size={18} /></Link></div></section>
+    <section className={styles.cta}><Image src="/images/contact-building.png" alt="現代玻璃辦公大樓" fill sizes="100vw" /><div className={styles.ctaShade} /><div className={"container " + styles.ctaInner}><div><h2 data-scroll-title>讓專案管理成為企業成長的推進器</h2><p>無論是數位轉型、系統導入、業務升級或創新專案，<br />博創數科的 PMO 服務，協助您以更高的執行力與整合力，<br />將策略轉化為可衡量的成果。</p></div><Link href="/consultation-appointment/">立即預約諮詢 <ArrowRight size={18} /></Link></div></section>
   </>;
 }

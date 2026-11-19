@@ -13,5 +13,5 @@ const sections = [
 ];
 
 export default function Privacy() {
-  return <><PageHero eyebrow="PRIVACY POLICY" title="隱私權聲明" description="我們重視您的個人資料與網站使用隱私。" /><section className="section"><div className="container privacy-layout"><aside><span className="eyebrow">PRIVACY</span><h2>保護資料，<br />也是建立信任的一部分。</h2><p>本頁說明網站目前的資料處理方式。正式營運前，仍須確認完整法律條款。</p><small>頁面內容更新日期：2026/11/17</small></aside><div className="privacy-content"><p className="privacy-lead">博創數科尊重並保護使用者的隱私。預約諮詢資料僅用於聯繫與處理您的需求。</p>{sections.map((section, index) => <article key={section.title}><span>0{index + 1}</span><div><h3>{section.title}</h3><p>{section.text}</p></div></article>)}</div></div></section></>;
+  return <><PageHero eyebrow="PRIVACY POLICY" title="隱私權聲明" description="我們重視您的個人資料與網站使用隱私。" /><section className="section"><div className="container privacy-layout"><aside><span className="eyebrow">PRIVACY</span><h2 data-scroll-title>保護資料，<br />也是建立信任的一部分。</h2><p>本頁說明網站目前的資料處理方式。正式營運前，仍須確認完整法律條款。</p><small>頁面內容更新日期：2026/11/17</small></aside><div className="privacy-content"><p className="privacy-lead">博創數科尊重並保護使用者的隱私。預約諮詢資料僅用於聯繫與處理您的需求。</p>{sections.map((section, index) => <article key={section.title}><span>0{index + 1}</span><div><h3>{section.title}</h3><p>{section.text}</p></div></article>)}</div></div></section></>;
 }
