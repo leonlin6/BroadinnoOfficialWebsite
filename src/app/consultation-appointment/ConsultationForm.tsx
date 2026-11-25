@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { AlertCircle, CheckCircle2, Send, ShieldCheck } from "lucide-react";
+import { trackLeadSubmission } from "@/lib/analytics";
 import styles from "./consultation.module.css";
 
 const topics = [
@@ -66,6 +67,7 @@ export function ConsultationForm() {
       const result = await response.json() as { ok?: boolean };
       if (!response.ok || !result.ok) throw new Error("Submission failed");
 
+      trackLeadSubmission("consultation");
       form.reset();
       setDescription("");
       setFeedback({ kind: "success", title: "預約需求已送出", message: "已收到您的諮詢需求，我們會透過 Email 與您確認時間。" });

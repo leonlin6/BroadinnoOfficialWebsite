@@ -27,6 +27,14 @@ npm run dev
 
 若要在本機送出預約並寫入 Google 試算表，先將 `.env.local.example` 複製成 `.env.local`，填入 Apps Script `/exec` 網址，以及與 Script Properties 的 `WEBHOOK_SECRET` 相同的 `GOOGLE_SCRIPT_SECRET`，再重新啟動 `npm run dev`。
 
+## Google Tag Manager
+
+在 `.env.local` 設定 `NEXT_PUBLIC_GTM_ID="GTM-你的容器ID"`，重新啟動 `npm run dev` 或執行 `npm run build`。網站會在所有頁面的 HTML 加入 GTM 容器程式碼；未設定時不載入 GTM。GA4 的 Google 代碼請由 GTM 容器管理，避免同一個 GA4 代碼在頁面與 GTM 重複安裝。
+
+Cloudflare Workers 的 Git 自動部署不會讀取你電腦的 `.env.local`。請在該 Worker 的 **Settings → Build → Build Variables and Secrets** 加入相同的 `NEXT_PUBLIC_GTM_ID`，再觸發一次新的建置與部署。這是公開的容器 ID，會在 `next build` 時寫入 `out/` 的靜態 HTML；只設成 Worker 執行時的 Secret 不會讓既有靜態頁面取得它。部署後可用 GTM Preview／Tag Assistant 確認首頁及站內換頁的載入狀態。
+
+GA4 的 Google 代碼由 GTM 管理，站內換頁與表單成功事件的設定見 [Google Analytics 4 設定](docs/google-analytics.md)。GA4 評估 ID 填在 GTM 後台，不需再加到 `.env.local`。
+
 ## 目前範圍
 
 - 首頁、數據分析服務、管理顧問、專案辦公室、主要服務產業、主要專業領域、公司介紹、專業能力、案例總覽、六個案例頁、預約諮詢版型、隱私權聲明版型。

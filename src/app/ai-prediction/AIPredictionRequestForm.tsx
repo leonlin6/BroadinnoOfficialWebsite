@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { AlertCircle, CheckCircle2, Send } from "lucide-react";
+import { trackLeadSubmission } from "@/lib/analytics";
 import styles from "./ai-prediction.module.css";
 
 type Feedback = { kind: "success" | "error"; title: string; message: string };
@@ -52,6 +53,7 @@ export function AIPredictionRequestForm() {
       const result = await response.json() as { ok?: boolean };
       if (!response.ok || !result.ok) throw new Error("Submission failed");
 
+      trackLeadSubmission("ai_prediction");
       form.reset();
       requestId.current = null;
       setFeedback({ kind: "success", title: "諮詢需求已送出", message: "我們已收到您的 AI 預測服務需求，將透過 Email 與您確認後續討論。" });

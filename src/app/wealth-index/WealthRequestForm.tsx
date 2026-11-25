@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { AlertCircle, CheckCircle2, Send } from "lucide-react";
+import { trackLeadSubmission } from "@/lib/analytics";
 import styles from "./wealth-index.module.css";
 
 type Feedback = { kind: "success" | "error"; title: string; message: string };
@@ -53,6 +54,7 @@ export function WealthRequestForm() {
       const result = await response.json() as { ok?: boolean };
       if (!response.ok || !result.ok) throw new Error("Submission failed");
 
+      trackLeadSubmission("wealth_index");
       form.reset();
       requestId.current = null;
       setFeedback({ kind: "success", title: "申請需求已送出", message: "我們已收到您的區域財富指數需求，將透過 Email 與您確認分析範圍及後續安排。" });

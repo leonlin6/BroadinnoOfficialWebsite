@@ -5,7 +5,7 @@
 .skip:hover{background:#eef8fb}.skip:focus-visible{outline:3px solid #08bdb8;outline-offset:3px}
 .logo{position:relative;width:min(92vw,650px);aspect-ratio:245/60;transform-origin:center;will-change:transform}
 .icon,.finalSymbol,.wordmark,.finalLogo{position:absolute;inset:0;width:100%;height:100%}
-.icon{--step-cycle:1.5s;overflow:visible;animation:icon-slide 2.58s linear both,icon-exit .15s 3.05s both}
+.icon{--step-cycle:2s;overflow:visible;animation:icon-slide 3.08s linear both,icon-exit .15s 3.55s both}
 .settled .icon{animation:none;opacity:0}
 .finalSymbol{opacity:0;clip-path:inset(0 63% 0 0)}
 .settled .finalSymbol{opacity:1}
@@ -13,26 +13,29 @@
 .staticSteps{opacity:0}
 .stepsStopped .staticSteps{opacity:1}
 .escalatorStep{transform-box:view-box;animation:escalator-step var(--step-cycle) linear infinite both}
-.stepOne{animation-delay:0s}.stepTwo{animation-delay:-.5s}.stepThree{animation-delay:-1s}
+.stepOne{animation-delay:0s}.stepTwo{animation-delay:-1.5s}.stepThree{animation-delay:-1s}.stepFour{animation-delay:-.5s}
 .rollingSquare{transform-box:view-box;transform-origin:41.5px 20.6px;animation:square-climb var(--step-cycle) linear both}
 .stepsStopped .rollingSquare{transform-origin:41.5px 37px;animation:square-bounce .72s linear both}
-.wordmark{overflow:hidden;clip-path:inset(0 63% 0 37%);animation:wordmark-reveal .4s 2.65s ease-out both}
+.wordmark{overflow:hidden;clip-path:inset(0 63% 0 37%);animation:wordmark-reveal .4s 3.15s ease-out both}
 .finalSymbol img,.wordmark img,.finalLogo img{object-fit:cover;object-position:center}
-.finalLogo{opacity:0;animation:final-logo-appear .15s 3.05s both}
+.finalLogo{opacity:0;animation:final-logo-appear .15s 3.55s both}
 .flying{background-color:transparent}
 .flying .logo{transform:translate3d(var(--intro-x),var(--intro-y),0) scale(var(--intro-scale-x),var(--intro-scale-y));transition:transform 1.2s cubic-bezier(.45,0,.2,1)}
 .flying .skip{opacity:0;pointer-events:none;transition:opacity .2s}
-/* Start on the logo's final coordinates and roll 90deg per step, ending at the source diamond's angle. */
+/* Four half-second climbs end at the source diamond's angle. */
 @keyframes square-climb{
-  0%{transform:translate(0,0) rotate(-270deg)}
-  8.333%{transform:translate(0,-20.5px) rotate(-247.5deg)}
-  16.666%{transform:translate(0,-24px) rotate(-225deg)}
-  33.333%{transform:translate(0,0) rotate(-180deg)}
-  41.666%{transform:translate(0,-20.5px) rotate(-157.5deg)}
-  50%{transform:translate(0,-24px) rotate(-135deg)}
-  66.666%{transform:translate(0,0) rotate(-90deg)}
-  75%{transform:translate(0,-20.5px) rotate(-67.5deg)}
-  83.333%{transform:translate(0,-24px) rotate(-45deg)}
+  0%{transform:translate(0,0) rotate(-360deg)}
+  6.25%{transform:translate(0,-20.5px) rotate(-337.5deg)}
+  12.5%{transform:translate(0,-24px) rotate(-315deg)}
+  25%{transform:translate(0,0) rotate(-270deg)}
+  31.25%{transform:translate(0,-20.5px) rotate(-247.5deg)}
+  37.5%{transform:translate(0,-24px) rotate(-225deg)}
+  50%{transform:translate(0,0) rotate(-180deg)}
+  56.25%{transform:translate(0,-20.5px) rotate(-157.5deg)}
+  62.5%{transform:translate(0,-24px) rotate(-135deg)}
+  75%{transform:translate(0,0) rotate(-90deg)}
+  81.25%{transform:translate(0,-20.5px) rotate(-67.5deg)}
+  87.5%{transform:translate(0,-24px) rotate(-45deg)}
   100%{transform:translate(0,0) rotate(0deg)}
 }
 @keyframes square-bounce{
@@ -46,16 +49,16 @@
 }
 /* The finished symbol spans x=25..81 in a 245-unit logo; shifting its center by 69.5 units centers it on screen. */
 @keyframes icon-slide{
-  0%,86.05%{transform:translateX(28.37%);animation-timing-function:cubic-bezier(.45,0,.2,1)}
+  0%,88.31%{transform:translateX(28.37%);animation-timing-function:cubic-bezier(.45,0,.2,1)}
   100%{transform:translateX(0)}
 }
 @keyframes escalator-step{
   0%{transform:translate(14.4px,-26.1px);opacity:0}
   5%{opacity:1}
-  33.333%{transform:translate(0,0);opacity:1}
-  66.666%{transform:translate(-14.4px,26.1px);opacity:1}
-  95%{opacity:0}
-  100%{transform:translate(-28.8px,52.2px);opacity:0}
+  25%{transform:translate(0,0);opacity:1}
+  50%{transform:translate(-14.4px,26.1px);opacity:1}
+  75%{transform:translate(-28.8px,52.2px);opacity:0}
+  100%{transform:translate(-43.2px,78.3px);opacity:0}
 }
 @keyframes wordmark-reveal{to{clip-path:inset(0 0 0 37%)}}
 @keyframes icon-exit{to{opacity:0}}

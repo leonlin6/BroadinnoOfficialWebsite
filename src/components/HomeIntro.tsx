@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./home-intro.module.css";
 
-const FLY_START_MS = 3250;
-const FINISH_MS = 4500;
+const FLY_START_MS = 3750;
+const FINISH_MS = 5000;
 const BOUNCE_SETTLE_MS = 1120;
 
 export function HomeIntro() {
@@ -93,10 +93,9 @@ export function HomeIntro() {
           </clipPath>
         </defs>
         <g className={styles.movingSteps} clipPath="url(#intro-escalator-clip)">
-          <g className={`${styles.escalatorStep} ${styles.stepOne}`} onAnimationIteration={() => setStepsSettled(true)}>
+          <g className={`${styles.escalatorStep} ${styles.stepOne}`}>
             <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-upper-step-clip)" />
           </g>
-          {/* At the climb's end, stepTwo is above stepThree because of their negative delays. */}
           <g className={`${styles.escalatorStep} ${styles.stepTwo}`}>
             <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-upper-step-clip)" />
           </g>
@@ -105,11 +104,14 @@ export function HomeIntro() {
               <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-lower-step-clip)" />
             </g>
           </g>
+          <g className={`${styles.escalatorStep} ${styles.stepFour}`}>
+            <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-upper-step-clip)" />
+          </g>
         </g>
         <g className={styles.staticSteps} clipPath="url(#intro-black-steps-clip)">
           <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" />
         </g>
-        <g className={styles.rollingSquare}>
+        <g className={styles.rollingSquare} onAnimationEnd={() => setStepsSettled(true)}>
           <image href="/images/broadinno-logo-transparent.png" x="0" y="-38.94" width="245" height="137.89" clipPath="url(#intro-blue-square-clip)" />
         </g>
       </svg>
