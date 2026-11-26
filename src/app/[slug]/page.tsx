@@ -29,7 +29,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   if (slug === "customer-loan-credit") return <LoanCreditCasePage />;
   return (
     <>
-      <PageHero eyebrow={`CASE STUDY / ${item.number}`} title={item.title} description={item.summary} parent={{ label: "客戶案例", href: "/case-studies/" }} />
+      <PageHero eyebrow={`CASE STUDY / ${item.number}`} title={item.title} description={item.summary} parent={{ label: "客戶案例", href: "/case-studies/" }}>
+        <ExperienceBadge {...item.experience} className={styles.experience} />
+      </PageHero>
       <section className="section">
         <div className="container case-detail-grid">
           <aside className="case-detail-aside">
@@ -40,7 +42,6 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </aside>
           <div className="case-detail-content">
             <div className="case-detail-intro"><span>{item.number}</span><h2 data-scroll-title>從產業情境出發，<br />找到問題的核心。</h2></div>
-            <ExperienceBadge {...item.experience} className={styles.experience} />
             {item.sections.map((section, index) => (
               <article className="case-detail-section" key={section.label}>
                 <div><span>0{index + 1}</span><h3>{section.label}</h3></div>

@@ -52,6 +52,7 @@ export function ApplianceCasePage() {
             <Accent />
             <p>從客戶貢獻度與較長的回購週期出發，以 HouseHold / Family 維度理解客戶，再結合 Open Data 尋找銷售熱點與區域。</p>
             <div className={styles.heroTags}><span>家電產業</span><span>客戶分群</span><span>精準行銷</span><span>忠誠經營</span></div>
+            <ExperienceBadge {...cases[1].experience} className={styles.experience} />
           </div>
           <div className={styles.heroMetric} aria-label="家庭客群洞察示意指標">
             <strong><UsersRound size={18} />家庭客群洞察 <small>示意</small></strong>
@@ -62,7 +63,7 @@ export function ApplianceCasePage() {
 
       <section className={styles.challengeSection} aria-labelledby="challenge-title">
         <div className={"container " + styles.challengeGrid}>
-          <div className={styles.sectionIntro}><Accent /><span>產業挑戰</span><h2 id="challenge-title">家電業如何更貼近<br />家庭客戶的真實需求？</h2><ExperienceBadge {...cases[1].experience} className={styles.experience} /></div>
+          <div className={styles.sectionIntro}><Accent /><span>產業挑戰</span><h2 id="challenge-title">家電業如何更貼近<br />家庭客戶的真實需求？</h2></div>
           <div className={styles.challengeCards}>{challenges.map(({ icon: Icon, title, text }) => <article key={title}><span className={styles.iconCircle}><Icon size={32} strokeWidth={1.7} /></span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>
       </section>

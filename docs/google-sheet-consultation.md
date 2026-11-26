@@ -1,4 +1,4 @@
-# 預約諮詢接收至 Google 試算表
+# 預約諮詢接收與郵件通知
 
 網站的表單會 POST 到同網域的 `/api/consultation`。本機執行 `npm run dev` 時，由本機開發伺服器驗證資料並直接呼叫 Google Apps Script；部署到 Cloudflare 時，由 Worker 做同樣的事。只有 Apps Script 會寫入試算表。訪客的瀏覽器不會取得密鑰或 Apps Script 網址。
 
@@ -9,10 +9,22 @@
 3. 在 Apps Script 的「專案設定 → 指令碼屬性」加入：
    - `SPREADSHEET_ID`：第 1 步的試算表 ID。
    - `WEBHOOK_SECRET`：自行產生的長隨機字串；不要提交到 Git。
-4. 選「部署 → 新增部署 → 網頁應用程式」。執行身分選「我」，存取權選「任何人」（包含未登入者），完成授權並複製結尾為 `/exec` 的網址。Cloudflare Worker 需要能以伺服器身分呼叫此網址；密鑰會阻止未授權的寫入請求。
-5. 往後修改 Apps Script 程式時，需更新網頁應用程式部署版本，否則正式網址仍執行舊版。
+   - `NOTIFICATION_EMAILS`：要收到新申請通知的信箱，多個地址以半形逗號分隔，例如 `team@example.com,owner@example.com`。此設定只放在 Apps Script，無須加入 `.env.local` 或 Cloudflare Worker Secret。
+4. 使用**部署網頁應用程式的同一個 Google 帳號**，在 Apps Script 編輯器的函式選單選 `setupNotificationTrigger` 並執行一次，依畫面完成寄信與建立排程所需的授權。此函式只建立一個每 5 分鐘處理待寄通知的觸發條件，不會寄出測試信；重複執行也不會建立第二個相同觸發條件。
+   - 不要在編輯器手動執行 `doPost`；它需要網站送來的 POST 資料，手動執行時沒有 `e.postData`。
+5. 初次設定時，選「部署 → 新增部署 → 網頁應用程式」。執行身分選「我」，存取權選「任何人」（包含未登入者），完成授權並複製結尾為 `/exec` 的網址。Cloudflare Worker 需要能以伺服器身分呼叫此網址；密鑰會阻止未授權的寫入請求。若已有部署，請在「管理部署」編輯原部署並選**新版本**，維持原 `/exec` 網址；只儲存程式碼不會更新正式部署。
 
 第一次成功送出時，程式會建立名為「預約諮詢」的工作表和標題列。相同申請編號重送不會新增第二列。資料包含姓名、Email、電話、偏好時間、主題、需求描述及同意紀錄。
+
+## 通知信行為
+
+試算表成功新增資料列後，表單先回覆收件成功；Apps Script 每 5 分鐘處理待寄通知，以**建立觸發條件的 Google 帳號**寄信給 `NOTIFICATION_EMAILS`。信件包含申請編號、姓名、Email、電話、偏好時間、主題及試算表資料列連結；詳細描述仍留在試算表。請確認通知收件者有權讀取該試算表。
+
+程式會在原工作表後方加入「通知狀態」、「通知寄出時間（台北）」、「通知錯誤」三欄。新申請先標為「待寄送」，寄出後改為「已寄送」。若寄信失敗或當日額度不足，錯誤會記在工作表，下次觸發條件會補寄；每次最多處理 20 筆。Apps Script 的時間觸發並非精確計時，實際通知可能稍晚。既有歷史資料不會自動補寄。極少數情況下，若郵件服務已接受信件但狀態寫回試算表失敗，補寄可能再次送出；可用信件主旨中的申請編號辨識。
+
+Google Apps Script `MailApp` 的寄件額度按**收件人數**計算；目前一般 Google 帳號每日 100 位、Google Workspace 每日 1,500 位，實際額度以 Google 當下規定與帳號狀態為準。多個通知信箱會各占一位額度。參考：[MailApp](https://developers.google.com/apps-script/reference/mail/mail-app)、[寄件額度](https://developers.google.com/apps-script/guides/services/quotas)、[時間觸發條件](https://developers.google.com/apps-script/guides/triggers/installable)。
+
+設定完成後，請實際送出一筆新申請，確認試算表新增資料列、通知狀態為「已寄送」，且指定信箱收到通知。若不想等候排程，可在 Apps Script 編輯器手動執行 `retryPendingNotifications`；這個函式會真的寄出待寄信件。若狀態仍為「待寄送」，查看「通知錯誤」與 Apps Script「執行作業」紀錄；確認 Script Properties、授權與部署版本。
 
 ## Cloudflare Workers
 

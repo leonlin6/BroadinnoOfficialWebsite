@@ -61,6 +61,5 @@
 /* Chevron cards stop clipping text at the inner notch on small screens. */
 @media(min-width:601px) and (max-width:1000px){.modelFlow{grid-template-columns:repeat(3,minmax(0,1fr))}.modelStep:nth-child(3) .modelArrow{display:none}}
 @media(max-width:600px){.modelStep:not(:first-child){padding-left:19px}}
-.experience{margin-top:14px;color:#fff}
-.outcomesGrid .experience :global(strong){color:#985e0b;font-size:19px}
+.heroCopy .experience{margin-top:18px;color:#fff}
 @media(min-width:601px) and (max-width:1050px){.outcomesGrid{grid-template-columns:1fr 1fr}.outcomesGrid>div:first-child{grid-column:1/-1}.outcomesGrid>div:nth-child(2){border-left:0}}

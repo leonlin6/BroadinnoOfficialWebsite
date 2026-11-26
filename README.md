@@ -4,7 +4,7 @@
 
 專案辦公室頁 `/project-manager/` 依 `Broadinno PMO 服務網站全頁設計.png` 製作，包含 PMO 服務重點、六項服務、專案治理、六步驟流程、五項效益與諮詢區塊。
 
-主要專業領域頁 `/main-experties/` 依 `Broadinno 專業領域服務頁面.png` 製作，展示金融科技、支付、AI、區塊鏈、數據分析與數位轉型六個領域。
+主要專業領域頁 `/main-experties/` 參考 `Broadinno數位轉型專業領域展示.png` 的首屏、交錯圖文與諮詢區塊，保留金融科技、支付、AI、區塊鏈、數據分析、數位轉型六個領域，以及既有的服務方法、應用情境與關鍵成效內容。
 
 客戶案例總覽頁 `/case-studies/` 依提供的設計圖製作，包含精選案例、五個案例卡片、可操作的產業篩選與諮詢入口；案例卡片沿用既有詳細頁網址。
 
@@ -14,7 +14,7 @@
 
 信用貸款案例頁 `/customer-loan-credit/` 依提供的設計圖製作，包含信用風險概念儀表板、市場分析維度、信用評分模型流程、模型優化與服務預期方向。圖表為示意，未使用設計圖中未經驗證的績效數字。
 
-預約諮詢頁 `/consultation-appointment/` 依提供的設計圖重做，包含諮詢領域、表單、諮詢流程與聯絡資訊。本機由開發伺服器直接呼叫 Google Apps Script；部署後由 Cloudflare Worker 轉送，最後寫入 Google 試算表。設定方式見 [預約諮詢接收設定](docs/google-sheet-consultation.md)。
+預約諮詢頁 `/consultation-appointment/` 依提供的設計圖重做，包含諮詢領域、表單、諮詢流程與聯絡資訊。本機由開發伺服器直接呼叫 Google Apps Script；部署後由 Cloudflare Worker 轉送，最後寫入 Google 試算表，再由 Apps Script 排程寄送內部通知信。設定方式見 [預約諮詢接收與郵件通知](docs/google-sheet-consultation.md)。
 
 ## 本機啟動
 

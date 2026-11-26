@@ -44,8 +44,8 @@
 .challenge p{margin:1px 0 0;font-size:14px;line-height:1.4}
 .health{padding:0 0 20px}
 .healthPanel{padding:19px 30px 18px;border-radius:16px;background:radial-gradient(circle at 50% 100%,#c9f5ff,#e9f7fd 45%,#eff8fc 100%);overflow:hidden}
-.health h2{margin:0 0 4px;font-size:clamp(27px,2.7vw,36px);line-height:1.2}
-.healthPanel>p{margin:0 0 17px;font-size:14px;line-height:1.5}
+.health h2{margin:0;font-size:clamp(27px,2.7vw,36px);line-height:1.2}
+.healthPanel>p{margin:22px 0 17px;font-size:14px;line-height:1.5}
 .healthFlow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px}
 .healthStageWrap{position:relative;min-width:0}
 .healthStage{height:178px;padding:0 12px 11px;border:1px solid #b8e9f1;border-radius:12px;background:linear-gradient(#fff,#e9f9ff);box-shadow:0 10px 18px rgba(10,104,147,.12);text-align:center}

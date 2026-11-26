@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
-import { ExperienceBadge } from "@/components/ExperienceBadge";
-import { cases } from "@/lib/content";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { CaseFilterGrid } from "./CaseFilterGrid";
 import styles from "./case-studies.module.css";
 
@@ -12,8 +9,6 @@ export const metadata: Metadata = {
   description: "探索博創數科在金融服務、消費與零售、公用事業及汽車產業的數據分析與管理顧問案例。",
   alternates: { canonical: "/case-studies/" },
 };
-
-const featured = cases[0];
 
 export default function CaseStudies() {
   return (
@@ -32,29 +27,10 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <section className={styles.featured} aria-labelledby="featured-case-title">
-        <div className={"container " + styles.featuredGrid}>
-          <Link className={styles.featuredImage} href={`/${featured.slug}/`} aria-label={`查看案例：${featured.title}`}>
-            <Image src="/images/case-warehouse.webp" alt="資料中心與資料倉儲視覺化圖像" fill priority sizes="(max-width: 750px) 100vw, 57vw" />
-          </Link>
-          <div className={styles.featuredCopy}>
-            <div className={styles.featuredLabel}><span>FEATURED CASE</span><i aria-hidden="true" /></div>
-            <span className={`${styles.category} ${styles.categoryFinance}`}>{featured.category}</span>
-            <h2 id="featured-case-title" data-scroll-title>{featured.title}</h2>
-            <p>針對既有資料倉儲與數據中台，透過 Health Check 尋找成本控制與 Data to Value 的機會。</p>
-            <ExperienceBadge {...featured.experience} className={styles.featuredExperience} />
-            <Link className={styles.textLink} href={`/${featured.slug}/`}>探索案例 <ArrowUpRight size={19} strokeWidth={1.8} /></Link>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.allCases} id="all-cases" aria-labelledby="all-cases-title">
         <div className="container">
           <div className={styles.rule} />
-          <div className={styles.allCasesHeading}>
-            <div><span className={styles.eyebrow}>CASE STUDIES</span><h2 id="all-cases-title" data-scroll-title>全部案例</h2></div>
-            <CaseFilterGrid />
-          </div>
+          <CaseFilterGrid />
         </div>
       </section>
 

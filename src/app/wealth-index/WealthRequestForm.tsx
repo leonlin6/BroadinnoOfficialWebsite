@@ -1,24 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { AlertCircle, CheckCircle2, Send } from "lucide-react";
+import { Send } from "lucide-react";
+import { SubmissionDialog, type SubmissionFeedback } from "@/components/SubmissionDialog";
 import { trackLeadSubmission } from "@/lib/analytics";
+import { ConsultationTimeoutError, submitConsultation } from "@/lib/consultationRequest";
 import styles from "./wealth-index.module.css";
-
-type Feedback = { kind: "success" | "error"; title: string; message: string };
 
 export function WealthRequestForm() {
   const [pending, setPending] = useState(false);
-  const [feedback, setFeedback] = useState<Feedback | null>(null);
+  const [feedback, setFeedback] = useState<SubmissionFeedback | null>(null);
   const requestId = useRef<string | null>(null);
   const submitting = useRef(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (feedback && dialog && !dialog.open) dialog.showModal();
-  }, [feedback]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -35,31 +29,27 @@ export function WealthRequestForm() {
     setPending(true);
 
     try {
-      const response = await fetch("/api/consultation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          requestId: requestId.current,
-          name: values.get("name"),
-          email: values.get("email"),
-          phone: "",
-          preferredTime: values.get("preferredTime"),
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          topic: "資料治理與數據應用",
-          description,
-          consent: values.has("consent"),
-          website: values.get("website"),
-        }),
+      await submitConsultation({
+        requestId: requestId.current,
+        name: values.get("name"),
+        email: values.get("email"),
+        phone: "",
+        preferredTime: values.get("preferredTime"),
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        topic: "資料治理與數據應用",
+        description,
+        consent: values.has("consent"),
+        website: values.get("website"),
       });
-      const result = await response.json() as { ok?: boolean };
-      if (!response.ok || !result.ok) throw new Error("Submission failed");
 
       trackLeadSubmission("wealth_index");
       form.reset();
       requestId.current = null;
       setFeedback({ kind: "success", title: "申請需求已送出", message: "我們已收到您的區域財富指數需求，將透過 Email 與您確認分析範圍及後續安排。" });
-    } catch {
-      setFeedback({ kind: "error", title: "送出結果未確認", message: "目前無法確認是否收件成功。請稍後重試，或以 Email 聯絡我們。" });
+    } catch (error) {
+      setFeedback(error instanceof ConsultationTimeoutError
+        ? { kind: "error", title: "等待逾時，送出結果未確認", message: "已等待超過 30 秒，無法確認是否收件成功。請稍後重試，或以 Email 聯絡我們。" }
+        : { kind: "error", title: "送出結果未確認", message: "目前無法確認是否收件成功。請稍後重試，或以 Email 聯絡我們。" });
     } finally {
       submitting.current = false;
       setPending(false);
@@ -81,11 +71,6 @@ export function WealthRequestForm() {
       <div className={styles.honeypot} aria-hidden="true"><label>網站網址<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <button type="submit" disabled={pending}><Send size={17} />{pending ? "送出中…" : "送出申請"}</button>
     </form>
-    <dialog ref={dialogRef} className={styles.feedbackDialog} aria-labelledby="wealth-feedback-title" aria-describedby="wealth-feedback-message" onClose={() => setFeedback(null)}>
-      {feedback?.kind === "success" ? <CheckCircle2 className={styles.successIcon} size={34} /> : <AlertCircle className={styles.errorIcon} size={34} />}
-      <h2 id="wealth-feedback-title">{feedback?.title}</h2>
-      <p id="wealth-feedback-message">{feedback?.message}</p>
-      <button type="button" onClick={() => dialogRef.current?.close()}>我知道了</button>
-    </dialog>
+    <SubmissionDialog id="wealth-feedback" pending={pending} feedback={feedback} onDismiss={() => setFeedback(null)} />
   </>;
 }

@@ -100,12 +100,9 @@
 .formGrid input::placeholder,.formGrid textarea::placeholder{color:#8b9bac}
 .formHint{margin:11px 0 0;color:#5a7186;font-size:11px;line-height:1.5}
 .consent{display:flex;align-items:flex-start;gap:8px;margin:15px 0;color:#38536c;font-size:12px;line-height:1.6}.consent input{flex:none;margin:3px 0 0;accent-color:#0a66d5}.consent a{color:#075bc6;text-decoration:underline;text-underline-offset:2px}
-.requestForm>button,.feedbackDialog>button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:43px;border:0;border-radius:6px;background:#0a5bd1;color:#fff;font-size:14px;font-weight:800;cursor:pointer}
-.requestForm>button:hover,.feedbackDialog>button:hover{background:#084bb0}.requestForm>button:disabled{opacity:.6;cursor:wait}
+.requestForm>button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:43px;border:0;border-radius:6px;background:#0a5bd1;color:#fff;font-size:14px;font-weight:800;cursor:pointer}
+.requestForm>button:hover{background:#084bb0}.requestForm>button:disabled{opacity:.6;cursor:wait}
 .honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.feedbackDialog{width:min(420px,calc(100% - 32px));max-width:none;padding:28px;border:1px solid #d3e6f4;border-radius:14px;box-shadow:0 24px 70px rgba(12,42,76,.25);text-align:center}
-.feedbackDialog::backdrop{background:rgba(9,27,52,.48)}.feedbackDialog svg{margin:0 auto 9px}.successIcon{color:#149b78}.errorIcon{color:#c85657}
-.feedbackDialog h2{margin:0 0 9px;color:#0a2444;font-size:23px}.feedbackDialog p{margin:0 0 20px;color:#486076;font-size:14px;line-height:1.7}
 .footnote{max-width:1000px;margin:0 auto;padding:18px 22px;color:#586e83;font-size:11px;line-height:1.5;text-align:center}
 @media(max-width:1050px){.heroGrid{grid-template-columns:.95fr 1.05fr}.processGrid{grid-template-columns:1fr}.processHeading h2 br{display:none}.applicationsGrid{grid-template-columns:repeat(3,1fr)}.applicationsHeading{grid-column:1/-1}.applicationsHeading p{max-width:640px}.benefitsGrid{grid-template-columns:repeat(4,1fr)}.benefitsHeading{grid-column:1/-1}}
 @media(max-width:800px){.heroGrid,.showcaseGrid{grid-template-columns:1fr}.heroVisual{padding:0 0 25px}.laptop{margin:auto;max-width:600px}.heroCopy{padding-bottom:15px}.showcaseGrid{gap:30px}.showcaseDashboard{max-width:650px}.requestGrid{grid-template-columns:1fr}.requestCopy{min-height:0;padding:29px 32px}.requestBadge{margin-top:18px}.formCard{margin:0 18px 18px}}

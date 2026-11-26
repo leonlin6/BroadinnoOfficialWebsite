@@ -1,0 +1,13 @@
+.dialog{width:min(420px,calc(100% - 32px));max-width:none;margin:auto;padding:30px 28px;border:1px solid #dce8ef;border-radius:18px;background:#fff;box-shadow:0 24px 70px rgba(7,32,55,.25);color:#0a2444;text-align:center}
+.dialog::backdrop{background:rgba(8,28,47,.58);backdrop-filter:blur(3px)}
+.icon{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 17px;border-radius:50%}
+.loading{background:#e9f5fb;color:#0876ac}.success{background:#e4f8f2;color:#138269}.error{background:#fff0ee;color:#c34d43}
+.spinner{width:34px;height:34px;border:3px solid rgba(8,118,172,.2);border-top-color:#0876ac;border-radius:50%;animation:spin .8s linear infinite}
+.content h2{margin:0;font:inherit;font-size:24px;font-weight:800;line-height:1.3}
+.content p{margin:10px 0 23px;color:#44586b;font-size:14px;line-height:1.7}
+.content button{min-width:150px;min-height:43px;padding:8px 20px;border:0;border-radius:8px;background:linear-gradient(95deg,#076cad,#009e9e);color:#fff;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.content button:hover{filter:brightness(.94)}.content button:focus-visible{outline:3px solid #00c9c0;outline-offset:3px}
+.progress{height:4px;overflow:hidden;border-radius:4px;background:#e3eff5}.progress span{display:block;width:38%;height:100%;border-radius:4px;background:linear-gradient(90deg,#0876ac,#00aaa5);animation:travel 1.6s ease-in-out infinite alternate}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes travel{from{transform:translateX(0)}to{transform:translateX(163%)}}
+@media(prefers-reduced-motion:reduce){.spinner,.progress span{animation:none}}

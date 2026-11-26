@@ -7,6 +7,8 @@ import styles from "./home-intro.module.css";
 const FLY_START_MS = 3750;
 const FINISH_MS = 5000;
 const BOUNCE_SETTLE_MS = 1120;
+const INTRO_SEEN_KEY = "broadinno.homeIntroSeen.v1";
+let introHandledThisPage = false;
 
 export function HomeIntro() {
   const [visible, setVisible] = useState(false);
@@ -17,8 +19,19 @@ export function HomeIntro() {
   const logoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const frame = window.requestAnimationFrame(() => setVisible(true));
+    const frame = window.requestAnimationFrame(() => {
+      if (introHandledThisPage) return;
+
+      try {
+        if (window.localStorage.getItem(INTRO_SEEN_KEY) === "1") return;
+        window.localStorage.setItem(INTRO_SEEN_KEY, "1");
+      } catch {
+        // Keep the animation usable when the browser blocks local storage.
+      }
+
+      introHandledThisPage = true;
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) setVisible(true);
+    });
     return () => window.cancelAnimationFrame(frame);
   }, []);
 

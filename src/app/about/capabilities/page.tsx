@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, BrainCircuit, ChartNoAxesCombined, Landmark, Network, Waypoints } from "lucide-react";
-import { Cta } from "@/components/Cta";
-import { PageHero } from "@/components/PageHero";
-import styles from "../../new-pages.module.css";
+import { ArrowRight, ArrowUpRight, Award, BrainCircuit, ChartNoAxesCombined, Check, Database, Landmark, Layers3, Network, UsersRound } from "lucide-react";
+import styles from "./capabilities.module.css";
 
 export const metadata: Metadata = {
   title: "專業能力",
@@ -11,7 +10,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about/capabilities/" },
 };
 
-const capabilities = [
+const strengths = [
+  { icon: ChartNoAxesCombined, title: "AI 與資料應用能力", points: ["從資料盤點到分析與應用，建立清楚的決策依據", "評估 AI 與機器學習在行銷、風控與營運的應用", "整合客戶洞察與營運指標，支持企業持續優化"] },
+  { icon: Database, title: "模型與數據治理能力", points: ["串聯數據整合、分析模型與品質治理", "連結金融服務、新興支付與實際業務需求", "從洞察與分析出發，推動可執行的改善方案"] },
+  { icon: UsersRound, title: "專案與策略落地能力", points: ["理解流程、系統與組織之間的連動", "透過專案治理協調進度、資源與跨部門合作", "將策略轉成有節奏的行動，持續推進成果"] },
+];
+
+const services = [
   { icon: ChartNoAxesCombined, number: "01", title: "數據分析", text: "從資料盤點到分析與應用，協助企業建立更清楚的客戶洞察、營運指標與決策依據。", href: "/data-analytics/", link: "探索數據分析服務" },
   { icon: BrainCircuit, number: "02", title: "數位轉型", text: "理解流程、系統與組織的連動，評估科技應用如何支持企業的轉型目標。", href: "/management-consulting/", link: "探索管理顧問服務" },
   { icon: Landmark, number: "03", title: "金融科技", text: "關注金融服務、新興支付、AI 與區塊鏈的應用，連結技術發展與實際業務需求。", href: "/main-experties/", link: "探索主要專業領域" },
@@ -19,5 +24,46 @@ const capabilities = [
 ];
 
 export default function Capabilities() {
-  return <><PageHero eyebrow="OUR CAPABILITIES" title="專業能力" description="將數據、科技與管理方法連結起來，協助企業看見問題、規劃方向並推動執行。" parent={{ label: "關於我們", href: "/about/company/" }} /><section className={styles.editorialSection}><div className="container"><div className={styles.sectionHead}><span className={styles.eyebrowDark}>WHAT WE BRING</span><h2 data-scroll-title data-scroll-title-center>四個方向，回應不同階段的企業課題。</h2><p>能力之間可以相互搭配，依企業的目標、資料與組織現況選擇適合的切入點。</p></div><div className={styles.capabilityGrid}>{capabilities.map(({ icon: Icon, number, title, text, href, link }) => <article className={styles.capabilityCard} key={number}><div className={styles.capabilityTop}><span>{number}</span><Icon size={32} strokeWidth={1.5} /></div><h3>{title}</h3><p>{text}</p><Link href={href}>{link}<ArrowUpRight size={17} /></Link></article>)}</div></div></section><section className={styles.paleSection}><div className={"container " + styles.capabilityBottom}><div><span className={styles.eyebrowDark}>FROM INSIGHT TO ACTION</span><h2 data-scroll-title>專業能力的價值，<br />來自跨領域協作。</h2></div><div><p>企業的挑戰常橫跨策略、資料、流程與人。博創數科以務實的顧問方式串聯不同專業，協助團隊把洞察變成可以執行的計畫，再透過專案管理持續推進。</p><div className={styles.capabilityFlow}><span>洞察</span><Waypoints size={18} /><span>規劃</span><Waypoints size={18} /><span>落地</span></div></div></div></section><Cta /></>;
+  return <main className={styles.page}>
+    <section className={styles.hero} aria-labelledby="capabilities-title">
+      <Image className={styles.heroImage} src="/images/capabilities-team.jpg" alt="博創數科專業顧問團隊於現代辦公空間合影" fill priority sizes="100vw" />
+      <div className={styles.heroWash} aria-hidden="true" /><div className={styles.heroFacet} aria-hidden="true" />
+      <div className={`container ${styles.heroInner}`}><div className={styles.heroCopy}>
+        <h1 id="capabilities-title">專業能力</h1>
+        <p>結合產業經驗、數據科技與專案管理，<br />提供從策略、規劃到落地的完整服務，<br />協助企業實現數位與營運升級。</p>
+      </div></div>
+    </section>
+
+    <section className={styles.experience} aria-label="產業與專案經驗"><div className={`container ${styles.experienceInner}`}>
+      <div className={styles.experienceItem}><Award aria-hidden="true" size={49} strokeWidth={1.5} /><div><strong>30<span>+</span><small>年</small></strong><p>金融及支付產業工作經驗</p></div></div>
+      <div className={styles.experienceDivider} aria-hidden="true" />
+      <div className={styles.experienceItem}><Layers3 aria-hidden="true" size={49} strokeWidth={1.5} /><div><strong>20<span>+</span><small>年</small></strong><p>專案管理經驗</p></div></div>
+    </div></section>
+
+    <section className={styles.coreSection} aria-labelledby="core-title"><div className="container">
+      <div className={styles.sectionIntro}><span className={styles.introRule} aria-hidden="true" /><h2 id="core-title">經歷及核心能力</h2><p>結合團隊級專案實戰、資料應用與 AI 技術，<br className={styles.desktopBreak} />提供從策略規劃、模型建置到數位轉型落地的完整支援。</p></div>
+      <div className={styles.coreGrid}>
+        <figure className={styles.mixFigure}>
+          <Image className={styles.mixImage} src="/images/capabilities-donut-chart.png" alt="核心能力組合：AI 應用 28%、資料分析 20%、模型風控 15%、數位轉型 15%、專案管理 12%、策略規劃 10%" width={1254} height={1254} sizes="(max-width: 800px) 100vw, 500px" />
+        </figure>
+        <div className={styles.strengths}>{strengths.map(({ icon: Icon, title, points }) => <section className={styles.strength} key={title} aria-label={title}>
+          <div className={styles.strengthHeading}><span><Icon size={29} strokeWidth={1.8} aria-hidden="true" /></span><h3>{title}</h3></div>
+          <ul>{points.map((point) => <li key={point}><Check size={15} strokeWidth={3} aria-hidden="true" /><span>{point}</span></li>)}</ul>
+        </section>)}</div>
+      </div>
+    </div></section>
+
+    <section className={styles.servicesSection} aria-labelledby="services-title"><div className="container">
+      <div className={styles.servicesIntro}><span className={styles.introRule} aria-hidden="true" /><h2 id="services-title">四個服務方向</h2><p>依企業目標、資料與組織現況，搭配適合的專業能力。</p></div>
+      <div className={styles.servicesGrid}>{services.map(({ icon: Icon, number, title, text, href, link }) => <article className={styles.serviceCard} key={number}>
+        <div className={styles.serviceTop}><span>{number}</span><Icon size={28} strokeWidth={1.7} aria-hidden="true" /></div>
+        <h3>{title}</h3><p>{text}</p><Link href={href}>{link}<ArrowUpRight size={16} aria-hidden="true" /></Link>
+      </article>)}</div>
+    </div></section>
+
+    <section className={styles.cta} aria-labelledby="capabilities-cta-title"><div className={`container ${styles.ctaInner}`}>
+      <h2 id="capabilities-cta-title">以實戰經驗與專業能力，成為企業數位轉型的最佳夥伴</h2>
+      <Link href="/consultation-appointment/">與我們聯繫 <ArrowRight size={19} aria-hidden="true" /></Link>
+    </div></section>
+  </main>;
 }

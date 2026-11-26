@@ -2,11 +2,13 @@
 
 網站 Logo `public/images/broadinno-logo-transparent.png` 由使用者提供，頁首、頁尾與網站圖示使用同一張透明背景原圖；頁首與頁尾僅以 CSS 裁切顯示範圍。
 
+首頁 Banner `public/images/home-banner.webp` 由使用者提供的 PNG 轉為 WebP，保留原圖構圖與尺寸。
+
 以下圖片使用內建 imagegen 工具產生，僅作版型示意。圖片中的人物、建築、圖表與組織模型均不代表博創數科的實際團隊、客戶或績效。
 
 | 專案檔案 | 用途 | 生成提示詞重點 |
 | --- | --- | --- |
-| `public/images/consulting-hero.webp` | 首屏 | 明亮現代會議室、東亞顧問向團隊簡報，右側顯示無文字的成長圖表，左側保留文字空間。 |
+| `public/images/consulting-hero.webp` | 管理顧問頁首屏 | 明亮現代會議室、東亞顧問向團隊簡報，右側顯示無文字的成長圖表，左側保留文字空間。 |
 | `public/images/service-strategy.webp` | 策略規劃 | 辦公室桌上四階藍灰色策略階梯，主體在右側、左側留白。 |
 | `public/images/service-process.webp` | 流程優化 | 顧問用筆指向透明板上的無文字流程圖，左側留白。 |
 | `public/images/service-data.webp` | 數據分析與服務價值 | 筆電顯示深藍色抽象分析儀表板，右側主體、左側留白。 |

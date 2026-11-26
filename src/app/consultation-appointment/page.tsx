@@ -38,7 +38,7 @@ export default function Consultation() {
 
     <section className={styles.mainSection} aria-label="諮詢服務與預約表單"><div className={"container " + styles.mainGrid}>
       <div className={styles.introColumn}>
-        <h2 data-scroll-title>專業諮詢・從需求出發</h2>
+        <h2 >專業諮詢・從需求出發</h2>
         <p>我們結合產業經驗與數據分析能力，協助企業釐清問題、評估方案，並規劃可落地的執行方向。</p>
         <div className={styles.topicBlock}><Accent /><h3>諮詢涵蓋領域</h3><div className={styles.topicList}>{topics.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={31} strokeWidth={1.7} aria-hidden="true" /><div><strong>{title}</strong><span>{text}</span></div></article>)}</div></div>
       </div>

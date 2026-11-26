@@ -49,7 +49,7 @@ export default function Home() {
   return <>
     <HomeIntro />
     <section className={styles.hero}>
-      <Image className={styles.heroImage} src="/images/consulting-hero.webp" alt="顧問與團隊討論企業數據策略" fill priority sizes="100vw" />
+      <Image className={styles.heroImage} src="/images/home-banner.webp" alt="藍色城市天際線與金融科技、數據及雲端服務圖示" fill priority sizes="100vw" />
       <div className={styles.heroShade} />
       <div className={"container " + styles.heroInner}><div className={styles.heroCopy}>
         <h1>以數據與科技，<br />驅動企業<span>持續創新</span></h1>
@@ -77,10 +77,10 @@ export default function Home() {
         <div className={styles.valueDiagram}>
           <Image
             className={styles.valueImage}
-            src="/images/enterprise-values.webp"
+            src="/images/enterprise-values.png"
             alt="企業價值：01 創新變革、積極突破；02 數據驅動、精準分析；03 秉持專業、信賴服務；04 持續交流、解決難題。"
-            width={1920}
-            height={753}
+            width={1916}
+            height={821}
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
         </div>

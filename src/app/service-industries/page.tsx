@@ -1,23 +1,91 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CarFront, HousePlug, Landmark, Zap } from "lucide-react";
-import { Cta } from "@/components/Cta";
-import { PageHero } from "@/components/PageHero";
-import styles from "../new-pages.module.css";
+import { ArrowRight } from "lucide-react";
+import { ScrollUnderline } from "@/components/ScrollUnderline";
+import styles from "./service-industries.module.css";
 
 export const metadata: Metadata = {
   title: "主要服務產業",
-  description: "探索博創數科既有網站公開的金融、家電、公用事業與汽車產業案例。",
+  description: "博創數科結合產業知識、顧問經驗與數據科技，為金融、零售與資訊服務業探索適切的解決方向。",
   alternates: { canonical: "/service-industries/" },
 };
 
 const industries = [
-  { icon: Landmark, number: "01", title: "金融服務", text: "金融業的資料管理、貸款分析及理財客戶洞察，需要兼顧業務目標、資料使用與管理要求。", cases: [{ label: "金控公司資料倉儲建置與應用", href: "/customer-data-warehouse/" }, { label: "信用貸款市場分析及客戶信用評分", href: "/customer-loan-credit/" }, { label: "潛在理財客戶分析", href: "/customer-potential/" }] },
-  { icon: HousePlug, number: "02", title: "家電產業", text: "耐用產品的回購週期較長，從客戶與家庭維度理解需求，有助於探索更適切的行銷方向。", cases: [{ label: "家電產業客戶分群及行銷推廣", href: "/customer-appliance/" }] },
-  { icon: Zap, number: "03", title: "公用事業", text: "不同用戶與地理區域的使用行為各有差異，資料分析能協助整理分群與延伸需求。", cases: [{ label: "公用事業客戶分群及交叉銷售", href: "/customer-public-facility/" }] },
-  { icon: CarFront, number: "04", title: "汽車產業", text: "數據治理與分析組織的建立，需要同時思考工作流程、角色分工和業務應用。", cases: [{ label: "輔導汽車產業，成立數據治理及數據分析組織及新工作流程", href: "/customer-motor-industry/" }] },
-];
+  {
+    number: "01",
+    title: "金融",
+    focus: "風險管理・客戶洞察・數據治理",
+    description: "協助金融機構強化風險控管與法規遵循，整合客戶數據以深化客戶洞察，並建立完善的數據治理機制，提升營運效率與服務價值。",
+    tags: ["風險管理", "客戶洞察", "數據治理"],
+    image: "/images/industry-finance.jpg",
+    imageAlt: "金融分析辦公室內的雙螢幕工作站與城市景觀",
+  },
+  {
+    number: "02",
+    title: "零售",
+    focus: "顧客分群・精準行銷・營運分析",
+    description: "運用數據分析洞察消費行為，進行顧客分群與個人化行銷，並透過營運數據分析優化商品、庫存與門市營運，提升顧客體驗與整體營運效益。",
+    tags: ["顧客分群", "精準行銷", "營運分析"],
+    image: "/images/industry-retail.jpg",
+    imageAlt: "採光明亮的生活選物零售店面與商品展示",
+  },
+  {
+    number: "03",
+    title: "資訊服務",
+    focus: "系統整合・流程優化・數位轉型",
+    description: "協助資訊服務業整合異質系統、優化內部營運流程，並規劃數位轉型藍圖，提升服務交付效率與市場競爭力。",
+    tags: ["系統整合", "流程優化", "數位轉型"],
+    image: "/images/industry-information.jpg",
+    imageAlt: "資訊團隊在辦公室協作檢視電腦上的分析畫面",
+  },
+] as const;
 
 export default function ServiceIndustries() {
-  return <><PageHero eyebrow="INDUSTRIES" title="主要服務產業" description="從產業情境理解問題，結合數據、科技與管理方法，探索適合的解決方向。" /><section className={styles.editorialSection}><div className="container"><div className={styles.sectionHead}><span className={styles.eyebrowDark}>INDUSTRY CONTEXT</span><h2 data-scroll-title data-scroll-title-center>不同產業，相同的起點：先理解問題。</h2><p>以下產業依博創數科既有官網公開的案例整理，呈現目前可參考的專案主題。</p></div><div className={styles.industryGrid}>{industries.map(({ icon: Icon, number, title, text, cases }) => <article className={styles.industryCard} key={number}><div className={styles.industryTop}><span>{number} / INDUSTRY</span><Icon size={31} strokeWidth={1.5} /></div><h3>{title}</h3><p>{text}</p><div className={styles.industryCases}><strong>相關案例</strong>{cases.map((item) => <Link href={item.href} key={item.href}>{item.label}<ArrowUpRight size={16} /></Link>)}</div></article>)}</div></div></section><Cta /></>;
+  return <div className={styles.page}>
+    <section className={styles.hero} aria-labelledby="industries-title">
+      <Image className={styles.heroImage} src="/images/home-case-finance.webp" alt="" fill priority sizes="100vw" />
+      <div className={styles.heroWash} aria-hidden="true" />
+      <div className={styles.heroFacet} aria-hidden="true" />
+      <div className={`container ${styles.heroInner}`}>
+        <div className={styles.heroCopy}>
+          <h1 id="industries-title" data-scroll-title>主要服務產業</h1>
+          <p>深入產業情境，結合數據與科技，<br />創造企業成長價值。</p>
+        </div>
+      </div>
+    </section>
+
+    <section className={styles.industriesSection} aria-labelledby="industry-intro-title">
+      <div className="container">
+        <div className={styles.intro}>
+          <div className={styles.titleUnderlineGroup}>
+            <h2 id="industry-intro-title">理解產業需求，提供適切解決方案</h2>
+            <ScrollUnderline className={styles.titleUnderline} />
+          </div>
+          <p>結合產業知識、顧問經驗與數據科技，深入掌握產業營運情境與關鍵挑戰，<br className={styles.desktopBreak} />協助企業提升營運效率、強化客戶價值，並創造可持續的成長動能。</p>
+        </div>
+
+        <div className={styles.industryList}>
+          {industries.map((industry, index) => {
+            const visual = <div className={styles.visual} key="visual"><Image src={industry.image} alt={industry.imageAlt} fill sizes="(max-width: 760px) 100vw, 50vw" /></div>;
+            const copy = <div className={styles.industryCopy} key="copy">
+              <div className={styles.titleLine}><span className={styles.number}>{industry.number}</span><span className={styles.titleRule} aria-hidden="true" /><h3 data-scroll-title>{industry.title}</h3></div>
+              <p className={styles.focus}>{industry.focus}</p>
+              <p className={styles.description}>{industry.description}</p>
+              <ul className={styles.tags} aria-label={`${industry.title}服務重點`}>{industry.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+            </div>;
+            return <article className={styles.industryRow} key={industry.number}>{index % 2 === 1 ? <>{copy}{visual}</> : <>{visual}{copy}</>}</article>;
+          })}
+        </div>
+      </div>
+    </section>
+
+    <section className={styles.cta} aria-labelledby="industry-cta-title">
+      <div className={`container ${styles.ctaInner}`}>
+        <h2 id="industry-cta-title" >從產業挑戰出發，找到下一步</h2>
+        <p>與我們的顧問團隊對談，探索適合您產業與企業現況的解決方向。</p>
+        <Link href="/consultation-appointment/">預約諮詢 <ArrowRight size={19} aria-hidden="true" /></Link>
+      </div>
+    </section>
+  </div>;
 }

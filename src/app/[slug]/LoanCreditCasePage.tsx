@@ -57,7 +57,14 @@ export function LoanCreditCasePage() {
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="loan-title">
         <div className={"container " + styles.heroGrid}>
-          <div className={styles.heroCopy}><span className={styles.eyebrow}>CASE STUDY / 金融服務</span><h1 id="loan-title" data-scroll-title>信用貸款市場分析<br />及客戶信用評分</h1><Accent /><p>整合總體經濟、區域發展與就業狀況等多維資料，結合領域知識、專家判斷與實證，優化信用評分模型。</p><div className={styles.heroTags}><span>信用風險</span><span>評分模型</span><span>市場分析</span><span>模型優化</span></div></div>
+          <div className={styles.heroCopy}>
+            <span className={styles.eyebrow}>CASE STUDY / 金融服務</span>
+            <h1 id="loan-title" data-scroll-title>信用貸款市場分析<br />及客戶信用評分</h1>
+            <Accent />
+            <p>整合總體經濟、區域發展與就業狀況等多維資料，結合領域知識、專家判斷與實證，優化信用評分模型。</p>
+            <div className={styles.heroTags}><span>信用風險</span><span>評分模型</span><span>市場分析</span><span>模型優化</span></div>
+            <ExperienceBadge {...cases[3].experience} className={styles.experience} />
+          </div>
           <RiskDashboard />
         </div>
       </section>
@@ -84,7 +91,7 @@ export function LoanCreditCasePage() {
         </div>
       </section>
 
-      <section className={styles.outcomes} aria-labelledby="outcomes-title"><div className={"container " + styles.outcomesGrid}><div><h2 id="outcomes-title" data-scroll-title>客戶成效</h2><p>結合市場分析、資料整合與信用評分模型調優。</p><ExperienceBadge {...cases[3].experience} className={styles.experience} /></div><div><TrendingUp size={44} strokeWidth={1.6} /><strong>2.3 倍</strong><p>業務提升</p></div><div><ShieldCheck size={44} strokeWidth={1.6} /><strong>70%</strong><p>違約率下降</p></div></div></section>
+      <section className={styles.outcomes} aria-labelledby="outcomes-title"><div className={"container " + styles.outcomesGrid}><div><h2 id="outcomes-title" data-scroll-title>客戶成效</h2><p>結合市場分析、資料整合與信用評分模型調優。</p></div><div><TrendingUp size={44} strokeWidth={1.6} /><strong>2.3 倍</strong><p>業務提升</p></div><div><ShieldCheck size={44} strokeWidth={1.6} /><strong>70%</strong><p>違約率下降</p></div></div></section>
 
       <section className={styles.cta} aria-labelledby="loan-cta-title"><div className={"container " + styles.ctaInner}><div><h2 id="loan-cta-title" data-scroll-title>讓授信分析更精準，讓風險管理更有依據</h2><p>結合市場洞察、評分模型與顧問經驗，協助金融機構提升授信決策品質。</p></div><Link href="/consultation-appointment/">預約諮詢 <ArrowRight size={19} /></Link></div></section>
     </div>

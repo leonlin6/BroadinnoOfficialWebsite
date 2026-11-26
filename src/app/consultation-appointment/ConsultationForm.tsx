@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { AlertCircle, CheckCircle2, Send, ShieldCheck } from "lucide-react";
+import { Send, ShieldCheck } from "lucide-react";
+import { SubmissionDialog, type SubmissionFeedback } from "@/components/SubmissionDialog";
 import { trackLeadSubmission } from "@/lib/analytics";
+import { ConsultationTimeoutError, submitConsultation } from "@/lib/consultationRequest";
 import styles from "./consultation.module.css";
 
 const topics = [
@@ -14,24 +16,12 @@ const topics = [
   "其他",
 ];
 
-type SubmissionFeedback = {
-  kind: "success" | "error";
-  title: string;
-  message: string;
-};
-
 export function ConsultationForm() {
   const [description, setDescription] = useState("");
   const [pending, setPending] = useState(false);
   const [feedback, setFeedback] = useState<SubmissionFeedback | null>(null);
   const requestId = useRef<string | null>(null);
   const submitting = useRef(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (feedback && dialog && !dialog.open) dialog.showModal();
-  }, [feedback]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,32 +38,28 @@ export function ConsultationForm() {
     requestId.current ??= crypto.randomUUID();
 
     try {
-      const response = await fetch("/api/consultation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          requestId: requestId.current,
-          name: values.get("name"),
-          email: values.get("email"),
-          phone: values.get("phone"),
-          preferredTime: values.get("preferredTime"),
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          topic: values.get("topic"),
-          description: values.get("description"),
-          consent: values.has("consent"),
-          website: values.get("website"),
-        }),
+      await submitConsultation({
+        requestId: requestId.current,
+        name: values.get("name"),
+        email: values.get("email"),
+        phone: values.get("phone"),
+        preferredTime: values.get("preferredTime"),
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        topic: values.get("topic"),
+        description: values.get("description"),
+        consent: values.has("consent"),
+        website: values.get("website"),
       });
-      const result = await response.json() as { ok?: boolean };
-      if (!response.ok || !result.ok) throw new Error("Submission failed");
 
       trackLeadSubmission("consultation");
       form.reset();
       setDescription("");
       setFeedback({ kind: "success", title: "預約需求已送出", message: "已收到您的諮詢需求，我們會透過 Email 與您確認時間。" });
       requestId.current = null;
-    } catch {
-      setFeedback({ kind: "error", title: "送出結果未確認", message: "目前無法確認是否收件成功。請稍後重試，或使用下方 Email 聯絡我們。" });
+    } catch (error) {
+      setFeedback(error instanceof ConsultationTimeoutError
+        ? { kind: "error", title: "等待逾時，送出結果未確認", message: "已等待超過 30 秒，無法確認是否收件成功。請稍後重試，或使用下方 Email 聯絡我們。" }
+        : { kind: "error", title: "送出結果未確認", message: "目前無法確認是否收件成功。請稍後重試，或使用下方 Email 聯絡我們。" });
     } finally {
       submitting.current = false;
       setPending(false);
@@ -96,19 +82,6 @@ export function ConsultationForm() {
     <div className={styles.honeypot} aria-hidden="true"><label>網站網址<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
     <button className={styles.submitButton} type="submit" disabled={pending}><Send size={18} aria-hidden="true" />{pending ? "送出中…" : "送出諮詢申請"}</button>
   </form>
-  <dialog
-    ref={dialogRef}
-    className={[styles.submissionDialog, feedback?.kind === "success" ? styles.dialogSuccess : styles.dialogError].join(" ")}
-    aria-labelledby="consultation-dialog-title"
-    aria-describedby="consultation-dialog-message"
-    onClose={() => setFeedback(null)}
-  >
-    <div className={styles.dialogIcon} aria-hidden="true">
-      {feedback?.kind === "success" ? <CheckCircle2 size={30} /> : <AlertCircle size={30} />}
-    </div>
-    <h2 id="consultation-dialog-title">{feedback?.title}</h2>
-    <p id="consultation-dialog-message">{feedback?.message}</p>
-    <button className={styles.dialogButton} type="button" onClick={() => dialogRef.current?.close()}>我知道了</button>
-  </dialog>
+  <SubmissionDialog id="consultation-dialog" pending={pending} feedback={feedback} onDismiss={() => setFeedback(null)} />
   </>;
 }
