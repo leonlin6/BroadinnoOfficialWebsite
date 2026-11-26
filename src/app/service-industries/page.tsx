@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ScrollUnderline } from "@/components/ScrollUnderline";
+import titles from "../service-titles.module.css";
 import styles from "./service-industries.module.css";
 
 export const metadata: Metadata = {
@@ -48,7 +49,7 @@ export default function ServiceIndustries() {
       <div className={styles.heroWash} aria-hidden="true" />
       <div className={styles.heroFacet} aria-hidden="true" />
       <div className={`container ${styles.heroInner}`}>
-        <div className={styles.heroCopy}>
+        <div className={titles.heroCopy}>
           <h1 id="industries-title" data-scroll-title>主要服務產業</h1>
           <p>深入產業情境，結合數據與科技，<br />創造企業成長價值。</p>
         </div>
@@ -58,9 +59,9 @@ export default function ServiceIndustries() {
     <section className={styles.industriesSection} aria-labelledby="industry-intro-title">
       <div className="container">
         <div className={styles.intro}>
-          <div className={styles.titleUnderlineGroup}>
+          <div className={titles.titleUnderlineGroup}>
             <h2 id="industry-intro-title">理解產業需求，提供適切解決方案</h2>
-            <ScrollUnderline className={styles.titleUnderline} />
+            <ScrollUnderline className={titles.titleUnderline} />
           </div>
           <p>結合產業知識、顧問經驗與數據科技，深入掌握產業營運情境與關鍵挑戰，<br className={styles.desktopBreak} />協助企業提升營運效率、強化客戶價值，並創造可持續的成長動能。</p>
         </div>
@@ -69,7 +70,7 @@ export default function ServiceIndustries() {
           {industries.map((industry, index) => {
             const visual = <div className={styles.visual} key="visual"><Image src={industry.image} alt={industry.imageAlt} fill sizes="(max-width: 760px) 100vw, 50vw" /></div>;
             const copy = <div className={styles.industryCopy} key="copy">
-              <div className={styles.titleLine}><span className={styles.number}>{industry.number}</span><span className={styles.titleRule} aria-hidden="true" /><h3 data-scroll-title>{industry.title}</h3></div>
+              <div className={titles.titleLine}><span className={titles.number}>{industry.number}</span><span className={titles.titleRule} aria-hidden="true" /><h3 data-scroll-title>{industry.title}</h3></div>
               <p className={styles.focus}>{industry.focus}</p>
               <p className={styles.description}>{industry.description}</p>
               <ul className={styles.tags} aria-label={`${industry.title}服務重點`}>{industry.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
@@ -82,7 +83,7 @@ export default function ServiceIndustries() {
 
     <section className={styles.cta} aria-labelledby="industry-cta-title">
       <div className={`container ${styles.ctaInner}`}>
-        <h2 id="industry-cta-title" >從產業挑戰出發，找到下一步</h2>
+        <h2 className={titles.ctaTitle} id="industry-cta-title">從產業挑戰出發，找到下一步</h2>
         <p>與我們的顧問團隊對談，探索適合您產業與企業現況的解決方向。</p>
         <Link href="/consultation-appointment/">預約諮詢 <ArrowRight size={19} aria-hidden="true" /></Link>
       </div>

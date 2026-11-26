@@ -11,6 +11,12 @@ import { ApplianceCasePage } from "./ApplianceCasePage";
 import { LoanCreditCasePage } from "./LoanCreditCasePage";
 import styles from "./case-detail.module.css";
 
+const caseHeroClasses: Record<string, string> = {
+  "customer-public-facility": styles.publicFacilityHero,
+  "customer-potential": styles.potentialHero,
+  "customer-motor-industry": styles.motorIndustryHero,
+};
+
 export function generateStaticParams() { return cases.map(({ slug }) => ({ slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -29,7 +35,13 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   if (slug === "customer-loan-credit") return <LoanCreditCasePage />;
   return (
     <>
-      <PageHero eyebrow={`CASE STUDY / ${item.number}`} title={item.title} description={item.summary} parent={{ label: "客戶案例", href: "/case-studies/" }}>
+      <PageHero
+        className={caseHeroClasses[slug]}
+        eyebrow={`CASE STUDY / ${item.number}`}
+        title={item.title}
+        description={item.summary}
+        parent={{ label: "客戶案例", href: "/case-studies/" }}
+      >
         <ExperienceBadge {...item.experience} className={styles.experience} />
       </PageHero>
       <section className="section">

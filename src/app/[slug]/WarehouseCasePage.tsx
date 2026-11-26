@@ -45,7 +45,7 @@ export function WarehouseCasePage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="warehouse-title">
-        <div className={"container " + styles.heroGrid}>
+        <div className={"container " + styles.heroInner}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>CASE STUDY / DATA INFRASTRUCTURE</span>
             <h1 id="warehouse-title" data-scroll-title>金控公司資料倉儲<br />建置與應用</h1>
@@ -53,39 +53,39 @@ export function WarehouseCasePage() {
             <p>金控公司多已具備資料倉儲或數據中台。透過 Health Check 檢視既有系統的資料進出、使用效率與維運成本，尋找 Data to Value 的商機。</p>
             <ExperienceBadge {...cases[0].experience} className={styles.experience} />
           </div>
-          <div className={styles.pipelineWrap}>
-            <div className={styles.pipeline} aria-label="既有資料倉儲的資料進出與分析應用概念流程">
-              <div className={styles.pipelineCard}>
-                <strong>資料來源</strong>
-                <div><Database /><span>核心業務系統</span></div>
-                <div><Layers3 /><span>周邊業務系統</span></div>
-                <div><FileText /><span>外部資料</span></div>
-              </div>
-              <ArrowRight className={styles.pipelineArrow} aria-hidden="true" />
-              <div className={styles.pipelineCard}>
-                <strong>資料整合</strong>
-                <div><Settings2 /><span>資料擷取與盤整</span></div>
-                <div><CircleCheck /><span>資料清洗與轉換</span></div>
-                <div><ShieldCheck /><span>資料品質檢核</span></div>
-              </div>
-              <ArrowRight className={styles.pipelineArrow} aria-hidden="true" />
-              <div className={styles.pipelineCard + " " + styles.warehouseCard}>
-                <strong>資料倉儲</strong>
-                <Database className={styles.warehouseIcon} strokeWidth={1.35} aria-hidden="true" />
-                <span>可用的資料資產</span>
-              </div>
-              <ArrowRight className={styles.pipelineArrow} aria-hidden="true" />
-              <div className={styles.pipelineCard}>
-                <strong>分析應用</strong>
-                <div><BarChart3 /><span>客戶分析</span></div>
-                <div><UsersRound /><span>業務應用</span></div>
-                <div><Target /><span>管理決策</span></div>
-              </div>
-            </div>
-            <span className={styles.diagramNote}>概念架構示意・非客戶實際系統</span>
-          </div>
         </div>
       </section>
+
+      <div className={"container " + styles.pipelineWrap}>
+        <div className={styles.pipeline} aria-label="既有資料倉儲的資料進出與分析應用概念流程">
+          <div className={styles.pipelineCard}>
+            <strong>資料來源</strong>
+            <div><Database /><span>核心業務系統</span></div>
+            <div><Layers3 /><span>周邊業務系統</span></div>
+            <div><FileText /><span>外部資料</span></div>
+          </div>
+          <ArrowRight className={styles.pipelineArrow} aria-hidden="true" />
+          <div className={styles.pipelineCard}>
+            <strong>資料整合</strong>
+            <div><Settings2 /><span>資料擷取與盤整</span></div>
+            <div><CircleCheck /><span>資料清洗與轉換</span></div>
+            <div><ShieldCheck /><span>資料品質檢核</span></div>
+          </div>
+          <ArrowRight className={styles.pipelineArrow} aria-hidden="true" />
+          <div className={styles.pipelineCard + " " + styles.warehouseCard}>
+            <strong>資料倉儲</strong>
+            <Database className={styles.warehouseIcon} strokeWidth={1.35} aria-hidden="true" />
+            <span>可用的資料資產</span>
+          </div>
+          <ArrowRight className={styles.pipelineArrow} aria-hidden="true" />
+          <div className={styles.pipelineCard}>
+            <strong>分析應用</strong>
+            <div><BarChart3 /><span>客戶分析</span></div>
+            <div><UsersRound /><span>業務應用</span></div>
+            <div><Target /><span>管理決策</span></div>
+          </div>
+        </div>
+      </div>
 
       <section className={styles.context} aria-labelledby="context-title">
         <div className="container">

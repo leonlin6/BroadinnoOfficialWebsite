@@ -5,6 +5,8 @@ import {
   ArrowRight, BarChart3, Heart, Landmark, Layers3,
   Rocket, Target, Trophy, UsersRound,
 } from "lucide-react";
+import { ScrollUnderline } from "@/components/ScrollUnderline";
+import titles from "../service-titles.module.css";
 import styles from "./main-experties.module.css";
 
 export const metadata: Metadata = {
@@ -103,8 +105,8 @@ export default function MainExpertise() {
         <path className={styles.chartLine} d="M0 136 C65 144 82 78 140 100 S205 130 255 76 S338 79 450 17" />
       </svg>
       <div className={`container ${styles.heroInner}`}>
-        <div className={styles.heroCopy}>
-          <h1 id="expertise-title">主要專業領域</h1>
+        <div className={titles.heroCopy}>
+          <h1 id="expertise-title" data-scroll-title>主要專業領域</h1>
           <p>結合產業洞察、數據能力與多元技術，<br />為企業打造可落地的數位轉型與創新方案。</p>
         </div>
       </div>
@@ -113,15 +115,14 @@ export default function MainExpertise() {
     <section className={styles.domains} id="domains" aria-labelledby="domains-title">
       <div className="container">
         <div className={styles.sectionIntro}>
-          <span className={styles.introRule} aria-hidden="true" />
-          <h2 id="domains-title">以產業洞察與數位技術，驅動企業轉型與創新</h2>
+          <div className={titles.titleUnderlineGroup}><h2 id="domains-title">以產業洞察與數位技術，驅動企業轉型與創新</h2><ScrollUnderline className={titles.titleUnderline} /></div>
           <p>博創數科（Broadinno）結合金融科技、支付、AI、區塊鏈、數據分析與數位轉型能力，<br className={styles.desktopBreak} />從策略規劃到落地執行，協助企業探索適合的商業應用與成長方向。</p>
         </div>
         <div className={styles.domainList}>
           {domains.map((domain, index) => {
             const visual = <div className={styles.domainImage} key="visual"><Image src={domain.image} alt={domain.alt} fill sizes="(max-width: 760px) 100vw, 50vw" /></div>;
             const copy = <div className={styles.domainCopy} key="copy">
-              <div className={styles.domainTitle}><span className={styles.number}>{domain.number}</span><span className={styles.titleRule} aria-hidden="true" /><h3>{domain.title}</h3></div>
+              <div className={titles.titleLine}><span className={titles.number}>{domain.number}</span><span className={titles.titleRule} aria-hidden="true" /><h3 data-scroll-title>{domain.title}</h3></div>
               <p className={styles.domainFocus}>{domain.focus}</p>
               <p className={styles.domainDescription}>{domain.text}</p>
               <ul className={styles.domainPoints} aria-label={`${domain.title}服務重點`}>{domain.points.map((point) => <li key={point}>{point}</li>)}</ul>
@@ -133,12 +134,12 @@ export default function MainExpertise() {
     </section>
 
     <section className={styles.focusSection} aria-labelledby="focus-title"><div className="container">
-      <div className={styles.secondaryHeading}><span className={styles.introRule} aria-hidden="true" /><h2 id="focus-title">從理解需求到推動落地</h2></div>
+      <div className={styles.secondaryHeading}><div className={titles.titleUnderlineGroup}><h2 id="focus-title">從理解需求到推動落地</h2><ScrollUnderline className={titles.titleUnderline} /></div></div>
       <div className={styles.focusGrid}>{focus.map(({ icon: Icon, title, text }) => <article className={styles.focusItem} key={title}><Icon size={28} strokeWidth={1.7} aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div>
     </div></section>
 
     <section className={styles.applications} aria-labelledby="applications-title"><div className="container">
-      <div className={styles.secondaryHeading}><span className={styles.introRule} aria-hidden="true" /><h2 id="applications-title">專業落地，創造業務價值</h2><p>讓不同領域的專業能力，回應企業實際的服務、決策與營運需求。</p></div>
+      <div className={styles.secondaryHeading}><div className={titles.titleUnderlineGroup}><h2 id="applications-title">專業落地，創造業務價值</h2><ScrollUnderline className={titles.titleUnderline} /></div><p>讓不同領域的專業能力，回應企業實際的服務、決策與營運需求。</p></div>
       <div className={styles.applicationGrid}>{applications.map((item) => <article className={styles.applicationCard} id={item.id} key={item.id}>
         <div className={styles.applicationImage}><Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 33vw" /></div>
         <div className={styles.applicationBody}><h3>{item.title.split("\n").map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</h3><p>{item.text}</p><ul>{item.points.map((point) => <li key={point}>{point}</li>)}</ul></div>
@@ -146,12 +147,12 @@ export default function MainExpertise() {
     </div></section>
 
     <section className={styles.outcomes} aria-labelledby="outcomes-title"><div className="container">
-      <div className={styles.secondaryHeading}><span className={styles.introRule} aria-hidden="true" /><h2 id="outcomes-title">為企業帶來的關鍵成效</h2></div>
+      <div className={styles.secondaryHeading}><div className={titles.titleUnderlineGroup}><h2 id="outcomes-title">為企業帶來的關鍵成效</h2><ScrollUnderline className={titles.titleUnderline} /></div></div>
       <div className={styles.outcomeGrid}>{outcomes.map(({ icon: Icon, title, text }) => <article className={styles.outcomeItem} key={title}><Icon size={27} strokeWidth={1.7} aria-hidden="true" /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
     </div></section>
 
     <section className={styles.cta} aria-labelledby="expertise-cta-title"><div className={`container ${styles.ctaInner}`}>
-      <h2 id="expertise-cta-title">讓專業領域成為企業成長的核心動能</h2>
+      <h2 className={titles.ctaTitle} id="expertise-cta-title" data-scroll-title data-scroll-title-center>讓專業領域成為企業成長的核心動能</h2>
       <p>與博創數科的專業顧問團隊對談，共同探索適合企業的創新與數位轉型方案。</p>
       <Link href="/consultation-appointment/">立即預約諮詢 <ArrowRight size={18} aria-hidden="true" /></Link>
     </div></section>

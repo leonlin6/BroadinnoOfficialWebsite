@@ -54,10 +54,7 @@ export function ApplianceCasePage() {
             <div className={styles.heroTags}><span>家電產業</span><span>客戶分群</span><span>精準行銷</span><span>忠誠經營</span></div>
             <ExperienceBadge {...cases[1].experience} className={styles.experience} />
           </div>
-          <div className={styles.heroMetric} aria-label="家庭客群洞察示意指標">
-            <strong><UsersRound size={18} />家庭客群洞察 <small>示意</small></strong>
-            <div className={styles.metricBody}><span className={styles.donut} aria-hidden="true" /><div><span>家電持有 <b>83%</b></span><span>換購意向 <b>56%</b></span><span>促銷回應 <b>72%</b></span></div></div>
-          </div>
+      
         </div>
       </section>
 
@@ -73,14 +70,14 @@ export function ApplianceCasePage() {
           <div className={styles.householdIntro}><Accent /><span>家庭客戶分群分析</span><h2 id="household-title">以家庭為單位，<br />描繪完整的消費輪廓</h2><p>建立 HouseHold 等級的客戶分群，結合 Open Data 補充區域資訊，提供銷售熱點與可評估的銷售區域。</p></div>
           <div className={styles.householdDiagram} aria-label="家庭客群由家庭成員、家電持有、消費偏好與潛在需求組成的概念圖">
             {signals.map(({ icon: Icon, title, items }, index) => <div className={`${styles.signalCard} ${styles[`signal${index + 1}`]}`} key={title}><strong><Icon size={18} />{title}</strong><ul>{items.map((item) => <li key={item}><Check size={13} aria-hidden="true" />{item}</li>)}</ul></div>)}
-            <div className={styles.familyCore}><House size={112} strokeWidth={1.25} aria-hidden="true" /><UsersRound size={66} strokeWidth={1.45} aria-hidden="true" /><strong>家庭帳戶</strong><span>客群輪廓示意</span></div>
+            <div className={styles.familyCore}><House size={112} strokeWidth={1.25} aria-hidden="true" /><UsersRound size={66} strokeWidth={1.45} aria-hidden="true" /><strong>家庭帳戶</strong></div>
           </div>
         </div>
       </section>
 
       <section className={styles.personaSection} aria-labelledby="persona-title">
         <div className={"container " + styles.personaGrid}>
-          <div className={styles.personaIntro}><Accent /><span>示意客群画像</span><h2 id="persona-title">從生活情境<br />發掘不同客群機會</h2><p className={styles.exampleNote}><Info size={17} />以下客群為行銷規劃示意，非實際專案分群結果。</p></div>
+          <div className={styles.personaIntro}><Accent /><span>示意客群画像</span><h2 id="persona-title">從生活情境<br />發掘不同客群機會</h2></div>
           <div className={styles.personaCards}>{personas.map(({ image, alt, icon: Icon, title, text, tags }) => <article className={styles.personaCard} key={title}><div className={styles.personaImage}><Image src={image} alt={alt} fill sizes="(max-width: 650px) 100vw, 25vw" /></div><div className={styles.personaBody}><h3><Icon size={27} strokeWidth={1.7} />{title}</h3><p>{text}</p><div>{tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>)}</div>
         </div>
       </section>
@@ -89,11 +86,11 @@ export function ApplianceCasePage() {
         <div className={"container " + styles.insightGrid}>
           <div className={styles.insightIntro}><Accent /><span>行銷洞察應用</span><h2 id="insight-title" >數據驅動的<br />精準行銷規劃</h2><p>運用客戶分級制度與 Reward Program Tracking 的相關經驗，結合客戶分群與區域熱點，規劃行銷推廣方向。</p></div>
           <div className={styles.dashboard} aria-label="行銷分析儀表板，所有數字均為示意資料">
-            <div className={styles.dashboardTitle}>行銷分析儀表板 <small>示意資料，非實際專案結果</small></div>
+            <div className={styles.dashboardTitle}>行銷分析儀表板 </div>
             <div className={styles.dashboardGrid}>
-              <div className={styles.regionPanel}><h3>區域銷售熱點 <small>示意</small></h3><div className={styles.mapBox}><span className={styles.mapShape} aria-hidden="true" /><div className={styles.mapLegend}><span>高</span><i /><span>低</span></div></div></div>
-              <div className={styles.middlePanels}><div><h3><Layers3 size={24} />Open Data 整合</h3><p>結合公開資料，補充區域、人口與生活型態資訊。</p></div><div><h3><UsersRound size={24} />客戶分群 <small>示意</small></h3>{segmentBars.map(({ label, value }) => <div className={styles.segmentRow} key={label}><span>{label}</span><i><b style={{ width: `${value * 2}%` }} /></i><strong>{value}%</strong></div>)}</div></div>
-              <div className={styles.rewardPanel}><h3><Gift size={23} />Reward Program 追蹤 <small>示意</small></h3><span>會員參與率</span><strong>72%</strong><div className={styles.miniChart} aria-hidden="true">{[22,28,35,31,42,56,64,76].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}</div></div>
+              <div className={styles.regionPanel}><h3>區域銷售熱點</h3><div className={styles.mapBox}><span className={styles.mapShape} aria-hidden="true" /><div className={styles.mapLegend}><span>高</span><i /><span>低</span></div></div></div>
+              <div className={styles.middlePanels}><div><h3><Layers3 size={24} />Open Data 整合</h3><p>結合公開資料，補充區域、人口與生活型態資訊。</p></div><div><h3><UsersRound size={24} />客戶分群</h3>{segmentBars.map(({ label, value }) => <div className={styles.segmentRow} key={label}><span>{label}</span><i><b style={{ width: `${value * 2}%` }} /></i><strong>{value}%</strong></div>)}</div></div>
+              <div className={styles.rewardPanel}><h3><Gift size={23} />Reward Program 追蹤</h3><span>會員參與率</span><strong>72%</strong><div className={styles.miniChart} aria-hidden="true">{[22,28,35,31,42,56,64,76].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}</div></div>
             </div>
           </div>
         </div>

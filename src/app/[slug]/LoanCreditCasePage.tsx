@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import { ExperienceBadge } from "@/components/ExperienceBadge";
 import { cases } from "@/lib/content";
 import {
@@ -56,7 +57,7 @@ export function LoanCreditCasePage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="loan-title">
-        <div className={"container " + styles.heroGrid}>
+        <div className={styles.heroInner}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>CASE STUDY / 金融服務</span>
             <h1 id="loan-title" data-scroll-title>信用貸款市場分析<br />及客戶信用評分</h1>
@@ -65,10 +66,8 @@ export function LoanCreditCasePage() {
             <div className={styles.heroTags}><span>信用風險</span><span>評分模型</span><span>市場分析</span><span>模型優化</span></div>
             <ExperienceBadge {...cases[3].experience} className={styles.experience} />
           </div>
-          <RiskDashboard />
         </div>
       </section>
-
       <section className={styles.market} aria-labelledby="market-title">
         <div className="container">
           <div className={styles.sectionHead}><div><Accent /><h2 id="market-title" data-scroll-title>市場分析維度</h2></div><p>從多元資料觀察信用貸款市場環境，建立更完整的風險評估與客戶洞察基礎。</p></div>
@@ -80,7 +79,26 @@ export function LoanCreditCasePage() {
       </section>
 
       <section className={styles.model} aria-labelledby="model-title">
-        <div className="container"><div className={styles.sectionHead}><div><Accent /><h2 id="model-title" data-scroll-title>信用評分模型概念</h2></div><p>模型與評分準確度來自領域知識、專家判斷、變數選擇與實證分析，並隨資料與市場變化持續動態學習。</p></div><div className={styles.modelFlow}>{modelSteps.map(({ icon: Icon, title, text }, index) => <div className={styles.modelStep} key={title}><div className={styles.modelTop}><Icon size={29} strokeWidth={1.7} /><h3>{title}</h3></div><p>{text}</p><span className={styles.stepVisual} aria-hidden="true">{index === 0 ? <Database /> : index === 1 ? <Layers3 /> : index === 2 ? <ChartNoAxesCombined /> : index === 3 ? <ShieldCheck /> : <TrendingUp />}</span>{index < modelSteps.length - 1 && <ArrowRight className={styles.modelArrow} size={25} strokeWidth={2.4} aria-hidden="true" />}</div>)}</div></div>
+        <div className="container">
+          <div className={styles.sectionHead}>
+            <div><Accent /><h2 id="model-title" data-scroll-title>信用評分模型概念</h2></div>
+            <p>模型與評分準確度來自領域知識、專家判斷、變數選擇與實證分析，並隨資料與市場變化持續動態學習。</p>
+          </div>
+          <div className={styles.modelFlow}>
+            {modelSteps.map(({ icon: Icon, title, text }, index) => (
+              <Fragment key={title}>
+                <div className={styles.modelStep}>
+                  <div className={styles.modelTop}><Icon size={29} strokeWidth={1.7} /><h3>{title}</h3></div>
+                  <p>{text}</p>
+                  <span className={styles.stepVisual} aria-hidden="true">
+                    {index === 0 ? <Database /> : index === 1 ? <Layers3 /> : index === 2 ? <ChartNoAxesCombined /> : index === 3 ? <ShieldCheck /> : <TrendingUp />}
+                  </span>
+                </div>
+                {index < modelSteps.length - 1 && <ArrowRight className={styles.modelArrow} size={24} strokeWidth={2.4} aria-hidden="true" />}
+              </Fragment>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className={styles.improve} aria-labelledby="improve-title">
