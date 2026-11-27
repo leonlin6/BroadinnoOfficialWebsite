@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Cta } from "@/components/Cta";
 import { Fragment } from "react";
 import { ExperienceBadge } from "@/components/ExperienceBadge";
 import { cases } from "@/lib/content";
@@ -7,6 +7,7 @@ import {
   Globe2, Layers3, MapPin, Network, RefreshCw,
   ShieldCheck, SlidersHorizontal, Target, TrendingUp, UsersRound,
 } from "lucide-react";
+import { CaseStudyLabel } from "./CaseStudyLabel";
 import styles from "./loan-credit-case.module.css";
 
 const scatterPoints = Array.from({ length: 58 }, (_, index) => ({
@@ -41,13 +42,13 @@ function Accent() {
 
 function RiskDashboard() {
   return (
-    <div className={styles.dashboard} aria-label="信用風險分析概念儀表板，圖表均為示意資料">
-      <div className={styles.dashboardHead}><strong>信用風險分析 <span>概念示意</span></strong><small>非實際客戶資料</small></div>
+    <div className={styles.dashboard} aria-label="信用風險分析儀表板，圖表數值不代表實際成果">
+      <div className={styles.dashboardHead}><strong>信用風險分析</strong><small>非實際客戶資料</small></div>
       <div className={styles.dashboardGrid}>
-        <div className={styles.dashboardPanel}><h3>風險分層 <small>示意</small></h3><div className={styles.riskBody}><span className={styles.riskDonut}><b>風險分層</b></span><ul><li><i />低風險</li><li><i />中風險</li><li><i />高風險</li></ul></div></div>
-        <div className={styles.dashboardPanel}><h3>變數影響度 <small>示意</small></h3><div className={styles.factorBars}>{[["還款紀錄",90],["負債比例",73],["收入穩定性",61],["往來期間",46]].map(([label,value]) => <div key={label}><span>{label}</span><i><b style={{ width: `${value}%` }} /></i></div>)}</div></div>
-        <div className={styles.dashboardPanel}><h3>模型評分分布 <small>示意</small></h3><svg className={styles.scatter} viewBox="0 0 110 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 8 V93 H106" fill="none" stroke="#5d91a9" strokeWidth="1" />{scatterPoints.map(({ x,y }, index) => <circle cx={x} cy={Math.max(10,Math.min(92,y))} r="1.2" fill={index % 3 === 0 ? "#48e6d6" : "#35a8ed"} key={index} />)}<path d="M10 87 Q55 60 105 21" fill="none" stroke="#00dac9" strokeWidth="1.5" /></svg></div>
-        <div className={styles.dashboardPanel}><h3>風險趨勢預測 <small>示意</small></h3><svg className={styles.trend} viewBox="0 0 110 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="loanTrendFill" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#2fe2d0" stopOpacity=".7" /><stop offset="1" stopColor="#2fe2d0" stopOpacity="0" /></linearGradient></defs><path d="M4 88 C26 85 31 78 45 64 S72 25 106 18 L106 96 L4 96 Z" fill="url(#loanTrendFill)" /><path d="M4 88 C26 85 31 78 45 64 S72 25 106 18" fill="none" stroke="#73ffff" strokeWidth="2" /><path d="M4 96 H108" stroke="#5d91a9" strokeWidth="1" /></svg></div>
+        <div className={styles.dashboardPanel}><h3>風險分層</h3><div className={styles.riskBody}><span className={styles.riskDonut}><b>風險分層</b></span><ul><li><i />低風險</li><li><i />中風險</li><li><i />高風險</li></ul></div></div>
+        <div className={styles.dashboardPanel}><h3>變數影響度</h3><div className={styles.factorBars}>{[["還款紀錄",90],["負債比例",73],["收入穩定性",61],["往來期間",46]].map(([label,value]) => <div key={label}><span>{label}</span><i><b style={{ width: `${value}%` }} /></i></div>)}</div></div>
+        <div className={styles.dashboardPanel}><h3>模型評分分布</h3><svg className={styles.scatter} viewBox="0 0 110 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 8 V93 H106" fill="none" stroke="#5d91a9" strokeWidth="1" />{scatterPoints.map(({ x,y }, index) => <circle cx={x} cy={Math.max(10,Math.min(92,y))} r="1.2" fill={index % 3 === 0 ? "#48e6d6" : "#35a8ed"} key={index} />)}<path d="M10 87 Q55 60 105 21" fill="none" stroke="#00dac9" strokeWidth="1.5" /></svg></div>
+        <div className={styles.dashboardPanel}><h3>風險趨勢預測</h3><svg className={styles.trend} viewBox="0 0 110 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="loanTrendFill" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#2fe2d0" stopOpacity=".7" /><stop offset="1" stopColor="#2fe2d0" stopOpacity="0" /></linearGradient></defs><path d="M4 88 C26 85 31 78 45 64 S72 25 106 18 L106 96 L4 96 Z" fill="url(#loanTrendFill)" /><path d="M4 88 C26 85 31 78 45 64 S72 25 106 18" fill="none" stroke="#73ffff" strokeWidth="2" /><path d="M4 96 H108" stroke="#5d91a9" strokeWidth="1" /></svg></div>
       </div>
     </div>
   );
@@ -59,7 +60,7 @@ export function LoanCreditCasePage() {
       <section className={styles.hero} aria-labelledby="loan-title">
         <div className={styles.heroInner}>
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>CASE STUDY / 金融服務</span>
+            <CaseStudyLabel />
             <h1 id="loan-title" data-scroll-title>信用貸款市場分析<br />及客戶信用評分</h1>
             <Accent />
             <p>整合總體經濟、區域發展與就業狀況等多維資料，結合領域知識、專家判斷與實證，優化信用評分模型。</p>
@@ -111,7 +112,11 @@ export function LoanCreditCasePage() {
 
       <section className={styles.outcomes} aria-labelledby="outcomes-title"><div className={"container " + styles.outcomesGrid}><div><h2 id="outcomes-title" data-scroll-title>客戶成效</h2><p>結合市場分析、資料整合與信用評分模型調優。</p></div><div><TrendingUp size={44} strokeWidth={1.6} /><strong>2.3 倍</strong><p>業務提升</p></div><div><ShieldCheck size={44} strokeWidth={1.6} /><strong>70%</strong><p>違約率下降</p></div></div></section>
 
-      <section className={styles.cta} aria-labelledby="loan-cta-title"><div className={"container " + styles.ctaInner}><div><h2 id="loan-cta-title" data-scroll-title>讓授信分析更精準，讓風險管理更有依據</h2><p>結合市場洞察、評分模型與顧問經驗，協助金融機構提升授信決策品質。</p></div><Link href="/consultation-appointment/">預約諮詢 <ArrowRight size={19} /></Link></div></section>
+      <Cta
+        headingId="loan-cta-title"
+        title="讓授信分析更精準，讓風險管理更有依據"
+        description="結合市場洞察、評分模型與顧問經驗，協助金融機構提升授信決策品質。"
+      />
     </div>
   );
 }

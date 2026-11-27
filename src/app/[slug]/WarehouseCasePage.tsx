@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Cta } from "@/components/Cta";
 import { ExperienceBadge } from "@/components/ExperienceBadge";
 import { cases } from "@/lib/content";
 import {
@@ -6,6 +6,7 @@ import {
   Database, FileText, Gauge, Gem, Layers3, SearchCheck, Server,
   Settings2, ShieldCheck, Target, UsersRound,
 } from "lucide-react";
+import { CaseStudyLabel } from "./CaseStudyLabel";
 import styles from "./warehouse-case.module.css";
 
 const challenges = [
@@ -47,7 +48,7 @@ export function WarehouseCasePage() {
       <section className={styles.hero} aria-labelledby="warehouse-title">
         <div className={"container " + styles.heroInner}>
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>CASE STUDY / DATA INFRASTRUCTURE</span>
+            <CaseStudyLabel />
             <h1 id="warehouse-title" data-scroll-title>金控公司資料倉儲<br />建置與應用</h1>
             <Accent />
             <p>金控公司多已具備資料倉儲或數據中台。透過 Health Check 檢視既有系統的資料進出、使用效率與維運成本，尋找 Data to Value 的商機。</p>
@@ -125,7 +126,6 @@ export function WarehouseCasePage() {
               </div>
             ))}
           </div>
-          <span className={styles.healthNote}>資料治理基礎，支援後續分析與應用</span>
         </div>
       </section>
 
@@ -145,9 +145,10 @@ export function WarehouseCasePage() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="warehouse-cta-title">
-        <div className={"container " + styles.ctaInner}><h2 id="warehouse-cta-title" data-scroll-title>讓企業資料，真正轉化為決策價值</h2><Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={19} /></Link></div>
-      </section>
+      <Cta
+        headingId="warehouse-cta-title"
+        title="讓企業資料，真正轉化為決策價值"
+      />
     </div>
   );
 }

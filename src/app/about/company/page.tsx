@@ -1,31 +1,172 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ChartNoAxesCombined, Compass, Lightbulb, Waypoints } from "lucide-react";
-import { Cta } from "@/components/Cta";
-import styles from "../../new-pages.module.css";
+import {
+  BarChart3,
+  CalendarDays,
+  ClipboardCheck,
+  Cpu,
+  Flag,
+  Landmark,
+  Layers3,
+  Sprout,
+  Target,
+  UsersRound,
+} from "lucide-react";
+import styles from "./company.module.css";
 
 export const metadata: Metadata = {
   title: "公司介紹",
-  description: "認識博創數科 Broadinno：結合淵博知識與創新方法，以數據、數位及科技協助企業尋找解決方案。",
+  description:
+    "認識博創數科 Broadinno：以淵博知識與創新思維，提供數據分析、數位轉型、金融科技及專案管理服務。",
   alternates: { canonical: "/about/company/" },
 };
 
-const beliefs = [
-  { icon: Compass, title: "理解問題", text: "從企業的現況與目標出發，釐清真正需要處理的課題。" },
-  { icon: ChartNoAxesCombined, title: "建立洞察", text: "結合產業經驗與數據分析，讓判斷有更清楚的基礎。" },
-  { icon: Waypoints, title: "務實推進", text: "將策略、資源與執行連結，支持方案逐步落地。" },
+const values = [
+  {
+    character: "博",
+    title: "淵博的知識",
+    description: "以廣泛而深厚的專業知識為基礎，洞察產業與趨勢，提供更全面的觀點。",
+  },
+  {
+    character: "創",
+    title: "創新的想法與做法",
+    description: "以開放與創新的思維，結合數據、數位與科技，為客戶設計更有效、更具前瞻的解決方案。",
+  },
 ];
 
-export default function Company() {
-  return <>
-    <section className={styles.featureHero}><div className={"container " + styles.featureHeroGrid}><div className={styles.featureHeroCopy}><div className={styles.crumb}><Link href="/">首頁</Link><ArrowRight size={13} />關於我們 <ArrowRight size={13} />公司介紹</div><span className={styles.eyebrow}>ABOUT BROADINNO</span><h1 data-scroll-title>以淵博的知識，<br />探索創新的方法。</h1><p>博創數科以專業服務為核心，透過數據、數位與科技的整合，陪伴企業理解挑戰、找到方向並推動實踐。</p><Link className={styles.lightButton} href="/about/capabilities/">了解專業能力 <ArrowUpRight size={18} /></Link></div><div className={styles.featureHeroVisual}><Image src="/images/home-about-building.webp" alt="現代辦公建築" fill priority sizes="(max-width: 800px) 100vw, 50vw" /></div></div></section>
+const storyFacts = [
+  { icon: Flag, title: "成立原由", description: "為客戶找到答案，提供建議。" },
+  { icon: CalendarDays, title: "成立時間", description: "2024 年底。" },
+  {
+    icon: UsersRound,
+    title: "團隊特質",
+    description: "豐富經驗、開放心態、顧問方法、分享熱誠、務實執行。",
+  },
+];
 
-    <section className={styles.editorialSection}><div className={"container " + styles.introGrid}><div><span className={styles.eyebrowDark}>OUR STORY</span><h2 data-scroll-title>關於博創數科</h2></div><div><p>博創數科有限公司成立於 2024 年底。公司名稱「博創」象徵淵博的知識與創新的方法；我們希望透過數據、數位及科技的整合，為客戶尋找適合的解決方案。</p><p>團隊由具備不同領域經驗、保持開放心態的顧問組成，重視務實執行。無論面對分析、轉型或專案管理課題，我們都從理解企業需求開始，與客戶一起規劃可行的下一步。</p></div></div></section>
+const services = [
+  {
+    icon: BarChart3,
+    title: "數據分析",
+    description: "從數據中發掘洞察，支持決策與業務成長。",
+  },
+  {
+    icon: Layers3,
+    title: "數位轉型",
+    description: "規劃並推動數位化，提升營運效率與競爭力。",
+  },
+  {
+    icon: Landmark,
+    title: "金融科技",
+    description: "結合金融與科技，打造創新應用與服務模式。",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "專案管理",
+    description: "以專業方法與執行力，確保專案目標如期達成。",
+  },
+];
 
-    <section className={styles.paleSection}><div className="container"><div className={styles.sectionHead}><span className={styles.eyebrowDark}>WHAT GUIDES US</span><h2 data-scroll-title data-scroll-title-center>以專業與行動，建立長期合作關係。</h2></div><div className={styles.beliefGrid}>{beliefs.map(({ icon: Icon, title, text }, index) => <article className={styles.beliefCard} key={title}><span>0{index + 1}</span><Icon size={33} strokeWidth={1.5} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+const vision = [
+  { icon: Cpu, text: "運用 AI 及科技提供整合顧問與管理服務。" },
+  { icon: Layers3, text: "We are SI, but Solution Integration。" },
+  { icon: UsersRound, text: "培養各世代獨立管理顧問。" },
+  { icon: Target, text: "專注 AI 應用及金融科技，成為客戶夥伴。" },
+  { icon: Sprout, text: "永續經營，持續提供有質量的專業服務。" },
+];
 
-    <section className={styles.editorialSection}><div className={"container " + styles.focusLayout}><div><span className={styles.eyebrowDark}>OUR FOCUS</span><h2 data-scroll-title>跨越管理與科技的顧問視角</h2><p>博創數科聚焦數據分析、數位轉型、金融科技與專案管理四個方向。每一項能力都以企業的實際問題為起點，與其他專業相互補足。</p><Link className={styles.inlineLink} href="/about/capabilities/">探索專業能力 <ArrowUpRight size={18} /></Link></div><div className={styles.focusList}><div><Lightbulb size={24} /><span>數據分析</span></div><div><Lightbulb size={24} /><span>數位轉型</span></div><div><Lightbulb size={24} /><span>金融科技</span></div><div><Lightbulb size={24} /><span>專案管理</span></div></div></div></section>
-    <Cta />
-  </>;
+export default function CompanyPage() {
+  return (
+    <div className={styles.page}>
+      <section className={styles.hero} aria-labelledby="company-title">
+        <div className={"container " + styles.heroInner}>
+          <h1 id="company-title">關於博創</h1>
+          <p>以淵博知識與創新思維，整合最佳解決方案</p>
+        </div>
+      </section>
+
+      <section className={styles.overview} aria-labelledby="overview-title">
+        <div className={"container " + styles.overviewGrid}>
+          <div className={styles.overviewCopy}>
+            <span className={styles.eyebrow}>COMPANY</span>
+            <h2 id="overview-title" data-scroll-title>公司簡介</h2>
+            <p>
+              博創數科（Broadinno）是一家管理顧問公司，提供整合數據、數位與科技的專業顧問服務，協助企業在變動的環境中釐清問題、擬定策略、落實解決方案，創造可落地的業務價值。
+            </p>
+          </div>
+          <div className={styles.nameValues}>
+            {values.map(({ character, title, description }) => (
+              <div className={styles.nameValue} key={character}>
+                <span className={styles.valueGlyph} aria-hidden="true">
+                  {character}
+                </span>
+                <span className={styles.valueSlash} aria-hidden="true" />
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.story} aria-labelledby="story-title">
+        <div className={"container " + styles.storyGrid}>
+          <div className={styles.storyImageSpace} aria-hidden="true" />
+          <div className={styles.storyHeading}>
+            <span className={styles.eyebrow}>BRAND STORY</span>
+            <h2 id="story-title" data-scroll-title>品牌故事</h2>
+          </div>
+          <div className={styles.storyFacts}>
+            {storyFacts.map(({ icon: Icon, title, description }) => (
+              <div className={styles.storyFact} key={title}>
+                <Icon size={25} strokeWidth={1.7} aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.services} aria-labelledby="services-title">
+        <div className="container">
+          <div className={styles.servicesHeading}>
+            <span className={styles.eyebrow}>SERVICES</span>
+            <h2 id="services-title" data-scroll-title>專業服務領域</h2>
+          </div>
+          <div className={styles.serviceGrid}>
+            {services.map(({ icon: Icon, title, description }) => (
+              <article className={styles.serviceCard} key={title}>
+                <div className={styles.serviceCardHeading}>
+                  <Icon size={39} strokeWidth={1.55} aria-hidden="true" />
+                  <h3>{title}</h3>
+                </div>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.vision} aria-labelledby="vision-title">
+        <div className={"container " + styles.visionGrid}>
+          <div className={styles.visionHeading}>
+            <span className={styles.eyebrow}>OUR VISION</span>
+            <h2 id="vision-title" data-scroll-title>我們的願景</h2>
+          </div>
+          <ul className={styles.visionList}>
+            {vision.map(({ icon: Icon, text }) => (
+              <li key={text}>
+                <span className={styles.visionIcon}>
+                  <Icon size={27} strokeWidth={1.7} aria-hidden="true" />
+                </span>
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </div>
+  );
 }

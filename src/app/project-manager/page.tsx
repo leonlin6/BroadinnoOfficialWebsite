@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Cta } from "@/components/Cta";
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollUnderline } from "@/components/ScrollUnderline";
@@ -83,6 +84,10 @@ export default function ProjectManager() {
 
     <section className={styles.benefits}><div className="container"><SectionHeading title="導入 PMO 的服務效益" description="透過專業的 PMO 機制，協助企業提升專案管理成熟度，帶來更高的執行效率與業務價值。" /><div className={styles.benefitGrid}>{benefits.map(({ icon: Icon, title, text, tag }) => <article className={styles.benefitCard} key={title}><Icon size={31} strokeWidth={1.7} /><h3>{title}</h3><p>{text}</p><span>{tag}</span></article>)}</div></div></section>
 
-    <section className={styles.cta}><Image src="/images/contact-building.webp" alt="現代玻璃辦公大樓" fill sizes="100vw" /><div className={styles.ctaShade} /><div className={"container " + styles.ctaInner}><div><h2 data-scroll-title>讓專案管理成為企業成長的推進器</h2><p>無論是數位轉型、系統導入、業務升級或創新專案，<br />博創數科的 PMO 服務，協助您以更高的執行力與整合力，<br />將策略轉化為可衡量的成果。</p></div><Link href="/consultation-appointment/">立即預約諮詢 <ArrowRight size={18} /></Link></div></section>
+    <Cta
+      title="讓專案管理成為企業成長的推進器"
+      description="無論是數位轉型、系統導入、業務升級或創新專案，博創數科的 PMO 服務，協助您以更高的執行力與整合力，將策略轉化為可衡量的成果。"
+      buttonLabel="立即預約諮詢"
+    />
   </>;
 }

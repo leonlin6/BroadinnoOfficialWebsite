@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Cta } from "@/components/Cta";
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollUnderline } from "@/components/ScrollUnderline";
@@ -74,6 +75,11 @@ export default function ManagementConsulting() {
 
     <section className={styles.benefits}><div className={"container " + styles.benefitsGrid}><div className={styles.benefitsCopy}><div className={styles.sectionLabel}><div className={styles.titleUnderlineGroup}><h2>顧問服務價值</h2><ScrollUnderline className={styles.labelUnderline} /></div></div><p className={styles.benefitsIntro}>透過專業的管理顧問服務，協助企業在決策、流程、數據與組織面全面提升，創造可衡量的營運與成長價值。</p><div className={styles.benefitList}>{benefits.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={27} strokeWidth={1.6} /><h3>{title}</h3><p>{text}</p></article>)}</div></div><div className={styles.benefitImage}><Image src="/images/service-data.webp" alt="展示分析圖表的營運數據儀表板" fill sizes="(max-width: 800px) 100vw, 50vw" /><div className={styles.benefitImageLabel}><ShieldCheck size={17} /> 數據與策略，連結每一步決策</div></div></div></section>
 
-    <section className={styles.contactBanner} id="contact"><Image src="/images/contact-building.webp" alt="現代玻璃帷幕辦公大樓" fill sizes="100vw" /><div className={styles.contactShade} /><div className={"container " + styles.contactInner}><div><h2 data-scroll-title>立即與博創數科顧問團隊聯繫</h2><p>歡迎與我們討論您的企業挑戰與發展目標，<br />我們將提供專業評估與量身規劃的管理顧問解決方案。</p></div><div className={styles.contactAction}><Link href="/consultation-appointment/">預約一對一諮詢 <ArrowRight size={18} /></Link><p>從策略到落地執行，提供最適合您的管理顧問方案。</p></div></div></section>
+    <Cta
+      id="contact"
+      title="立即與博創數科顧問團隊聯繫"
+      description="歡迎與我們討論您的企業挑戰與發展目標，我們將提供專業評估與量身規劃的管理顧問解決方案。從策略到落地執行，提供最適合您的管理顧問方案。"
+      buttonLabel="預約一對一諮詢"
+    />
   </>;
 }

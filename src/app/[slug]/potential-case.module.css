@@ -1,0 +1,105 @@
+.page {
+  --ink: #102744;
+  --blue: #207ed1;
+  --heading-font: var(--font-noto-sans-tc), "Noto Sans TC", sans-serif;
+  color: var(--ink);
+  background: white;
+}
+
+.hero {
+  --hero-inset: clamp(24px, 6vw, 88px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #061834;
+  color: white;
+}
+.heroArt, .heroInner {
+  width: min(1160px, calc(100% - 2 * var(--hero-inset)));
+  margin-inline: auto;
+}
+.heroArt {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 97%, transparent);
+}
+.heroArt img {object-fit:contain; object-position:center bottom}
+.heroInner {display:flex; align-items:center; min-height:clamp(350px,30vw,420px); padding-block:32px}
+.heroCopy {width:min(40%,460px)}
+.caseNumber {display:inline-block; padding:5px 12px; border-radius:7px; background:#133c65; color:white; font-size:13px; font-weight:700; letter-spacing:.13em}
+.hero h1 {margin:17px 0 12px; color:white; font:800 var(--site-hero-title)/1.25 var(--heading-font); letter-spacing:-.045em}
+.heroCopy p {max-width:23em; margin:0; color:#f1f7ff; font-size:clamp(16px,1.45vw,21px); line-height:1.65}
+.heroCopy .award {margin-top:20px; color:#fff}
+
+.overview {display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); gap:clamp(30px,4vw,65px); align-items:center; padding-block:32px}
+.eyebrow {display:block; margin-bottom:8px; color:#294568; font-size:13px; font-weight:800; letter-spacing:.09em}
+.page h2 {margin:0; font:800 var(--site-section-title)/1.3 var(--heading-font); letter-spacing:-.035em}
+.headingRow {display:flex; flex-wrap:wrap; align-items:center; gap:18px}
+.headingRow::after,.insights h2::after,.workflow h2::after {content:""; display:block; width:44px; height:3px; border-radius:2px; background:#308bde}
+.headingRow {position:relative; padding-bottom:19px}
+.headingRow::after {position:absolute; bottom:0; left:0}
+.insights h2::after,.workflow h2::after {margin-top:18px}
+.category {display:inline-flex; gap:8px; align-items:center; padding:5px 12px; border-radius:8px; background:#d6edff; font-size:14px; font-weight:700}
+.category svg {color:#197dae}
+.bodyCopy,.cardCopy p {margin:16px 0 0; color:#29394a; font-size:16px; line-height:1.85}
+.overviewArt {position:relative; overflow:hidden; aspect-ratio:2.25; border-radius:22% 18px 18% 18px / 75% 18px 60% 18px}
+.overviewArt img {object-fit:cover}
+
+.insights {padding:34px 0; background:linear-gradient(150deg,#f8fbfe,#ebf4fc 65%,#f7fbff)}
+.insightsInner {display:grid; grid-template-columns:minmax(145px, .58fr) minmax(0,3fr); gap:24px; align-items:start}
+.cards {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding-inline:16px}
+.card {position:relative; isolation:isolate; display:flex; align-items:center; gap:12px; padding:24px 17px; min-height:146px}
+.card::before {position:absolute; z-index:-1; inset:0; content:""; transform:skewX(-10deg); border:2px solid white; border-radius:22px; background:linear-gradient(116deg,#fff 52%,#eaf4ff 76%,#d1e6fc); box-shadow:0 5px 18px #1b56840a}
+.cardCopy {flex:1; min-width:0}
+.cardCopy h3 {display:flex; align-items:baseline; gap:10px; margin:0; font-size:var(--site-card-title); line-height:1.35; letter-spacing:-.035em}
+.cardCopy h3 span {color:#277bd3; font-style:italic}
+.cardCopy p {margin-top:9px; font-size:15px; line-height:1.65}
+.cardIcon {flex:none; width:clamp(36px,4.6vw,68px); height:auto; color:#267eb9; filter:drop-shadow(2px 3px 0 #badff8)}
+
+.workflow {padding-block:36px 40px}
+.workflowIntro {display:flex; align-items:center; gap:clamp(30px,7vw,100px)}
+.workflowIntro .bodyCopy {max-width:38em; flex:1; margin:0}
+.flow {display:grid; grid-template-columns:minmax(0,1fr) minmax(130px,16%); align-items:center; gap:42px; margin:26px 8px 0}
+.steps,.branches {margin:0; padding:0; list-style:none}
+.steps {display:flex; align-items:center; justify-content:space-between; gap:24px}
+.steps li {position:relative; display:grid; justify-items:center; align-content:center; gap:10px; width:min(19%,170px); aspect-ratio:1; border-radius:50%; background:linear-gradient(125deg,#eff8ff,#c4e2fa)}
+.steps svg {width:clamp(30px,3.6vw,52px); height:auto; color:#237cad}
+.steps span {padding:5px 10px; border-radius:999px; background:linear-gradient(105deg,#2584af,#144a82); color:white; font-size:clamp(13px,1.25vw,18px); font-weight:700; white-space:nowrap}
+.steps li:not(:last-child)::after {position:absolute; left:100%; top:50%; transform:translateY(-50%); width:42%; content:"→"; color:#2777ac; font-size:26px; text-align:center}
+.branches {position:relative; display:grid; gap:10px}
+.branches::before {position:absolute; content:""; left:-29px; top:16%; bottom:16%; width:28px; border:1px solid #6fa9d4; border-right:0; border-radius:9px 0 0 9px}
+.branches li {position:relative; display:flex; justify-content:center; align-items:center; gap:12px; padding:9px; border-radius:999px; background:#daeaf7; font-weight:700}
+.branches li:nth-child(2)::before {position:absolute; right:100%; width:42px; height:1px; content:""; background:#6fa9d4}
+.branches svg {color:#206d9d}
+.page a:focus-visible {outline:3px solid #64bfff; outline-offset:4px}
+
+@media(max-width:960px) {
+  .insightsInner {grid-template-columns:1fr; gap:18px}
+  .flow {gap:26px}
+  .branches li:nth-child(2)::before {width:26px}
+  .branches::before {left:-16px; width:15px}
+}
+@media(max-width:740px) {
+  .hero {display:flex; flex-direction:column}
+  .heroInner {order:-1; min-height:0; padding-block:30px 16px}
+  .heroCopy {width:100%}
+  .heroArt {position:relative; inset:auto; aspect-ratio:2 / 1; overflow:hidden; z-index:0; margin-bottom:16px; border-radius:8px; mask-image:linear-gradient(to bottom,transparent,#000 12%)}
+  .heroArt img {object-fit:cover; object-position:right center}
+  .overview {grid-template-columns:1fr; gap:18px; padding-block:28px}
+  .insights {padding-block:26px}
+  .cards {grid-template-columns:1fr; padding-inline:8px}
+  .card {min-height:105px; padding:18px 20px}
+  .card::before {transform:skewX(-5deg)}
+  .cardIcon {width:45px}
+  .workflowIntro {flex-direction:column; align-items:flex-start; gap:18px}
+  .flow {grid-template-columns:1fr; justify-items:center; margin-inline:0; gap:0}
+  .steps {width:100%; justify-content:center; flex-direction:column; gap:24px}
+  .steps li {width:min(250px,90%); aspect-ratio:auto; min-height:60px; grid-template-columns:44px 1fr; align-items:center; padding:9px 15px; border-radius:16px}
+  .steps li:not(:last-child)::after {content:"↓"; width:auto; top:100%; left:50%; transform:translateX(-50%); font-size:19px; line-height:24px}
+  .branches {grid-template-columns:repeat(3,minmax(0,1fr)); width:min(460px,100%); gap:6px; padding-top:21px}
+  .branches::before {left:50%; top:0; bottom:auto; width:1px; height:21px; border:0; background:#6fa9d4}
+  .branches li {gap:5px; padding:8px 4px; font-size:14px}
+  .branches li:nth-child(2)::before {display:none}
+  .branches svg {width:17px}
+}

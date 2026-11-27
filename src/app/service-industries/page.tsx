@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
+import { Cta } from "@/components/Cta";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { ScrollUnderline } from "@/components/ScrollUnderline";
 import titles from "../service-titles.module.css";
 import styles from "./service-industries.module.css";
@@ -81,12 +80,10 @@ export default function ServiceIndustries() {
       </div>
     </section>
 
-    <section className={styles.cta} aria-labelledby="industry-cta-title">
-      <div className={`container ${styles.ctaInner}`}>
-        <h2 className={titles.ctaTitle} id="industry-cta-title">從產業挑戰出發，找到下一步</h2>
-        <p>與我們的顧問團隊對談，探索適合您產業與企業現況的解決方向。</p>
-        <Link href="/consultation-appointment/">預約諮詢 <ArrowRight size={19} aria-hidden="true" /></Link>
-      </div>
-    </section>
+    <Cta
+      headingId="industry-cta-title"
+      title="從產業挑戰出發，找到下一步"
+      description="與我們的顧問團隊對談，探索適合您產業與企業現況的解決方向。"
+    />
   </div>;
 }

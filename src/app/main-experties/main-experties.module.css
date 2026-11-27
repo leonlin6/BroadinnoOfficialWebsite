@@ -47,16 +47,7 @@
 .outcomeItem svg{flex:none;color:#159dab}
 .outcomeItem h3{margin:0 0 7px;color:#0b2948;font-size:16px;line-height:1.4}
 .outcomeItem p{margin:0;color:#52687b;font-size:14px;line-height:1.55}
-.cta{position:relative;overflow:hidden;background:linear-gradient(112deg,#092947 0%,#0a203c 57%,#0b2c4c 100%);color:#fff;text-align:center}
-.cta:before,.cta:after{content:"";position:absolute;inset:0;pointer-events:none}
-.cta:before{background:linear-gradient(120deg,rgba(31,132,184,.36),transparent 65%);clip-path:polygon(0 0,15% 0,4% 100%,0 100%)}
-.cta:after{background:linear-gradient(130deg,rgba(20,133,189,.48),rgba(27,101,148,.23));clip-path:polygon(93% 0,100% 0,100% 100%,83% 100%)}
-.ctaInner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:210px;padding-top:28px;padding-bottom:28px}
-.cta p{margin:0;color:#e3ebf2;font-size:16px;line-height:1.7}
-.cta a{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-width:166px;min-height:44px;margin-top:16px;padding:8px 18px;border-radius:7px;background:#fff;color:#0a2847;font-size:15px;font-weight:800;transition:transform .2s,box-shadow .2s}
-.cta a:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.17)}
-.cta a:focus-visible{outline:3px solid #55d5db;outline-offset:3px}
 @media(max-width:1100px){.domainRow{gap:27px}.domainFocus{font-size:16px}.domainDescription{font-size:15px}.focusGrid,.outcomeGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.hero,.heroInner{min-height:290px}.heroImage{object-position:64% center}.heroWash{background:linear-gradient(90deg,rgba(249,252,253,.98),rgba(245,250,252,.94));clip-path:polygon(0 0,82% 0,64% 100%,0 100%)}.heroFacet{clip-path:polygon(82% 0,91% 0,73% 100%,64% 100%)}.heroChart{display:none}.domains{padding:46px 0 30px}.sectionIntro{margin-bottom:25px}.desktopBreak{display:none}.domainRow{grid-template-columns:1fr;gap:17px;padding:28px 0}.domainRow:first-child{padding-top:0}.domainRow .domainImage{grid-row:1}.domainRow .domainCopy{grid-row:2;padding:0}.domainImage{aspect-ratio:1.8}.domainDescription{font-size:16px}.focusSection,.applications,.outcomes{padding:49px 0}.focusGrid,.outcomeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.applicationGrid{grid-template-columns:1fr}.applicationCard{display:grid;grid-template-columns:38% 1fr}.applicationImage{height:100%;min-height:260px;aspect-ratio:auto}.applicationBody{padding:22px}.applicationBody h3{font-size:23px}}
 @media(max-width:540px){.applicationCard{display:block}.applicationImage{height:auto;min-height:0;aspect-ratio:1.8}.focusGrid,.outcomeGrid{grid-template-columns:1fr}.focusItem,.outcomeItem{min-height:0}.focusItem{padding:17px}.outcomeItem{padding:17px}}
-@media(max-width:480px){.hero,.heroInner{min-height:270px}.heroWash{clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}.heroFacet{clip-path:polygon(100% 0,100% 22%,84% 100%,76% 100%)}.sectionIntro p{font-size:15px}.domainImage{aspect-ratio:1.55}.domainFocus{font-size:16px}.ctaInner{min-height:230px}.cta p{font-size:15px}}
+@media(max-width:480px){.hero,.heroInner{min-height:270px}.heroWash{clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}.heroFacet{clip-path:polygon(100% 0,100% 22%,84% 100%,76% 100%)}.sectionIntro p{font-size:15px}.domainImage{aspect-ratio:1.55}.domainFocus{font-size:16px}}

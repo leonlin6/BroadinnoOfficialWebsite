@@ -1,0 +1,372 @@
+.page {
+  color: #10233e;
+  background: #fff;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 245px;
+  color: #fff;
+  background: #0b2849 url("/images/company-hero-wave.jpg") center / cover no-repeat;
+}
+
+.heroInner {
+  padding-block: 42px;
+}
+
+.hero h1 {
+  position: relative;
+  width: fit-content;
+  margin: 0 0 8px 30px;
+  color: #fff;
+  font-size: var(--site-hero-title);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -.045em;
+}
+
+.hero h1::before {
+  content: "";
+  position: absolute;
+  top: 11%;
+  left: -28px;
+  width: 3px;
+  height: 70%;
+  background: #36cdf5;
+  transform: skew(-21deg);
+}
+
+.hero p {
+  margin: 0 0 0 32px;
+  color: #f4faff;
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: .02em;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: #506d91;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+.overview h2,
+.story h2,
+.services h2,
+.vision h2 {
+  margin: 0;
+  font-size: var(--site-section-title);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -.035em;
+}
+
+.overview {
+  padding: 42px 0 46px;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.overviewCopy {
+  padding-right: 12px;
+}
+
+.overviewCopy p {
+  max-width: 460px;
+  margin: 25px 0 0;
+  color: #263b52;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.nameValues {
+  display: grid;
+  gap: 28px;
+  padding-left: 43px;
+  border-left: 1px solid #d7e1ec;
+}
+
+.nameValue {
+  display: grid;
+  grid-template-columns: 102px 11px minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+
+.valueGlyph {
+  display: grid;
+  place-items: center;
+  height: 78px;
+  color: #0a447d;
+  background: linear-gradient(130deg, #e3f2fa, #f5faff);
+  clip-path: polygon(27% 0, 100% 0, 73% 100%, 0 100%);
+  font-family: "Songti TC", "Noto Serif TC", "PMingLiU", serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.valueSlash {
+  width: 2px;
+  height: 33px;
+  background: #35c9f4;
+  transform: skew(-22deg);
+}
+
+.nameValue h3 {
+  margin: 0 0 4px;
+  color: #0b2746;
+  font-size: var(--site-card-title);
+  line-height: 1.3;
+  letter-spacing: -.035em;
+}
+
+.nameValue p {
+  margin: 0;
+  color: #3f4854;
+  font-size: 14px;
+  line-height: 1.67;
+}
+
+.story {
+  min-height: 256px;
+  background-color: #f7fbff;
+  background-image: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 26%, rgba(255,255,255,.9) 49%, #fff 100%), url("/images/company-story-building.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .78fr) minmax(0, 1.8fr);
+  gap: 24px;
+  align-items: center;
+  min-height: 256px;
+  padding-block: 26px;
+}
+
+.storyFacts {
+  display: grid;
+}
+
+.storyFact {
+  display: grid;
+  grid-template-columns: 26px 82px minmax(0, 1fr);
+  gap: 15px;
+  align-items: center;
+  min-height: 56px;
+  padding: 7px 0;
+  border-bottom: 1px solid #dbe3ec;
+}
+
+.storyFact:last-child {
+  border-bottom: 0;
+}
+
+.storyFact svg {
+  color: #0b5a9e;
+}
+
+.storyFact h3 {
+  margin: 0;
+  color: #0b2544;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.storyFact p {
+  min-height: 22px;
+  margin: 0;
+  padding-left: 18px;
+  border-left: 1px solid #9aaabd;
+  color: #263143;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: .03em;
+}
+
+.services {
+  padding: 31px 0 36px;
+  background: #fff;
+}
+
+.servicesHeading {
+  margin-left: 18px;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 29px;
+}
+
+.serviceCard {
+  min-height: 151px;
+  padding: 24px 23px 20px;
+  border: 1px solid #e1e9f2;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #fff, #f4f7fb);
+  box-shadow: 0 6px 18px rgba(16, 59, 102, .04);
+}
+
+.serviceCardHeading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.serviceCardHeading svg {
+  flex: none;
+  color: #0b5797;
+}
+
+.serviceCard h3 {
+  margin: 0;
+  color: #102b4a;
+  font-size: var(--site-card-title);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.serviceCard p {
+  margin: 14px 0 0;
+  color: #3f4d5d;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.vision {
+  min-height: 333px;
+  color: #fff;
+  background-color: #0a2544;
+  background-image: linear-gradient(90deg, rgba(4,24,45,.12), rgba(4,24,45,.48) 45%, rgba(4,24,45,.82)), url("/images/company-vision-mountains.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.visionGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1.5fr);
+  gap: 76px;
+  align-items: center;
+  min-height: 333px;
+  padding-block: 37px;
+}
+
+.visionHeading {
+  align-self: stretch;
+  padding: 6px 35px 0 18px;
+  border-right: 1px solid rgba(216,236,255,.58);
+}
+
+.visionHeading .eyebrow {
+  color: #f4f8ff;
+}
+
+.visionHeading h2 {
+  color: #fff;
+}
+
+.visionList {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visionList li {
+  display: grid;
+  grid-template-columns: 51px minmax(0, 1fr);
+  gap: 21px;
+  align-items: center;
+  min-height: 55px;
+  border-bottom: 1px solid rgba(218,235,247,.42);
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: .055em;
+  line-height: 1.45;
+}
+
+.visionList li:last-child {
+  border-bottom: 0;
+}
+
+.visionIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  color: #a0edfa;
+  background: rgba(81,169,205,.2);
+  box-shadow: inset 0 0 18px rgba(113,213,246,.16);
+}
+
+@media (max-width: 1050px) {
+  .overviewGrid { gap: 30px; }
+  .nameValues { padding-left: 26px; }
+  .nameValue { grid-template-columns: 82px 8px minmax(0, 1fr); gap: 15px; }
+  .valueGlyph { height: 70px; font-size: 51px; }
+  .serviceCard { padding-inline: 17px; }
+  .serviceCardHeading { gap: 10px; }
+  .serviceCard h3 { font-size: 18px; }
+  .visionGrid { gap: 40px; }
+}
+
+@media (max-width: 800px) {
+  .overviewGrid { grid-template-columns: 1fr; gap: 30px; }
+  .overviewCopy p { max-width: 680px; }
+  .nameValues { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding: 25px 0 0; border-left: 0; border-top: 1px solid #d7e1ec; }
+  .nameValue { grid-template-columns: 70px 6px minmax(0, 1fr); gap: 12px; }
+  .valueGlyph { height: 65px; font-size: 43px; }
+  .nameValue h3 { font-size: 18px; }
+  .nameValue p { font-size: 14px; }
+  .story { background-image: linear-gradient(90deg, rgba(255,255,255,.65), rgba(255,255,255,.95) 36%, #fff), url("/images/company-story-building.jpg"); }
+  .storyGrid { grid-template-columns: minmax(0, .65fr) minmax(0, 1.4fr); }
+  .storyImageSpace { display: none; }
+  .serviceGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .visionGrid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 24px; }
+  .visionHeading { padding-right: 20px; }
+  .visionList li { font-size: 15px; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 210px; background-position: 58% center; }
+  .heroInner { padding-block: 39px; }
+  .hero h1 { margin-left: 22px; font-size: 40px; }
+  .hero h1::before { left: -21px; }
+  .hero p { max-width: 330px; margin-left: 23px; font-size: 14px; letter-spacing: .07em; }
+  .overview { padding: 42px 0; }
+  .overviewCopy p { font-size: 15px; }
+  .nameValues { grid-template-columns: 1fr; gap: 22px; }
+  .nameValue { grid-template-columns: 75px 7px minmax(0, 1fr); }
+  .nameValue p { font-size: 14px; }
+  .story { background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.95)), url("/images/company-story-building.jpg"); background-position: left center; }
+  .storyGrid { grid-template-columns: 1fr; gap: 18px; padding-block: 42px; }
+  .storyHeading { padding-bottom: 4px; }
+  .storyFact { grid-template-columns: 26px 75px minmax(0, 1fr); gap: 9px; }
+  .storyFact h3 { font-size: 15px; }
+  .storyFact p { padding-left: 10px; font-size: 14px; }
+  .services { padding-block: 43px; }
+  .servicesHeading { margin-left: 0; }
+  .serviceGrid { grid-template-columns: 1fr; gap: 12px; }
+  .serviceCard { min-height: 0; padding: 20px; }
+  .serviceCard p { margin-top: 10px; }
+  .vision { background-image: linear-gradient(rgba(4,24,45,.68), rgba(4,24,45,.88)), url("/images/company-vision-mountains.jpg"); background-position: 32% center; }
+  .visionGrid { grid-template-columns: 1fr; gap: 20px; padding-block: 46px; }
+  .visionHeading { padding: 0 0 19px; border-right: 0; border-bottom: 1px solid rgba(216,236,255,.58); }
+  .visionList li { grid-template-columns: 42px minmax(0, 1fr); gap: 12px; min-height: 59px; font-size: 14px; }
+  .visionIcon { width: 39px; height: 39px; border-radius: 9px; }
+  .visionIcon svg { width: 23px; height: 23px; }
+}

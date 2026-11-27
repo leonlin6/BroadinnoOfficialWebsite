@@ -9,11 +9,14 @@ import { cases } from "@/lib/content";
 import { WarehouseCasePage } from "./WarehouseCasePage";
 import { ApplianceCasePage } from "./ApplianceCasePage";
 import { LoanCreditCasePage } from "./LoanCreditCasePage";
+import { PublicFacilityContent } from "./PublicFacilityContent";
+import { MotorIndustryContent } from "./MotorIndustryContent";
+import { PotentialCasePage } from "./PotentialCasePage";
+import { CaseStudyLabel } from "./CaseStudyLabel";
 import styles from "./case-detail.module.css";
 
 const caseHeroClasses: Record<string, string> = {
   "customer-public-facility": styles.publicFacilityHero,
-  "customer-potential": styles.potentialHero,
   "customer-motor-industry": styles.motorIndustryHero,
 };
 
@@ -33,17 +36,35 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   if (slug === "customer-data-warehouse") return <WarehouseCasePage />;
   if (slug === "customer-appliance") return <ApplianceCasePage />;
   if (slug === "customer-loan-credit") return <LoanCreditCasePage />;
+  if (item.slug === "customer-potential") return <PotentialCasePage item={item} />;
+  const hero = (
+    <PageHero
+      className={caseHeroClasses[slug]}
+      eyebrow={<CaseStudyLabel />}
+      title={item.title}
+      description={item.summary}
+      parent={{ label: "客戶案例", href: "/case-studies/" }}
+      showBreadcrumbs={slug !== "customer-public-facility" && slug !== "customer-motor-industry"}
+    >
+      <ExperienceBadge {...item.experience} className={styles.experience} />
+    </PageHero>
+  );
+  if (item.slug === "customer-public-facility") {
+    return <>{hero}<PublicFacilityContent item={item} /></>;
+  }
+  const consultation = (
+    <Cta
+      headingId="case-cta-title"
+      title="從一個問題開始，一起找到下一步。"
+      description="讓我們了解您的需求，探索適合企業的解決方向。"
+    />
+  );
+  if (slug === "customer-motor-industry") {
+    return <>{hero}<MotorIndustryContent />{consultation}</>;
+  }
   return (
     <>
-      <PageHero
-        className={caseHeroClasses[slug]}
-        eyebrow={`CASE STUDY / ${item.number}`}
-        title={item.title}
-        description={item.summary}
-        parent={{ label: "客戶案例", href: "/case-studies/" }}
-      >
-        <ExperienceBadge {...item.experience} className={styles.experience} />
-      </PageHero>
+      {hero}
       <section className="section">
         <div className="container case-detail-grid">
           <aside className="case-detail-aside">
@@ -59,7 +80,6 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                 <div><span>0{index + 1}</span><h3>{section.label}</h3></div>
                 <div className={styles.sectionBody}>
                   <p>{section.text}</p>
-                  {"points" in section && <ol className={styles.points}>{section.points.map((point) => <li key={point}>{point}</li>)}</ol>}
                 </div>
               </article>
             ))}
@@ -67,7 +87,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </div>
         </div>
       </section>
-      <Cta />
+      {consultation}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { Cta } from "@/components/Cta";
+import { ArrowDown } from "lucide-react";
 import { CaseFilterGrid } from "./CaseFilterGrid";
 import styles from "./case-studies.module.css";
 
@@ -34,12 +34,7 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="case-cta-title">
-        <div className={"container " + styles.ctaInner}>
-          <div><span className={styles.accentLine} aria-hidden="true" /><h2 id="case-cta-title" data-scroll-title>讓下一個成功案例，<br className={styles.mobileBreak} />從您的企業開始。</h2></div>
-          <Link href="/consultation-appointment/">聯絡顧問 <ArrowRight size={20} strokeWidth={1.7} /></Link>
-        </div>
-      </section>
+      <Cta headingId="case-cta-title" title={<>讓下一個成功案例，<br className={styles.mobileBreak} />從您的企業開始。</>} />
     </div>
   );
 }

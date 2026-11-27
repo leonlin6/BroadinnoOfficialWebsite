@@ -2,7 +2,6 @@
 .page h1,.page h2{letter-spacing:.01em}
 .page p{color:#26384c}
 .accent{display:block;width:40px;height:3px;background:#08c9b9}
-.eyebrow{display:block;color:#b6eaf8;font-size:13px;font-weight:800;letter-spacing:.25em}
 .hero{
   color:#fff;
   background:#04345a url("/images/warehouse-case-banner.webp") center right / 100% auto no-repeat;
@@ -87,15 +86,6 @@
 .valueItems svg{color:#03a9a4}
 .valueItems h3{margin:0 0 3px;font-size:18px}
 .valueItems p{margin:0;font-size:14px;line-height:1.42}
-.cta{position:relative;overflow:hidden;background:linear-gradient(100deg,#071d37,#092e51 80%,#043c5e);color:#fff}
-.cta:before,.cta:after{content:"";position:absolute;width:350px;height:170px;border:1px solid rgba(22,202,211,.3);border-radius:50%;transform:rotate(-18deg)}
-.cta:before{left:-170px;bottom:-110px;box-shadow:0 0 0 24px rgba(22,202,211,.03),0 0 0 48px rgba(22,202,211,.03)}
-.cta:after{right:-170px;top:-100px}
-.ctaInner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:26px;min-height:104px}
-.cta h2{margin:0;color:#fff;font-size:clamp(28px,3vw,41px);line-height:1.25}
-.cta a{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-width:155px;padding:11px 18px;border:1px solid #fff;border-radius:5px;color:#fff;font-size:15px;font-weight:700;white-space:nowrap;transition:background .2s,color .2s}
-.cta a:hover{background:#fff;color:#092e51}
-.cta a:focus-visible{outline:3px solid #0de5d2;outline-offset:3px}
 @media(max-width:1050px){.pipelineCard{height:168px;gap:5px}.pipelineCard>strong{font-size:13px}.pipelineCard>div{font-size:11px}.pipelineCard>div svg{width:17px;height:17px}.pipeline{grid-template-columns:minmax(0,1fr) 13px minmax(0,1fr) 13px minmax(0,1.05fr) 13px minmax(0,1fr);gap:2px}.healthFlow{gap:17px}.flowArrow{right:-20px}.healthStage{padding-inline:8px}.healthStage>strong{margin-inline:-7px;font-size:14px}.healthStage li{font-size:14px}.methodList li{grid-template-columns:43px 155px 1fr}.methodList h3{font-size:14px}.methodList p{font-size:14px}}
 @media(max-width:800px){
   .hero{
@@ -108,12 +98,11 @@
   .heroCopy{width:100%}
   .heroCopy p{max-width:550px}
   .pipelineCard{height:190px}.pipelineCard>strong{font-size:14px}.pipelineCard>div{font-size:12px}.contextGrid{grid-template-columns:1fr}.contextLeft{grid-template-columns:230px 1fr}.challengeList{border-left:0;border-top:1px solid #b6c8d8;padding:20px 0 0}.challengeList{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}.challengeList h3{grid-column:1/-1}.healthFlow{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.flowArrow{display:none}.healthStage{height:183px}.healthStage>strong{font-size:14px}.healthStage li{font-size:14px}.methodGrid,.valueGrid{grid-template-columns:1fr;gap:24px}.sectionIntro p{max-width:650px}.methodList li{grid-template-columns:45px 170px 1fr}.valueItems article{min-height:105px}}
-@media(max-width:550px){.hero h1{font-size:38px}.heroCopy p{font-size:14px}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pipelineArrow{display:none}.pipelineCard{height:164px;padding:7px 9px}.pipelineCard>div{font-size:13px}.pipelineCard>strong{font-size:14px}.warehouseIcon{width:64px;height:64px}.context{padding-top:8px}.contextLeft{grid-template-columns:1fr}.serverArt{height:160px}.contextCopy h3{font-size:20px}.challengeList{grid-template-columns:1fr}.healthPanel{padding:21px 17px}.health h2{font-size:27px}.healthFlow{grid-template-columns:1fr}.healthStage{height:auto;min-height:142px;display:grid;grid-template-columns:60px 1fr;align-items:start;column-gap:12px;text-align:left;padding-bottom:15px}.healthStage>strong{grid-column:1/-1;text-align:center;font-size:14px}.healthStage .stageIcon{margin:12px auto}.healthStage ul{padding-top:3px}.healthStage li{font-size:14px}.methodList{padding-left:18px}.methodList:before{left:4px}.methodList li{grid-template-columns:40px 1fr;gap:7px;padding:8px 0}.methodList li:before{left:-18px}.methodList h3{font-size:15px}.methodList p{grid-column:2;font-size:14px;padding-bottom:4px}.valueItems{grid-template-columns:1fr}.valueItems article,.valueItems article:nth-child(even){border-left:0;border-bottom:1px solid #d8e3e9;padding-inline:0}.valueItems article:last-child{border-bottom:0}.ctaInner{align-items:flex-start;flex-direction:column;padding-top:31px;padding-bottom:34px}.cta h2{font-size:29px}}
+@media(max-width:550px){.hero h1{font-size:38px}.heroCopy p{font-size:14px}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pipelineArrow{display:none}.pipelineCard{height:164px;padding:7px 9px}.pipelineCard>div{font-size:13px}.pipelineCard>strong{font-size:14px}.warehouseIcon{width:64px;height:64px}.context{padding-top:8px}.contextLeft{grid-template-columns:1fr}.serverArt{height:160px}.contextCopy h3{font-size:20px}.challengeList{grid-template-columns:1fr}.healthPanel{padding:21px 17px}.health h2{font-size:27px}.healthFlow{grid-template-columns:1fr}.healthStage{height:auto;min-height:142px;display:grid;grid-template-columns:60px 1fr;align-items:start;column-gap:12px;text-align:left;padding-bottom:15px}.healthStage>strong{grid-column:1/-1;text-align:center;font-size:14px}.healthStage .stageIcon{margin:12px auto}.healthStage ul{padding-top:3px}.healthStage li{font-size:14px}.methodList{padding-left:18px}.methodList:before{left:4px}.methodList li{grid-template-columns:40px 1fr;gap:7px;padding:8px 0}.methodList li:before{left:-18px}.methodList h3{font-size:15px}.methodList p{grid-column:2;font-size:14px;padding-bottom:4px}.valueItems{grid-template-columns:1fr}.valueItems article,.valueItems article:nth-child(even){border-left:0;border-bottom:1px solid #d8e3e9;padding-inline:0}.valueItems article:last-child{border-bottom:0}}
 
 @media(max-width:380px){
   .hero h1{font-size:clamp(31px,9vw,38px)}
   .pipelineCard{height:auto;min-height:164px}
   .pipelineCard>strong{white-space:normal}
   .healthStage>strong,.methodList h3{white-space:normal}
-  .cta h2{font-size:26px}
 }

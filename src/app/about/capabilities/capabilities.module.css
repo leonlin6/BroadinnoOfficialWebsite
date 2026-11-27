@@ -6,8 +6,8 @@
 .heroFacet{background:linear-gradient(120deg,rgba(21,148,192,.76),rgba(146,224,244,.64));clip-path:polygon(39% 0,46% 0,33% 100%,29% 100%)}
 .heroInner{position:relative;z-index:1;display:flex;align-items:center;min-height:350px;padding-top:30px;padding-bottom:30px}
 .heroCopy{max-width:500px;padding-left:24px;border-left:6px solid #1399c4}
-.hero h1,.sectionIntro h2,.servicesIntro h2,.strength h3,.cta h2{font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;font-weight:700}
-.hero h1{margin:0 0 16px;color:#092441;font-size:clamp(42px,5.2vw,67px);line-height:1.24;letter-spacing:.03em}
+.hero h1,.sectionIntro h2,.servicesIntro h2,.strength h3{font-family:var(--font-noto-sans-tc),"Noto Sans TC",sans-serif;font-weight:800}
+.hero h1{margin:0 0 16px;color:#092441;font-size:var(--site-hero-title);line-height:1.25;letter-spacing:-.045em}
 .hero p{margin:0;color:#36495d;font-size:clamp(16px,1.6vw,20px);font-weight:500;line-height:1.85;letter-spacing:.035em}
 .experience{position:relative;overflow:hidden;color:#fff;background:linear-gradient(110deg,#062948,#0b3b5d 52%,#062a4a)}
 .experience:before,.experience:after{content:"";position:absolute;inset:0;pointer-events:none}
@@ -23,8 +23,7 @@
 .experienceDivider{height:75px;background:#6ac9de}
 .coreSection{padding:54px 0 65px;background:radial-gradient(circle at 50% 55%,#fff 49%,#f7fafc 100%)}
 .sectionIntro,.servicesIntro{max-width:850px;margin:0 auto 34px;text-align:center}
-.introRule{display:block;width:35px;height:2px;margin:0 auto 17px;background:#11b1c4}
-.sectionIntro h2,.servicesIntro h2{margin:0 0 8px;color:#0b2442;font-size:clamp(31px,3.3vw,43px);line-height:1.3;letter-spacing:.025em}
+.sectionIntro h2,.servicesIntro h2{margin:0 0 18px;color:#0b2442;font-size:var(--site-section-title);line-height:1.3;letter-spacing:-.035em}
 .sectionIntro p,.servicesIntro p{margin:0;color:#3f5062;font-size:16px;line-height:1.7;letter-spacing:.02em}
 .coreGrid{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);align-items:center;gap:46px}
 .mixFigure{min-width:0;margin:0;display:flex;flex-direction:column;align-items:center}
@@ -33,7 +32,7 @@
 .strengths{display:grid;gap:27px;padding:4px 0 4px 43px;border-left:1px solid #6ac4d9}
 .strengthHeading{display:flex;align-items:center;min-height:44px;background:linear-gradient(105deg,#f0f8fb 0%,#e1f1f7 92%,transparent 92%);clip-path:polygon(4% 0,100% 0,96% 100%,0 100%)}
 .strengthHeading>span{display:grid;place-items:center;align-self:stretch;width:75px;flex:none;color:#fff;background:linear-gradient(135deg,#179cac,#006783);clip-path:polygon(24% 0,100% 0,76% 100%,0 100%)}
-.strength h3{margin:0 18px 0 9px;color:#0b2949;font-size:clamp(19px,2vw,26px);line-height:1.3;letter-spacing:.02em}
+.strength h3{margin:0 18px 0 9px;color:#0b2949;font-size:var(--site-card-title);line-height:1.3;letter-spacing:-.035em}
 .strength ul{display:grid;gap:7px;margin:11px 0 0 31px;padding:0;list-style:none}
 .strength li{display:flex;align-items:flex-start;gap:11px;color:#1d334b;font-size:15px;line-height:1.5;letter-spacing:.01em}
 .strength li svg{flex:none;width:19px;height:19px;margin-top:2px;padding:3px;border-radius:50%;color:#fff;background:#0d8297}
@@ -47,17 +46,9 @@
 .serviceCard p{margin:0 0 19px;color:#485e71;font-size:14px;line-height:1.7}
 .serviceCard a{display:inline-flex;align-items:center;gap:7px;margin-top:auto;color:#0c6496;font-size:13px;font-weight:800}
 .serviceCard a:hover{color:#0a98a7}
-.cta{position:relative;overflow:hidden;color:#fff;background:linear-gradient(100deg,#073152,#092442 50%,#0a3557);text-align:center}
-.cta:before,.cta:after{content:"";position:absolute;inset:0;pointer-events:none}
-.cta:before{background:linear-gradient(120deg,rgba(27,124,178,.45),transparent);clip-path:polygon(0 0,14% 0,5% 100%,0 100%)}
-.cta:after{background:linear-gradient(120deg,#0a94bb,rgba(25,112,165,.65));clip-path:polygon(94% 0,100% 0,100% 100%,83% 100%)}
-.ctaInner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:160px;padding-top:20px;padding-bottom:20px}
-.cta h2{margin:0 0 13px;color:#fff;font-size:clamp(24px,2.6vw,34px);line-height:1.35;letter-spacing:.03em}
-.cta a{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-width:195px;min-height:43px;padding:8px 22px;border-radius:7px;background:#fff;color:#0b2c4a;font-size:16px;font-weight:800;transition:transform .2s,box-shadow .2s}
-.cta a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.16)}
-.cta a:focus-visible,.serviceCard a:focus-visible{outline:3px solid #4cd4df;outline-offset:3px}
+.serviceCard a:focus-visible{outline:3px solid #4cd4df;outline-offset:3px}
 @media(max-width:1050px){.coreGrid{gap:25px}.strengths{padding-left:25px}.strength h3{font-size:21px}.strength li{font-size:14px}.servicesGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.serviceCard{min-height:195px}}
 @media(max-width:840px){.heroImage{object-position:center top}}
 @media(max-width:800px){.heroWash{clip-path:polygon(0 0,59% 0,44% 100%,0 100%)}.heroFacet{clip-path:polygon(55% 0,64% 0,47% 100%,42% 100%)}.hero p{font-size:16px}.experienceInner{gap:25px}.experienceItem{gap:14px}.experienceItem p{font-size:14px}.coreGrid{grid-template-columns:1fr;gap:37px}.strengths{border-left:0;border-top:1px solid #6ac4d9;padding:30px 0 0}.strength{max-width:680px;width:100%;margin-inline:auto}}
-@media(max-width:600px){.hero,.heroInner{min-height:530px}.heroImage{object-position:67% bottom}.heroWash{background:linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(248,252,253,.94) 38%,rgba(248,252,253,.12) 74%,transparent 100%);clip-path:none}.heroFacet{display:none}.heroInner{align-items:flex-start;padding-top:38px}.heroCopy{padding-left:17px;border-left-width:4px}.hero h1{font-size:43px;margin-bottom:10px}.hero p{font-size:15px;line-height:1.7}.hero p br{display:none}.experienceInner{grid-template-columns:1fr 1fr;gap:12px;min-height:105px}.experienceDivider{display:none}.experienceItem{gap:9px}.experienceItem>svg{width:28px}.experienceItem strong{font-size:34px}.experienceItem strong small{margin-left:4px;font-size:.4em}.experienceItem p{font-size:11px;line-height:1.3;white-space:normal}.coreSection,.servicesSection{padding:46px 0 52px}.sectionIntro,.servicesIntro{margin-bottom:28px}.sectionIntro h2,.servicesIntro h2{font-size:31px}.sectionIntro p,.servicesIntro p{font-size:14px}.desktopBreak{display:none}.strengths{gap:24px}.strengthHeading{min-height:41px}.strengthHeading>span{width:63px}.strengthHeading svg{width:24px}.strength h3{font-size:19px}.strength ul{margin-left:10px}.strength li{font-size:14px}.servicesGrid{grid-template-columns:1fr;gap:12px}.serviceCard{min-height:0;padding:20px}.serviceCard h3{margin-top:11px}.ctaInner{min-height:190px}.cta h2{font-size:24px}}
+@media(max-width:600px){.hero,.heroInner{min-height:530px}.heroImage{object-position:67% bottom}.heroWash{background:linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(248,252,253,.94) 38%,rgba(248,252,253,.12) 74%,transparent 100%);clip-path:none}.heroFacet{display:none}.heroInner{align-items:flex-start;padding-top:38px}.heroCopy{padding-left:17px;border-left-width:4px}.hero h1{font-size:43px;margin-bottom:10px}.hero p{font-size:15px;line-height:1.7}.hero p br{display:none}.experienceInner{grid-template-columns:1fr 1fr;gap:12px;min-height:105px}.experienceDivider{display:none}.experienceItem{gap:9px}.experienceItem>svg{width:28px}.experienceItem strong{font-size:34px}.experienceItem strong small{margin-left:4px;font-size:.4em}.experienceItem p{font-size:13px;line-height:1.4;white-space:normal}.coreSection,.servicesSection{padding:46px 0 52px}.sectionIntro,.servicesIntro{margin-bottom:28px}.sectionIntro h2,.servicesIntro h2{font-size:31px}.sectionIntro p,.servicesIntro p{font-size:14px}.desktopBreak{display:none}.strengths{gap:24px}.strengthHeading{min-height:41px}.strengthHeading>span{width:63px}.strengthHeading svg{width:24px}.strength h3{font-size:19px}.strength ul{margin-left:10px}.strength li{font-size:14px}.servicesGrid{grid-template-columns:1fr;gap:12px}.serviceCard{min-height:0;padding:20px}.serviceCard h3{margin-top:11px}}
 @media(max-width:380px){.hero,.heroInner{min-height:500px}.hero h1{font-size:38px}.experienceItem>svg{display:none}.experienceItem strong{font-size:32px}}

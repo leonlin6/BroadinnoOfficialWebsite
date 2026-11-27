@@ -63,17 +63,25 @@
   --hero-color: #094957;
   --hero-art: url("/images/public-facility-banner.webp");
 }
-.potentialHero {
-  composes: illustratedHero;
-  --hero-color: #10365c;
-  --hero-art: url("/images/customer-potential-banner.webp");
-  --art-ratio: 1.875;
-  --art-width: 57%;
-  --art-size: 160% auto;
+@media (min-width: 801px) {
+  .publicFacilityHero::before {
+    width: 50%;
+    max-width: none;
+    aspect-ratio: auto;
+  }
 }
 .motorIndustryHero {
   composes: illustratedHero;
   --hero-color: #15344c;
   --hero-art: url("/images/customer-motor-industry-banner.webp");
   --art-width: 57%;
+}
+.caseStudyLabel {
+  display: block;
+  color: var(--case-study-label-color, #b6eaf8);
+  font-family: var(--font-noto-sans-tc), "Noto Sans TC", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.17em;
 }
